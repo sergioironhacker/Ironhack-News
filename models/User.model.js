@@ -20,6 +20,13 @@ const UserSchema = mongoose.Schema({
       required: [true, "Password is required"],
       minLength: [5, "Password must be 5 characters or longer"],
     },
+    picture: {
+      type: String,
+      default: "https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg",
+    },
+    googleID: {
+      type: String,
+    },
     activationToken: {
       type: String,
       default: () => {
