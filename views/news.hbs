@@ -1,0 +1,17 @@
+<h1>Noticias</h1>
+
+<div class="news-section">
+  <h2>Últimas noticias</h2>
+  <ul>
+    {{#each articles}}
+      <li>
+        <h3>{{this.title}}</h3>
+        {{#if this.urlToImage}}
+          <img src="{{this.urlToImage}}" alt="{{this.title}}" />
+        {{/if}}
+        <p>{{this.description}}</p>
+        <p><a href="{{this.url}}" target="_blank">Leer más</a></p>
+      </li>
+    {{/each}}
+  </ul>
+</div>
