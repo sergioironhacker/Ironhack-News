@@ -2,7 +2,8 @@ const router = require("express").Router();
 const authController = require("../controllers/auth.controller");
 const usersController = require("../controllers/users.controller");
 const authMiddleware = require("../middlewares/auth.middlewares");
-
+const upload = require("../config/storage.config");
+const passport = require('passport');
 
 const GOOGLE_SCOPES = [
   'https://www.googleapis.com/auth/userinfo.email',
@@ -28,7 +29,7 @@ router.get("/activate/:token", authController.activate);
 router.get('/auth/google', authMiddleware.isNotAuthenticated, passport.authenticate('google-auth', { scope: GOOGLE_SCOPES }));
 router.get('/auth/google/callback', authMiddleware.isNotAuthenticated, authController.doLoginGoogle)
 
-// user
+// users
 
 router.get("/profile", authMiddleware.isAuthenticated, usersController.profile);
 
