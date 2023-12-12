@@ -11,10 +11,7 @@ const GOOGLE_SCOPES = [
 ]
 
 
-const GOOGLE_SCOPES = [
-  'https://www.googleapis.com/auth/userinfo.email',
-  'https://www.googleapis.com/auth/userinfo.profile'
-]
+
 
 router.get("/", authMiddleware.isAuthenticated, (req, res, next) => {
   res.render("home");
@@ -35,11 +32,11 @@ router.get("/activate/:token", authController.activate);
 router.get('/auth/google', authMiddleware.isNotAuthenticated, passport.authenticate('google-auth', { scope: GOOGLE_SCOPES }));
 router.get('/auth/google/callback', authMiddleware.isNotAuthenticated, authController.doLoginGoogle)
 
- branch-sergio
-// users
 
-// users
- main
+
+
+
+
 
 router.get("/profile", authMiddleware.isAuthenticated, usersController.profile);
 
