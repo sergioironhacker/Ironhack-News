@@ -1,3 +1,5 @@
+
+
 module.exports.profile = (req, res, next) => {
     const currentUser = req.session.currentUser; 
    

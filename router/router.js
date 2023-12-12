@@ -32,6 +32,7 @@ router.get("/activate/:token", authController.activate);
 router.get('/auth/google', authMiddleware.isNotAuthenticated, passport.authenticate('google-auth', { scope: GOOGLE_SCOPES }));
 router.get('/auth/google/callback', authMiddleware.isNotAuthenticated, authController.doLoginGoogle)
 
+// imagen 
 
 
 
