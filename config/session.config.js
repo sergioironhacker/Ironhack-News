@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 
 const MAX_AGE = 7;
 
-module.exports.sessionConfig = expressSession({
+module.exports = expressSession({
     secret: process.env.COOKIE_SECRET || 'super-secret',
     resave: false,
     saveUninitialized: false,
