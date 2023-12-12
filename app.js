@@ -3,8 +3,10 @@ require('dotenv').config();
 const express = require('express');
 const hbs = require('hbs');
 const logger = require('morgan');
+const passport = require("passport");
 
 require('./config/db.config');
+require("./config/passport.config");
 
 const app = express();
 
@@ -17,8 +19,11 @@ app.set('view engine', 'hbs');
 
 hbs.registerPartials(__dirname + '/views/partials');
 
-const { sessionConfig } = require('./config/session.config');
+const  sessionConfig  = require('./config/session.config');
 app.use(sessionConfig);
+
+app.use(passport.initialize());
+
 app.use((req, res, next) => {
     res.locals.currentUser = req.session.currentUser
     next();
