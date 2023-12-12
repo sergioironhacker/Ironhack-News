@@ -2,10 +2,14 @@
   <div class="container profile-container text-center">
     <h1>{{currentUser.username}}</h1>
 
-    <img class="profile-image" src="https://picsum.photos/150" alt="Profile Image">
-
-    <i class="fas fa-user-circle"></i>
-
-    <h2>Email: {{currentUser.email}}</h2>
+    <form action="/profile/upload" method="POST" enctype="multipart/form-data">
+      <label for="profile-image-input">
+        <img class="profile-image" id="profile-img" src="{{currentUser.picture}}" alt="Profile Image">
+        <i class="fas fa-user-circle"></i>
+        <input type="file" id="profile-image-input" name="image" style="display: none;">
+      </label>
+      <br>
+      <button type="submit" id="change-image-btn">Cambiar imagen de perfil</button>
+    </form>
   </div>
 </div>
