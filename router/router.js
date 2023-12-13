@@ -14,13 +14,18 @@ const GOOGLE_SCOPES = [
 
 
 
-
+// home 
 router.get("/",  (req, res, next) => {
   res.render("home");
 });
 
 
+
+
+// news
+
 router.get('/news', newsController.getNews);
+
 
 // auth
 
@@ -37,10 +42,19 @@ router.get('/auth/google/callback', authMiddleware.isNotAuthenticated, authContr
 
 // imagen
 
+
 // users
+
 router.get("/profile", authMiddleware.isAuthenticated, usersController.profile);
 
 // admin
+
+
+
+
+
+
+
 
 
 module.exports = router; 
