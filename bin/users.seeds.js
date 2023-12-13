@@ -1,7 +1,7 @@
 
 const mongoose = require('mongoose');
 const User = require('../models/User.model');
-const { users } = require('../public/js/users.json');
+const { users } = require('../data/users.json');
 require('../config/db.config');
 
 mongoose.connection.once('open', () => {

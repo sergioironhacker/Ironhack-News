@@ -1,0 +1,14 @@
+<h1>Users</h1>
+
+<div class="users-section">
+  <h2>Users list</h2>
+  <ul>
+    {{#each users}}
+      <li>
+        <h3>{{this.username}}</h3>
+        <h3>{{this.email}}</h3>
+        <img src="{{this.picture}}">
+      </li>
+    {{/each}}
+  </ul>
+</div>

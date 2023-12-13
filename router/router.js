@@ -5,7 +5,7 @@ const authMiddleware = require("../middlewares/auth.middlewares");
 const upload = require("../config/storage.config");
 const passport = require('passport');
 const newsController = require('../controllers/news.controller');
-
+const adminController = require("../controllers/admin.controller")
 
 const GOOGLE_SCOPES = [
   'https://www.googleapis.com/auth/userinfo.email',
@@ -15,7 +15,7 @@ const GOOGLE_SCOPES = [
 
 
 // home 
-router.get("/",  (req, res, next) => {
+router.get("/", (req, res, next) => {
   res.render("home");
 });
 
@@ -49,6 +49,7 @@ router.get("/profile", authMiddleware.isAuthenticated, usersController.profile);
 
 // admin
 
+router.get("/admin/userlist", adminController.userlist);
 
 
 
