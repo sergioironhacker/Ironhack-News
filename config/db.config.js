@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const DB_NAME = process.env.DB_NAME || 'Proyecto';
+const DB_NAME = process.env.DB_NAME || 'Ironhack-news';
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017';
 
 mongoose
