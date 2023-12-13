@@ -25,6 +25,8 @@ module.exports.isAuthenticated = (req, res, next) => {
   };
   
 
-  // isnotAdmin 
 
   
+
+  // is not admin
+

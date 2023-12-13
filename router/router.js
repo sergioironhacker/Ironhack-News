@@ -21,10 +21,10 @@ router.get("/",  (req, res, next) => {
 
 
 
+
 // news
+
 router.get('/news', newsController.getNews);
-
-
 
 
 // auth
@@ -43,17 +43,17 @@ router.get('/auth/google/callback', authMiddleware.isNotAuthenticated, authContr
 // imagen
 
 
-
-
-// user 
+// users
 
 router.get("/profile", authMiddleware.isAuthenticated, usersController.profile);
 
+// admin
 
 
 
 
-// admin 
+
+
 
 
 
