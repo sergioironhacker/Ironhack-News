@@ -32,3 +32,10 @@ Controladores
 Middlewares
     Vistas restringidas a isAuthenticated/isNotAuthenticated
     Vistas restringidas a isAdmin/isNotAdmin
+
+
+
+Modelo de noticias
+Seeds de noticias
+Modelo de comentarios
+Seeds de Usuarios
