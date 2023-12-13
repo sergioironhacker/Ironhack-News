@@ -1,19 +1,20 @@
 Modelos
-    Usuarios
-        Username
-        Email
-        Imagen
+    Usuarios✅
+        Username✅
+        Email✅
+        Imagen✅
         Virtuals
             Comentarios
             Likes
-    Noticias
-        Titular
-        Subtítulo
-        Imagen
-        Texto de la Noticia
+    Noticias✅
+        Titular✅
+        Subtítulo✅
+        Imagen✅
+        Texto de la Noticia✅
 
 Vistas
     /home
+    /news (API) ✅
     /register
     /login
     /user
@@ -30,12 +31,5 @@ Controladores
     get y post a las diferentes Vistas
 
 Middlewares
-    Vistas restringidas a isAuthenticated/isNotAuthenticated
-    Vistas restringidas a isAdmin/isNotAdmin
-
-
-
-Modelo de noticias
-Seeds de noticias
-Modelo de comentarios
-Seeds de Usuarios
+    Vistas restringidas a isAuthenticated✅/isNotAuthenticated✅
+    Vistas restringidas a isAdmin✅/isNotAdmin

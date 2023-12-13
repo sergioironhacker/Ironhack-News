@@ -23,7 +23,7 @@ router.get("/", (req, res, next) => {
 
 
 // news
-
+router.get('/newsindex', newsController.listNews)
 router.get('/news', newsController.getNews);
 
 

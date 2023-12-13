@@ -3,7 +3,7 @@ proyecto modulo 2
 
 Contenido sin registro
     Home
-        Login/registro
+        Login/registro✅
         Cards con noticias
             Click y lleva a vista parcial o vista de registro
 
