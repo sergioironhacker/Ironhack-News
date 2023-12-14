@@ -6,6 +6,7 @@ const upload = require("../config/storage.config");
 const passport = require('passport');
 const newsController = require('../controllers/news.controller');
 const adminController = require("../controllers/admin.controller")
+const News = require('../models/News.model')
 
 const GOOGLE_SCOPES = [
   'https://www.googleapis.com/auth/userinfo.email',
@@ -15,11 +16,14 @@ const GOOGLE_SCOPES = [
 
 
 // home 
-router.get("/", (req, res, next) => {
-  res.render("home");
+router.get("/", async (req, res, next) => {
+  try {
+    const news = await News.find(); // Obtiene todas las noticias creadas por nosotros a modo gracioso
+    res.render("home", { news });
+  } catch (error) {
+    next(error);
+  }
 });
-
-
 
 
 // news

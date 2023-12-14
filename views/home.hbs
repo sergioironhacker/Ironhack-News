@@ -6,14 +6,38 @@
     <p class="lead">Welcome to Ironhack-news 🌎</p>
   </div>
 </section>
+<br>
+
+{{!-- nuestras noticias propias 
+ --}}
 
 
-
-
-
-<section class="btn-section">
-  <div class="container-sm mx-auto text-center">
-    <a href="/news" class="btn btn-dark">Go to news</a>
-  </div>
-</section>
+<div class="container text-center mt-4">
+  <h1 class="display-4">Our News</h1>
 </div>
+<br>
+
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+  {{#each news as |singleNews|}}
+    <div class="col">
+      <div class="card" style="max-width: 300px;">
+        <img src="{{singleNews.image}}" class="card-img-top" style="max-height: 200px; object-fit: cover;" alt="{{singleNews.title}}">
+        <div class="card-body">
+          <h5 class="card-title">{{singleNews.title}}</h5>
+          <p class="card-text">{{singleNews.subtitle}}</p>
+          <a class="btn btn-primary" href="/news/{{singleNews._id}}">Leer más</a>
+          <a class="btn btn-success" href="/news/{{singleNews._id}}">Coment</a>
+          <a class="btn btn-dark" href="/news/{{singleNews._id}}">Like</a>
+        </div>
+      </div>
+    </div>
+  {{/each}}
+</div>
+
+
+
+
+
+
+
+
