@@ -1,17 +1,29 @@
 <h1>Noticias</h1>
 
-<div class="news-section">
-  <h2>Últimas noticias</h2>
-  <ul>
-    {{#each articles}}
-      <li>
-        <h3>{{this.title}}</h3>
-        {{#if this.urlToImage}}
-          <img src="{{this.urlToImage}}" style="width: 400px" alt="{{this.title}}" />
-        {{/if}}
-        <p>{{this.description}}</p>
-        <p><a href="{{this.url}}" target="_blank">Leer más</a></p>
-      </li>
-    {{/each}}
-  </ul>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="news-section row">
+        <h2 class="col-12">Últimas noticias</h2>
+        {{#each articles}}
+          <div class="col-md-4">
+            <div class="card mb-4">
+              {{#if this.urlToImage}} 
+                <img src="{{this.urlToImage}}" style="width: 400px" class="card-img-top" alt="{{this.title}}">
+              {{else}}
+                <div class="no-image-placeholder">
+                  <img src="https://static6.depositphotos.com/1002881/580/i/450/depositphotos_5804811-stock-photo-error-404.jpg" style="width: 400px">
+                </div>
+              {{/if}}
+              <div class="card-body">
+                <h3 class="card-title">{{this.title}}</h3>
+                <p class="card-text">{{this.description}}</p>
+                <a href="{{this.url}}" class="btn btn-primary btn-primary2" target="_blank">Leer más</a>
+              </div>
+            </div>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
 </div>

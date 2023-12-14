@@ -42,6 +42,9 @@ router.get('/auth/google/callback', authMiddleware.isNotAuthenticated, authContr
 
 // imagen
 
+router.post("/profile/upload", authMiddleware.isAuthenticated, upload.single('image'), usersController.profileUpload); 
+
+
 
 // users
 
@@ -53,6 +56,11 @@ router.get("/admin/userlist", adminController.userlist);
 
 
 
+// QR
+
+router.get('/generar-codigo-qr', usersController.qr);
+   
+  
 
 
 

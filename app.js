@@ -5,6 +5,8 @@ const hbs = require('hbs');
 const logger = require('morgan');
 const passport = require("passport");
 
+
+
 require('./config/db.config');
 require("./config/passport.config");
 
@@ -41,6 +43,10 @@ app.use((err, req, res, next) => {
         res.render('error')
     }
 });
+
+
+
+
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => console.log(`App running on port ${port}🏃‍♀️`))
