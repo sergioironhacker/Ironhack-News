@@ -9,7 +9,7 @@ Welcome to Ironhack-news! This is a project developed during the Ironhack Web De
 IronHack News es un periódico digital innovador que te mantiene actualizado con las últimas noticias y tendencias en el mundo. Nuestro portal te ofrece una experiencia completa de lectura, brindándote acceso a una amplia gama de artículos sobre una variedad de temas, desde tecnología y ciencia hasta cultura y estilo de vida. Sumérgete en la información más relevante con nuestra plataforma intuitiva y amigable para el usuario. Explora noticias de calidad, busca contenido por categorías y disfruta de una lectura fácil y accesible. ¡Únete a IronHack News para estar siempre informado y entretenido!
 
 
-![news](./images/newspaper.png)
+![news](newspaper.png)
 
 ## Installation
 
