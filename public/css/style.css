@@ -7,3 +7,7 @@
     max-height: 400px; 
     width: 400px; 
 }
+
+.btn-like {
+    background-color: pink;
+}

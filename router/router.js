@@ -8,6 +8,8 @@ const upload = require("../config/storage.config");
 const passport = require('passport');
 const News = require('../models/News.model')
 const commentsController = require('../controllers/comments.controller');
+const like = require('../models/like.model');
+
 
 const GOOGLE_SCOPES = [
   'https://www.googleapis.com/auth/userinfo.email',
@@ -75,10 +77,14 @@ router.get('/generar-codigo-qr', usersController.qr);
 
 // comments 
 
+router.get("/comments/:id/delete", authMiddleware.isAuthenticated, commentsController.delete);
 router.post('/comments/:id/create', authMiddleware.isAuthenticated, commentsController.doCreate);
 
 
+// likes
 
+/////////////////////////////////
+router.get('/news/:id/like', newsController.likeNews);
 
 
 module.exports = router; 

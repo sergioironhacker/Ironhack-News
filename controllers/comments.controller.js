@@ -12,3 +12,13 @@ module.exports.doCreate = (req, res, next) => {
     })
     .catch(next)
 }
+
+module.exports.delete = (req, res, next) => {
+    const { id } = req.params;
+  
+    comment.findByIdAndDelete(id)
+      .then((comment) => {
+        res.redirect(`/news/${comment.news}`);
+      })
+      .catch(next)
+  }
