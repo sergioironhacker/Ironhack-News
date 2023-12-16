@@ -13,10 +13,10 @@
       <label for="subtitle" style="color: #3498db;" class="form-label">Subtitle</label>
       <input {{#if news}}value="{{news.subtitle}}"{{else}}placeholder="Type subtitle" required{{/if}} type="text" name="subtitle" class="{{#if errors}}is-invalid{{/if}} form-control" id="subtitle">
     </div>
-    <div class="mb-3">
-      <label for="newsContent" style="color: #3498db;" class="form-label">Text of the article</label>
-      <input {{#if news}}value="{{news.newsContent}}"{{else}}placeholder="Text of the article" required{{/if}} type="text" name="newsContent" class="{{#if errors}}is-invalid{{/if}} form-control" id="newsContent">
-    </div>
+   <div class="mb-3" style="width: 800px">
+  <label for="newsContent" style="color: #3498db;" class="form-label">Text of the article</label>
+  <textarea id="editor" name="newsContent" class="{{#if errors}}is-invalid{{/if}} form-control" style="height: 300px;">{{#if news}}{{news.newsContent}}{{else}}{{/if}}</textarea>
+</div>
     <div class="mb-3">
       <label for="image" style="color: #3498db;" class="form-label">Image</label>
       <input placeholder="Upload an image" type="file" name="image" class="{{#if errors}}is-invalid{{/if}} form-control" id="image">
@@ -34,3 +34,4 @@
     {{/if}}
   </form>
 </div>
+
