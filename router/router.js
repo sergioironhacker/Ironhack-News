@@ -7,6 +7,7 @@ const passport = require('passport');
 const newsController = require('../controllers/news.controller');
 const adminController = require("../controllers/admin.controller")
 const News = require('../models/News.model')
+const commentsController = require('../controllers/comments.controller');
 
 const GOOGLE_SCOPES = [
   'https://www.googleapis.com/auth/userinfo.email',
@@ -64,7 +65,10 @@ router.get("/admin/userlist", adminController.userlist);
 
 router.get('/generar-codigo-qr', usersController.qr);
    
-  
+
+// comments 
+
+router.post('/comments/:id/create', authMiddleware.isAuthenticated, commentsController.doCreate);
 
 
 

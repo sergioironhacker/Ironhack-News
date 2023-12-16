@@ -40,21 +40,21 @@
       "username": "DarthVader",
       "email": "vader@example.com",
       "password": "$2y$12$QjSH496pcT5CEbzjD/vtVeLtp3lRtee9HDxY3K",
-      "picture": "https://static.wikia.nocookie.net/death-battle-fanon-wiki-en-espanol/images/d/dc/Vader.png/revision/latest?cb=20190324021923&path-prefix=es",
+      "picture": "https://sm.ign.com/ign_latam/screenshot/default/darth-vader-aspecto-de-la-fuerza_fj9j.jpg",
       "isActive": true
     },
     {
       "username": "WonderWoman",
       "email": "wonder@example.com",
       "password": "$2y$12$QjSH496pcT5CEbzjD/vtVeLtp3lRtee9HDxY3K",
-      "picture": "https://static.wikia.nocookie.net/featteca/images/d/dc/Wonder_Woman_render.png/revision/latest?cb=20210412215337&path-prefix=es",
+      "picture": "https://hips.hearstapps.com/hmg-prod/images/wonder-woman-1984-traje-fotogramas-1608034175.jpg",
       "isActive": true
     },
     {
       "username": "FrodoBaggins",
       "email": "frodo@example.com",
       "password": "$2y$12$QjSH496pcT5CEbzjD/vtVeLtp3lRtee9HDxY3K",
-      "picture": "https://static.wikia.nocookie.net/debatesjungle/images/2/2c/FrodoBaggins.png/revision/latest/scale-to-width-down/330?cb=20221215151702",
+      "picture": "https://media.vandalsports.com/i/640x360/8-2021/2021826123522_1.jpg",
       "isActive": true
     },
     {
