@@ -1,0 +1,34 @@
+<div class="container my-5 d-flex flex-column justify-content-center">
+  <div class="col-12">
+    <img src={{image}} class="img-thumbnail" alt={{title}} width="200" />
+    <h1 class="mt-3">{{title}}</h1>
+    <p><span class="fw-bold">{{subtitle}}</span></p>
+    <p>{{newsContent}}</p>
+  </div>
+  <div>
+    <a class="btn btn-success" href="/admin/news/{{_id}}/update" style="width: fit-content;"><i data-feather="edit"></i></a>
+    <a class="btn btn-danger" href="/admin/news/{{_id}}/delete" style="width: fit-content;"><i data-feather="trash-2"></i></a>
+    <a class="btn btn-secondary" href="/admin/news" style="width: fit-content;"><i data-feather="book"></i></a>
+  </div>
+  <hr>
+ {{!--<div class="col-12">
+     <h2>Comments</h2>
+    {{#each comments}}
+    <div class="card my-2">
+      <div class="card-body">
+        <p class="card-text">{{this.content}}</p>
+      </div>
+      <div class="card-footer d-flex justify-content-between">
+        <small class="text-body-secondary">by {{this.user.username}}</small>
+        <a href="/comments/{{this._id}}/delete" style="width: fit-content;"><i data-feather="trash-2" width="16" style="color: red;"></i></a>
+      </div>
+    </div>
+    {{/each}} 
+    <form action="/comments/{{_id}}/create" method="POST">
+      <div class="mb-3">
+        <label for="comment" class="form-label">Comment</label>
+        <textarea class="form-control" name="content" id="comment" rows="3" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-success">Comment</button>
+    </form>
+</div>--}}
