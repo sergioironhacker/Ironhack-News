@@ -31,7 +31,13 @@ IronHack News es un periódico digital innovador que te mantiene actualizado con
 - CSS
 - Mongoose
 - Nodemailer
-- ... and more 
+- bcryptjs
+- bootstrap-icons
+- node-fetch
+- qrcode
+- passport-google-oauth
+- multer-storage-cloudinary
+    
 
 ## Contributing
 
