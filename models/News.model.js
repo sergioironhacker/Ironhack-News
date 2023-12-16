@@ -22,7 +22,7 @@ const NewsSchema = mongoose.Schema ({
 });
 
 NewsSchema.virtual("comments", {
-    ref: "Comment",
+    ref: "comment",
     localField: "_id",
     foreignField: "news",
     justOne: false,

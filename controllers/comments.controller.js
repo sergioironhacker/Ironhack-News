@@ -7,7 +7,7 @@ module.exports.doCreate = (req, res, next) => {
     commentCreate.news = req.params.id;
 
     comment.create(req.body)
-    .then(user =>{
+    .then(news =>{
         res.redirect(`/news/${req.params.id}`);
     })
     .catch(next)

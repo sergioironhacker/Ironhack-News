@@ -15,12 +15,12 @@ module.exports.details = (req, res, next) => {
   const { id } = req.params;
 
   News.findById(id)
-/*     .populate({
+    .populate({
       path: 'comments',
       populate: {
         path: 'user',
       }
-    }) */
+    })
     .then(news => {
       if (news) {
         res.render('news/article', news);
