@@ -2,10 +2,10 @@ const router = require("express").Router();
 const authController = require("../controllers/auth.controller");
 const usersController = require("../controllers/users.controller");
 const authMiddleware = require("../middlewares/auth.middlewares");
-const upload = require("../config/storage.config");
-const passport = require('passport');
 const newsController = require('../controllers/news.controller');
 const adminController = require("../controllers/admin.controller")
+const upload = require("../config/storage.config");
+const passport = require('passport');
 const News = require('../models/News.model')
 const commentsController = require('../controllers/comments.controller');
 
@@ -28,8 +28,9 @@ router.get("/", async (req, res, next) => {
 
 
 // news
-router.get('/newsindex', newsController.listNews)
 router.get('/news', newsController.getNews);
+router.get('/newsindex', newsController.listNews)
+router.get("/news/:id", authMiddleware.isAuthenticated, newsController.details);
 
 
 // auth
@@ -57,7 +58,13 @@ router.get("/profile", authMiddleware.isAuthenticated, usersController.profile);
 
 // admin
 
-router.get("/admin/userlist", adminController.userlist);
+router.get("/admin/userlist", authMiddleware.isAuthenticated, adminController.userlist);
+router.get('/admin/newslist', authMiddleware.isAuthenticated, adminController.newslist);
+router.get("/admin/news/create", authMiddleware.isAuthenticated, adminController.create);
+router.post("/admin/news/create", authMiddleware.isAuthenticated, upload.single('image'), adminController.doCreate);
+router.get("/admin/news/:id/delete", authMiddleware.isAuthenticated, adminController.delete);
+router.get("/admin/news/:id/update", authMiddleware.isAuthenticated, adminController.update);
+router.post("/admin/news/:id/update", authMiddleware.isAuthenticated, upload.single('image'), adminController.doUpdate);
 
 
 

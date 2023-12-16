@@ -11,6 +11,27 @@ module.exports.listNews = function(req, res, next) {
     .catch(error => next(error));
 }
 
+module.exports.details = (req, res, next) => {
+  const { id } = req.params;
+
+  News.findById(id)
+/*     .populate({
+      path: 'comments',
+      populate: {
+        path: 'user',
+      }
+    }) */
+    .then(news => {
+      if (news) {
+        res.render('news/article', news);
+      } else {
+        res.redirect('/news');
+      }
+    })
+    .catch(next)
+}
+
+
 //API news
 
 exports.getNews = async (req, res) => {
