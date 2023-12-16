@@ -4,7 +4,7 @@ const News = require('./News.model');
 const commentSchema = mongoose.Schema({
     content : {
         type: String,
-        require: true,
+        required: true,
     },
     user : {
         type : mongoose.Schema.Types.ObjectId,
@@ -20,3 +20,8 @@ const commentSchema = mongoose.Schema({
 
 const comment = mongoose.model('comment', commentSchema);
 module.exports = comment;
+
+
+
+
+

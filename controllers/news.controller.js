@@ -5,7 +5,7 @@ const News = require('../models/News.model')
 
 // regular news
 
-module.exports.listNews = function(req, res, next) {
+module.exports.listNews = function (req, res, next) {
   News.find()
     .then(news => res.render("news/news-index", { news }))
     .catch(error => next(error));
@@ -23,6 +23,7 @@ module.exports.details = (req, res, next) => {
     })
     .then(news => {
       if (news) {
+        console.log(news.comments)
         res.render('news/article', news);
       } else {
         res.redirect('/news');
@@ -45,8 +46,30 @@ exports.getNews = async (req, res) => {
     res.render('news', { articles: data.articles });
   } catch (error) {
     console.error('Hubo un problema con la solicitud:', error);
-    res.render('news', { articles: [] }); 
+    res.render('news', { articles: [] });
   }
 };
 
 
+//////// likes 
+
+exports.likeNews = async (req, res, next) => {
+  try {
+      const newsId = req.params.id;
+      
+   
+      const news = await News.findById(newsId);
+      
+      
+      news.likes += 1;
+
+     
+      await news.save();
+
+      
+      res.redirect(`/news/${newsId}`);
+  } catch (error) {
+      console.error('Error al dar like a la noticia:', error);
+      res.status(500).send('Error al dar like a la noticia.');
+  }
+};
