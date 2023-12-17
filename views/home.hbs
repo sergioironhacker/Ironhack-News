@@ -2,7 +2,7 @@
 <div class="main">
 <section class="hero-section section mt-5">
   <div class="container text-center">
-    <h1 class="display-3">Welcome {{currentUser.username}}</h1>
+    <h1 class="display-3" id="username">Welcome {{currentUser.username}}</h1>
     <p class="lead">Welcome to Ironhack-news 🌎</p>
   </div>
 </section>
@@ -34,6 +34,30 @@
   {{/each}}
 </div>
 
+
+{{!--  Función para generar un color aleatorio en formato hexadecimal --}}
+
+<script>
+  
+  function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
+  function changeUsernameColor() {
+    const usernameElement = document.getElementById('username');
+    setInterval(function() {
+      const randomColor = getRandomColor();
+      usernameElement.style.color = randomColor;
+    }, 1000); 
+  }
+
+  changeUsernameColor();
+</script>
 
 
 

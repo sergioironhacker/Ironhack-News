@@ -5,9 +5,9 @@ const mongoose = require('mongoose');
 const likeSchema = mongoose.Schema({
     
     likes: {
-        type: Number,
-        default: 0 
-    }
+        type: Boolean,
+        default: false, 
+    },
 });
 
 const like = mongoose.model('like', likeSchema);

@@ -1,3 +1,11 @@
+/* body {
+    background-image: url('https://previews.123rf.com/images/sergiobarrios/sergiobarrios1504/sergiobarrios150400072/38517914-diarios-del-mundo-detalle-de-peri%C3%B3dicos-con-noticias-informaci%C3%B3n-y-lectura.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+} */
+
+
 .btn-primary2 {
     background-color: rgb(12, 12, 12);
 }
@@ -11,3 +19,4 @@
 .btn-like {
     background-color: pink;
 }
+
