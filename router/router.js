@@ -8,6 +8,7 @@ const upload = require("../config/storage.config");
 const passport = require('passport');
 const News = require('../models/News.model')
 const commentsController = require('../controllers/comments.controller');
+const spainNewsController = require('../controllers/news.controller')
 const like = require('../models/like.model');
 
 
@@ -33,6 +34,11 @@ router.get("/", async (req, res, next) => {
 router.get('/news', newsController.getNews);
 router.get('/newsindex', newsController.listNews)
 router.get("/news/:id", authMiddleware.isAuthenticated, newsController.details);
+
+
+// API Spain news 
+
+router.get('/japanNews', spainNewsController.getSpainNews);
 
 
 // auth

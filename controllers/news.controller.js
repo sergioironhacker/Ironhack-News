@@ -3,6 +3,10 @@ const apiKey = process.env.NEWS_API_KEY;
 const mongoose = require('mongoose');
 const News = require('../models/News.model')
 
+
+
+
+
 // regular news
 
 module.exports.listNews = function (req, res, next) {
@@ -71,5 +75,28 @@ exports.likeNews = async (req, res, next) => {
   } catch (error) {
       console.error('Error al dar like a la noticia:', error);
       res.status(500).send('Error al dar like a la noticia.');
+  }
+};
+
+
+
+
+// spain news 
+
+
+exports.getSpainNews = async (req, res) => {
+  try {
+    const apiKey = process.env.API_KEY;
+
+    const response = await fetch(`https://gnews.io/api/v4/top-headlines?country=jp&token=${apiKey}`);
+    if (!response.ok) {
+      throw new Error('La respuesta de la red no fue correcta');
+    }
+
+    const data = await response.json();
+    res.render('japanNews', { articles: data.articles });
+  } catch (error) {
+    console.error('Hubo un problema con la solicitud:', error);
+    res.render('japanNews', { articles: [] });
   }
 };
