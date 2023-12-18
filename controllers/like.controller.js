@@ -38,7 +38,7 @@ module.exports.likeNews = async (req, res, next) => {
       const newsId = req.params.newsId;
       const currentUser = req.session.currentUser._id;
   
-      const result = await likeHelper.toggleLike(currentUser, newsId);
+      const result = await likes.toggleLike(currentUser, newsId);
   
       res.json(result);
     } catch (err) {

@@ -17,15 +17,15 @@
 
 
  <form id="likeForm" action="/likes/{{_id}}" method="POST">
-  {{#if liked}}
+   {{#likes}}
     <button type="submit" class="btn btn-like" >
       <i id="likeIcon" class="bi bi-heart-fill"></i> Unlike
     </button>
-  {{else}}
+ {{/likes}}
     <button type="submit" class="btn btn-like" >
       <i id="likeIcon" class="bi bi-heart"></i> Like
     </button>
-  {{/if}}
+  
 </form>
 
 

@@ -1,25 +1,12 @@
+const hbs = require('hbs')
 
+hbs.registerPartials('./views/partials')
 
-const Like = require('../models/Like.model');
-
-// Función para manejar la acción de dar/quitar like
-async function toggleLike(userId, newsId) {
-  try {
-    const existingLike = await Like.findOne({ user: userId, news: newsId });
-
-    if (existingLike) {
-      // Si el like ya existe, eliminarlo
-      await Like.findByIdAndDelete(existingLike._id);
-      return { liked: false };
+hbs.registerHelper('likes', function (options) {
+    const { news, likes } = options.hash;
+    if (news && likes && likes.some(like => like.news == news.id)) {
+      return options.fn(this);
     } else {
-      // Si no existe, crear un nuevo like
-      await Like.create({ user: userId, news: newsId });
-      return { liked: true };
+      return options.inverse(this);
     }
-  } catch (err) {
-    console.error(err);
-    throw new Error('Error al manejar el like');
-  }
-}
-
-module.exports = { toggleLike };
+  })
