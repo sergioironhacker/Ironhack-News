@@ -3,17 +3,17 @@ const mongoose = require('mongoose');
 const User = require('./User.model');
 
 const likeSchema = mongoose.Schema({
-    
-    User : {
-        type : mongoose.Schema.Types.ObjectId,
-        ref: 'user',
-        
-        
+
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+
+
     },
-    News : {
+    news: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'News',
-        
+
     }
 });
 

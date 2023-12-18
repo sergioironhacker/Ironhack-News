@@ -8,9 +8,10 @@ const upload = require("../config/storage.config");
 const passport = require('passport');
 const News = require('../models/News.model')
 const commentsController = require('../controllers/Comments.controller');
-const spainNewsController = require('../controllers/news.controller')
+const spainNewsController = require('../controllers/news.controller');
 const Like = require('../models/Like.model');
-const likeController = require('../controllers/like.controller')
+const likeController = require('../controllers/like.controller');
+const { toggleLike } = require('../helpers/likeHelper');
 
 
 const GOOGLE_SCOPES = [
@@ -107,7 +108,10 @@ router.post('/comments/:id/create', authMiddleware.isAuthenticated, commentsCont
 
 /////////////////////////////////
 
-router.post('/likes/:newsId', likeController.likeNews);
+router.post('/likes/:newsId', authMiddleware.isAuthenticated, likeController.likeNews);
+
+
+
 
 
 

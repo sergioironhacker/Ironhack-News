@@ -25,6 +25,7 @@ module.exports.details = (req, res, next) => {
         path: 'user',
       }
     })
+    
     .then(news => {
       if (news) {
         console.log(news.comments)

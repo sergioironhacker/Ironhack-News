@@ -10,12 +10,24 @@
         data-feather="edit"></i></a>
     <a class="btn btn-danger" href="/admin/news/{{_id}}/delete" style="width: fit-content;"><i
         data-feather="trash-2"></i></a>
-    {{!-- //////////////////////// likes --}}
 
 
-    <a class="btn btn-like" href="/likes/{{_id}}" style="width: fit-content;">
-      <i id="likeIcon" class="like-icon" data-feather="heart"></i>
-    </a>
+        
+    {{!--  likes --}}
+
+
+ <form id="likeForm" action="/likes/{{_id}}" method="POST">
+  {{#if liked}}
+    <button type="submit" class="btn btn-like" >
+      <i id="likeIcon" class="bi bi-heart-fill"></i> Unlike
+    </button>
+  {{else}}
+    <button type="submit" class="btn btn-like" >
+      <i id="likeIcon" class="bi bi-heart"></i> Like
+    </button>
+  {{/if}}
+</form>
+
 
 
   </div>
@@ -45,5 +57,4 @@
 
 
 
-{{!-- ////////////////////// --}}
 
