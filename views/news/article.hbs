@@ -47,24 +47,3 @@
 
 {{!-- ////////////////////// --}}
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-  $(document).ready(function() {
-    const likeButton = $('.btn-like'); 
-    
-    
-    $.get(`/news/${newsId}/likeState`, function(data) {
-      if (data.liked) {
-        likeButton.addClass('liked'); 
-      }
-    });
-
-    
-    likeButton.on('click', function(e) {
-      e.preventDefault();
-      $.post(`/news/${newsId}/like`, function(data) {
-        likeButton.toggleClass('liked'); 
-      });
-    });
-  });
-</script>
