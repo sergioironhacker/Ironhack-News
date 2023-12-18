@@ -57,28 +57,37 @@ exports.getNews = async (req, res) => {
 
 //////// likes 
 
-exports.likeNews = async (req, res, next) => {
+// Obtener el estado del "like" de la noticia
+exports.getLikeState = async (req, res, next) => {
   try {
-      const newsId = req.params.id;
-      
-   
-      const news = await News.findById(newsId);
-      
-      
-      news.likes += 1;
+    const newsId = req.params.id;
+    const news = await News.findById(newsId);
 
-     
-      await news.save();
-
-      
-      res.redirect(`/news/${newsId}`);
+    res.json({ liked: news.likes });
   } catch (error) {
-      console.error('Error al dar like a la noticia:', error);
-      res.status(500).send('Error al dar like a la noticia.');
+    console.error('Error al obtener el estado de like:', error);
+    res.status(500).json({ error: 'Error al obtener el estado de like.' });
   }
 };
 
 
+// Controlador para dar/quitar like
+exports.likeNews = async (req, res, next) => {
+  try {
+    const newsId = req.params.id;
+    const news = await News.findById(newsId);
+
+    // Cambiar el estado del like
+    news.likes = !news.likes; // Cambia el estado opuesto (si está en true, se vuelve false y viceversa)
+
+    await news.save();
+
+    res.redirect(`/news/${newsId}`);
+  } catch (error) {
+    console.error('Error al dar/quitar like a la noticia:', error);
+    res.status(500).send('Error al dar/quitar like a la noticia.');
+  }
+};
 
 
 // spain news 

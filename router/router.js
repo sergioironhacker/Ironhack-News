@@ -40,6 +40,8 @@ router.get('/newsindex', newsController.listNews)
 router.get("/news/:id", authMiddleware.isAuthenticated, newsController.details);
 
 
+
+
 // API japan news 
 
 router.get('/japanNews', spainNewsController.getSpainNews);
@@ -94,7 +96,8 @@ router.post('/comments/:id/create', authMiddleware.isAuthenticated, commentsCont
 // likes
 
 /////////////////////////////////
-router.get('/news/:id/like', newsController.likeNews);
+router.get('/news/:id/like', newsController.getLikeState);
+router.post('/news/:id/like', newsController.likeNews);
 
 
 module.exports = router; 

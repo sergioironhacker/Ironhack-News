@@ -16,7 +16,8 @@
     width: 400px; 
 }
 
-.btn-like {
+ .btn-like {
     background-color: pink;
+    color: white;
 }
 

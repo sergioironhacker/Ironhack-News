@@ -6,14 +6,25 @@
     <p>{{{newsContent}}}</p>
   </div>
   <div>
-    <a class="btn btn-success" href="/admin/news/{{_id}}/update" style="width: fit-content;"><i data-feather="edit"></i></a>
-    <a class="btn btn-danger" href="/admin/news/{{_id}}/delete" style="width: fit-content;"><i data-feather="trash-2"></i></a>
+    <a class="btn btn-success" href="/admin/news/{{_id}}/update" style="width: fit-content;"><i
+        data-feather="edit"></i></a>
+    <a class="btn btn-danger" href="/admin/news/{{_id}}/delete" style="width: fit-content;"><i
+        data-feather="trash-2"></i></a>
     {{!-- //////////////////////// --}}
-    <a class="btn btn-like" href="/news/{{_id}}/like" style="width: fit-content;"><i data-feather="heart"></i></a>
+
+
+
+
+
+    <a class="btn btn-like" href="/news/{{_id}}/like" style="width: fit-content;">
+      <i id="likeIcon" class="like-icon" data-feather="heart"></i>
+    </a>
+
+
   </div>
   <hr>
- <div class="col-12">
-     <h2>Comments</h2>
+  <div class="col-12">
+    <h2>Comments</h2>
     {{#each comments}}
     <div class="card my-2">
       <div class="card-body">
@@ -21,10 +32,11 @@
       </div>
       <div class="card-footer d-flex justify-content-between">
         <small class="text-body-secondary">by {{this.user.username}}</small>
-        <a href="/comments/{{this._id}}/delete" style="width: fit-content;"><i data-feather="trash-2" width="16" style="color: red;"></i></a>
+        <a href="/comments/{{this._id}}/delete" style="width: fit-content;"><i data-feather="trash-2" width="16"
+            style="color: red;"></i></a>
       </div>
     </div>
-    {{/each}} 
+    {{/each}}
     <form action="/comments/{{_id}}/create" method="POST">
       <div class="mb-3">
         <label for="comment" class="form-label">Comment</label>
@@ -32,4 +44,30 @@
       </div>
       <button type="submit" class="btn btn-success">Comment</button>
     </form>
-</div>
+  </div>
+
+
+
+{{!-- ////////////////////// --}}
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    const likeButton = $('.btn-like'); 
+    
+    
+    $.get(`/news/${newsId}/likeState`, function(data) {
+      if (data.liked) {
+        likeButton.addClass('liked'); 
+      }
+    });
+
+    
+    likeButton.on('click', function(e) {
+      e.preventDefault();
+      $.post(`/news/${newsId}/like`, function(data) {
+        likeButton.toggleClass('liked'); 
+      });
+    });
+  });
+</script>

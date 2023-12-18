@@ -1,4 +1,4 @@
-
+/* 
 
 const mongoose = require('mongoose');
 
@@ -11,4 +11,4 @@ const likeSchema = mongoose.Schema({
 });
 
 const like = mongoose.model('like', likeSchema);
-module.exports = like;
+module.exports = like; */
