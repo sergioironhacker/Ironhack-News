@@ -61,5 +61,5 @@ const UserSchema = mongoose.Schema({
     return bcrypt.compare(passwordToCheck, this.password); 
   };
   
-  const user = mongoose.model("user", UserSchema); 
-  module.exports = user; 
+  const User = mongoose.model("User", UserSchema); 
+  module.exports = User; 

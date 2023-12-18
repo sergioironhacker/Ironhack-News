@@ -1,4 +1,4 @@
-const comment = require('../models/comment.model');
+const comment = require('../models/Comment.model');
 
 module.exports.doCreate = (req, res, next) => {
 

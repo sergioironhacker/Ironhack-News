@@ -17,11 +17,7 @@ const NewsSchema = mongoose.Schema ({
         type: String,
         required: true,
     },
-    ///////////////////////
-    likes: {
-        type: Boolean,
-        default: false,
-    },
+    
 }, {
     virtual: true,
 });

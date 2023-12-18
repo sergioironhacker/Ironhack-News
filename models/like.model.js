@@ -1,14 +1,21 @@
-/* 
-
+const News = require('./News.model')
 const mongoose = require('mongoose');
+const User = require('./User.model');
 
 const likeSchema = mongoose.Schema({
     
-    likes: {
-        type: Boolean,
-        default: false, 
+    User : {
+        type : mongoose.Schema.Types.ObjectId,
+        ref: 'user',
+        
+        
     },
+    News : {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'News',
+        
+    }
 });
 
-const like = mongoose.model('like', likeSchema);
-module.exports = like; */
+const Like = mongoose.model('Like', likeSchema);
+module.exports = Like; 

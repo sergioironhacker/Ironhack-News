@@ -9,7 +9,8 @@ const passport = require('passport');
 const News = require('../models/News.model')
 const commentsController = require('../controllers/comments.controller');
 const spainNewsController = require('../controllers/news.controller')
-const like = require('../models/like.model');
+const Like = require('../models/Like.model');
+const likeController = require('../controllers/like.controller')
 
 
 const GOOGLE_SCOPES = [
@@ -62,7 +63,7 @@ router.get('/auth/google/callback', authMiddleware.isNotAuthenticated, authContr
 
 // imagen
 
-router.post("/profile/upload", authMiddleware.isAuthenticated, upload.single('image'), usersController.profileUpload); 
+router.post("/profile/upload", authMiddleware.isAuthenticated, upload.single('image'), usersController.profileUpload);
 
 
 
@@ -85,7 +86,7 @@ router.post("/admin/news/:id/update", authMiddleware.isAuthenticated, upload.sin
 // QR
 
 router.get('/generar-codigo-qr', usersController.qr);
-   
+
 
 // comments 
 
@@ -93,11 +94,22 @@ router.get("/comments/:id/delete", authMiddleware.isAuthenticated, commentsContr
 router.post('/comments/:id/create', authMiddleware.isAuthenticated, commentsController.doCreate);
 
 
+
+
+
+
+
+
+
+
+
 // likes
 
 /////////////////////////////////
-router.get('/news/:id/like', newsController.getLikeState);
-router.post('/news/:id/like', newsController.likeNews);
+
+router.post('/likes/:newsId', likeController.likeNews);
+
+
 
 
 module.exports = router; 
