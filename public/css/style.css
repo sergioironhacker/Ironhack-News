@@ -16,13 +16,9 @@
     width: 400px; 
 }
 
-  .btn-like {
-    
-    
-    color: rgb(4, 4, 4);
-    
-   
-} 
 
+#likeIcon {
+    font-size: 28px; 
+}
 
 

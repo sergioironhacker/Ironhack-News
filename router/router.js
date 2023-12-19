@@ -36,17 +36,21 @@ router.get("/", async (req, res, next) => {
 router.get('/news', newsController.getNews);
 
 
+
+
+// API japan news 
+
+router.get('/japanNews', spainNewsController.getJapanNews);
+
+
+router.get('/europeNews', spainNewsController.getSpainNews );
+
+
 // news
 
 router.get('/newsindex', newsController.listNews)
 router.get("/news/:id", authMiddleware.isAuthenticated, newsController.details);
 
-
-
-
-// API japan news 
-
-router.get('/japanNews', spainNewsController.getSpainNews);
 
 
 // auth

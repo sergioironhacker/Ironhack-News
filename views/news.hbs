@@ -1,13 +1,11 @@
-<h1>Noticias</h1>
-
 <div class="container">
   <div class="row">
     <div class="col-md-12">
       <div class="news-section row">
-        <h2 class="col-12">Últimas noticias</h2>
+        <h2 class="col-12 text-center">The American News</h2> 
         {{#each articles}}
           <div class="col-md-4">
-            <div class="card mb-4">
+            <div class="card mb-4 text-center">
               {{#if this.urlToImage}} 
                 <img src="{{this.urlToImage}}" style="width: 400px" class="card-img-top" alt="{{this.title}}">
               {{else}}

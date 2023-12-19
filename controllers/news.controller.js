@@ -60,7 +60,7 @@ exports.getNews = async (req, res) => {
 // japan news 
 
 
-exports.getSpainNews = async (req, res) => {
+exports.getJapanNews = async (req, res) => {
   try {
     const apiKey = process.env.API_KEY;
 
@@ -74,5 +74,24 @@ exports.getSpainNews = async (req, res) => {
   } catch (error) {
     console.error('Hubo un problema con la solicitud:', error);
     res.render('japanNews', { articles: [] });
+  }
+};
+
+
+
+exports.getSpainNews = async (req, res) => {
+  try {
+    const apiKey = process.env.API_KEY;
+
+    const response = await fetch(`https://gnews.io/api/v4/top-headlines?country=pt&token=${apiKey}`);
+    if (!response.ok) {
+      throw new Error('La respuesta de la red no fue correcta');
+    }
+
+    const data = await response.json();
+    res.render('europeNews', { articles: data.articles });
+  } catch (error) {
+    console.error('Hubo un problema con la solicitud:', error);
+    res.render('europeNews', { articles: [] });
   }
 };

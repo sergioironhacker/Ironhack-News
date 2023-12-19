@@ -5,32 +5,23 @@
     <p><span class="fw-bold">{{subtitle}}</span></p>
     <p>{{{newsContent}}}</p>
   </div>
-  <div>
+
+
+  <div class="d-flex align-items-center justify-content-between">
     <a class="btn btn-success" href="/admin/news/{{_id}}/update" style="width: fit-content;"><i
         data-feather="edit"></i></a>
     <a class="btn btn-danger" href="/admin/news/{{_id}}/delete" style="width: fit-content;"><i
         data-feather="trash-2"></i></a>
 
-
-        
-    {{!--  likes --}}
-
-
- <form id="likeForm" action="/likes/{{_id}}" method="POST">
-   {{#likes}}
-    <button type="submit" class="btn btn-like" >
-      <i id="likeIcon" class="bi bi-heart-fill"></i> Unlike
-    </button>
- {{/likes}}
-    <button type="submit" class="btn btn-like" >
-      <i id="likeIcon" class="bi bi-heart"></i> Like
-    </button>
-  
-</form>
+    {{!-- likes --}}
+    <form id="likeForm" action="/likes/{{_id}}" method="POST">
+      <button type="submit" class="btn btn-like">
+        <i id="likeIcon" class="bi bi-heart"></i>
+      </button>
+    </form>
+</div>
 
 
-
-  </div>
   <hr>
   <div class="col-12">
     <h2>Comments</h2>
@@ -41,7 +32,7 @@
       </div>
       <div class="card-footer d-flex justify-content-between">
         <small class="text-body-secondary">by {{this.user.username}}</small>
-        <a href="/comments/{{this._id}}/delete" style="width: fit-content;"><i data-feather="trash-2" width="16"
+        <a href="/comments/{{this._id}}/delete" style="width: fit-content;"><i data-feather="trash-2" width="26"
             style="color: red;"></i></a>
       </div>
     </div>
@@ -54,7 +45,3 @@
       <button type="submit" class="btn btn-success">Comment</button>
     </form>
   </div>
-
-
-
-
