@@ -1,7 +1,8 @@
 const fetch = require('node-fetch');
 const apiKey = process.env.NEWS_API_KEY;
 const mongoose = require('mongoose');
-const News = require('../models/News.model')
+const News = require('../models/News.model');
+const User = require('../models/User.model');
 
 
 
@@ -14,6 +15,33 @@ module.exports.listNews = function (req, res, next) {
     .then(news => res.render("news/news-index", { news }))
     .catch(error => next(error));
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 module.exports.details = (req, res, next) => {
   const { id } = req.params;
@@ -95,3 +123,58 @@ exports.getSpainNews = async (req, res) => {
     res.render('europeNews', { articles: [] });
   }
 };
+
+
+/* exports.getSpainNews = async (req, res) => {
+  try {
+    const apiKey = process.env.API_KEY;
+
+    const response = await fetch(`https://gnews.io/api/v4/top-headlines?country=pt&token=${apiKey}`);
+    if (!response.ok) {
+      throw new Error('La respuesta de la red no fue correcta');
+    }
+
+    const data = await response.json();
+    res.render('europeNews', { articles: data.articles });
+  } catch (error) {
+    console.error('Hubo un problema con la solicitud:', error);
+    res.render('europeNews', { articles: [] });
+  }
+}; */
+
+
+/* exports.getSpainNews = async (req, res) => {
+  try {
+    const apiKey = process.env.API_KEY;
+
+    const response = await fetch(`https://gnews.io/api/v4/top-headlines?country=pt&token=${apiKey}`);
+    if (!response.ok) {
+      throw new Error('La respuesta de la red no fue correcta');
+    }
+
+    const data = await response.json();
+    res.render('europeNews', { articles: data.articles });
+  } catch (error) {
+    console.error('Hubo un problema con la solicitud:', error);
+    res.render('europeNews', { articles: [] });
+  }
+}; */
+
+
+ exports.getafricanNews = async (req, res) => {
+  try {
+    const apiKey = process.env.API_KEY;
+
+    const response = await fetch(`https://gnews.io/api/v4/top-headlines?country=eg&token=${apiKey}`);
+    if (!response.ok) {
+      throw new Error('La respuesta de la red no fue correcta');
+    }
+
+    const data = await response.json();
+    res.render('africanNews', { articles: data.articles }); 
+  } catch (error) {
+    console.error('Hubo un problema con la solicitud:', error);
+    res.render('africanNews', { articles: [] });
+  }
+};
+ 

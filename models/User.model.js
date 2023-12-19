@@ -40,6 +40,10 @@ const UserSchema = mongoose.Schema({
       type: Boolean,
       default: false,
     },
+    likedNews: {
+      type: [mongoose.Schema.Types.ObjectId],
+      ref: 'News',
+    }
   });
 
   UserSchema.pre('save', function (next) {

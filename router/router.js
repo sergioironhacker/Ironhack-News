@@ -35,15 +35,15 @@ router.get("/", async (req, res, next) => {
 
 router.get('/news', newsController.getNews);
 
-
-
-
 // API japan news 
 
 router.get('/japanNews', spainNewsController.getJapanNews);
 
+// API Europe news
+router.get('/europeNews', spainNewsController.getSpainNews);
 
-router.get('/europeNews', spainNewsController.getSpainNews );
+// API African news
+router.get('/africanNews', spainNewsController.getafricanNews);
 
 
 // news
@@ -108,11 +108,31 @@ router.post('/comments/:id/create', authMiddleware.isAuthenticated, commentsCont
 
 
 
+
+
+
+
+
+
+
 // likes
 
 /////////////////////////////////
 
+
+
 router.post('/likes/:newsId', authMiddleware.isAuthenticated, likeController.likeNews);
+
+
+
+
+
+
+
+
+
+
+
 
 
 

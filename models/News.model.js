@@ -1,4 +1,5 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const User = require('./User.model');
 
 const NewsSchema = mongoose.Schema ({
     title: {
@@ -17,6 +18,10 @@ const NewsSchema = mongoose.Schema ({
         type: String,
         required: true,
     },
+    likedBy:{
+        type: [mongoose.Schema.Types.ObjectId],
+        ref: 'User',
+    }
     
 }, {
     virtual: true,

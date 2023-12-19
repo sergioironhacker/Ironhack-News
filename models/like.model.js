@@ -1,4 +1,4 @@
-const News = require('./News.model')
+/* const News = require('./News.model')
 const mongoose = require('mongoose');
 const User = require('./User.model');
 
@@ -18,4 +18,4 @@ const likeSchema = mongoose.Schema({
 });
 
 const Like = mongoose.model('Like', likeSchema);
-module.exports = Like; 
+module.exports = Like;  */

@@ -1,4 +1,4 @@
-const hbs = require('hbs')
+/* const hbs = require('hbs')
 
 hbs.registerPartials('./views/partials')
 
@@ -9,4 +9,4 @@ hbs.registerHelper('likes', function (options) {
     } else {
       return options.inverse(this);
     }
-  })
+  }) */
