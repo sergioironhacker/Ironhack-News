@@ -21,9 +21,10 @@
         <i id="likeIcon" class="bi bi-heart"></i>
       </button>
     </form>
+    {{#newsIsLikedByUser likes=likes userId=currentUser._id}} me gusta {{/newsIsLikedByUser}}
 </div>
+ 
 
-{{#newsIsLikedByUser likes=likes userId=currentUser._id}} me gusta {{/newsIsLikedByUser}}
 
   
 
