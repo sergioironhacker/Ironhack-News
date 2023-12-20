@@ -17,16 +17,10 @@ const NewsSchema = mongoose.Schema ({
     image: {
         type: String,
         required: true,
-    },
-    likedBy:{
-        type: [mongoose.Schema.Types.ObjectId],
-        ref: 'User',
-    }
-    
+    },  
 }, {
     virtual: true,
 });
-
 
 NewsSchema.virtual("likes", {
     ref: "Like",

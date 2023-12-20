@@ -11,7 +11,7 @@ const commentsController = require('../controllers/Comments.controller');
 const spainNewsController = require('../controllers/news.controller');
 const Like = require('../models/Like.model');
 const likeController = require('../controllers/like.controller');
-const { toggleLike } = require('../helpers/likeHelper');
+const { toggleLike } = require('../helpers/helpers-hbs');
 
 
 const GOOGLE_SCOPES = [
@@ -132,7 +132,7 @@ router.post('/comments/:id/create', authMiddleware.isAuthenticated, commentsCont
 
 
 
-router.post('/likes/:newsId', authMiddleware.isAuthenticated, likeController.likeNews);
+router.post('/likes/:newsId', authMiddleware.isAuthenticated, likeController.doCreate);
 
 
 

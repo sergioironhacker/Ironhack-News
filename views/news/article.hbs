@@ -14,12 +14,18 @@
         data-feather="trash-2"></i></a>
 
     {{!-- likes --}}
+
+  
     <form id="likeForm" action="/likes/{{_id}}" method="POST">
       <button type="submit" class="btn btn-like">
         <i id="likeIcon" class="bi bi-heart"></i>
       </button>
     </form>
 </div>
+
+{{#newsIsLikedByUser likes=likes userId=currentUser._id}} me gusta {{/newsIsLikedByUser}}
+
+  
 
 
   <hr>

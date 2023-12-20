@@ -12,6 +12,7 @@ const User = require('../models/User.model');
 
 module.exports.listNews = function (req, res, next) {
   News.find()
+    .populate('likes')
     .then(news => res.render("news/news-index", { news }))
     .catch(error => next(error));
 }
@@ -30,10 +31,9 @@ module.exports.details = (req, res, next) => {
         path: 'user',
       }
     })
-    
+    .populate('likes')
     .then(news => {
       if (news) {
-        console.log(news.comments)
         res.render('news/article', news);
       } else {
         res.redirect('/news');
@@ -129,12 +129,12 @@ exports.getOceaniaNews = async (req, res) => {
     console.error('Hubo un problema con la solicitud:', error);
     res.render('apiNews/oceaniaNews', { articles: [] });
   }
-}; 
+};
 
 
 
 
- exports.getafricanNews = async (req, res) => {
+exports.getafricanNews = async (req, res) => {
   try {
     const apiKey = process.env.API_KEY;
 
@@ -144,17 +144,17 @@ exports.getOceaniaNews = async (req, res) => {
     }
 
     const data = await response.json();
-    res.render('apiNews/africanNews', { articles: data.articles }); 
+    res.render('apiNews/africanNews', { articles: data.articles });
   } catch (error) {
     console.error('Hubo un problema con la solicitud:', error);
     res.render('apiNews/africanNews', { articles: [] });
   }
 };
- 
 
 
 
- 
+
+
 
 exports.getAntartidaNews = async (req, res) => {
   try {

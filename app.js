@@ -9,6 +9,7 @@ const passport = require("passport");
 
 require('./config/db.config');
 require("./config/passport.config");
+require('./helpers/helpers-hbs')
 
 const app = express();
 
@@ -21,7 +22,7 @@ app.set('view engine', 'hbs');
 
 hbs.registerPartials(__dirname + '/views/partials');
 
-const  sessionConfig  = require('./config/session.config');
+const sessionConfig = require('./config/session.config');
 app.use(sessionConfig);
 
 app.use(passport.initialize());
@@ -38,7 +39,7 @@ app.use((err, req, res, next) => {
     console.error(err);
 
     if (err.status === 404) {
-        res.render('error', { title : err.message });
+        res.render('error', { title: err.message });
     } else {
         res.render('error')
     }
