@@ -46,6 +46,17 @@ router.get('/europeNews', spainNewsController.getSpainNews);
 router.get('/africanNews', spainNewsController.getafricanNews);
 
 
+// Api Oceania news
+router.get('/oceaniaNews', spainNewsController.getOceaniaNews);
+
+// Api antarticaNews
+
+router.get('/antartidaNews', spainNewsController.getAntartidaNews);
+
+
+
+
+
 // news
 
 router.get('/newsindex', newsController.listNews)

@@ -6,15 +6,31 @@
 } */
 
 
-.btn-primary2 {
-    background-color: rgb(12, 12, 12);
-}
+
+/* // manejo del profile  */
+
+.profile-image-label {
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    display: inline-block;
+  }
+  
+  .profile-image-label:hover .profile-image {
+    transform: scale(1.05);
+  }
+
 
 .profile-image {
 
-    max-height: 400px; 
-    width: 400px; 
+    max-height: 300px; 
+    width: 300px; 
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 }
+
+
+
+/* // likes 
+ */
 
 
 #likeIcon {

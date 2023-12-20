@@ -1,0 +1,22 @@
+<div class="container">
+  <h1 class="text-center mb-4">The Oceania News</h1>
+  <div class="row">
+    {{#each articles}}
+      {{#if this.image}}
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <img src="{{this.image}}" alt="{{this.title}}" class="card-img-top" style="height: 200px; object-fit: cover;">
+            <div class="card-body">
+              <h5 class="card-title">{{this.title}}</h5>
+              <p class="card-text">{{this.description}}</p>
+              <p class="card-text"><small class="text-muted">Publicado el: {{this.publishedAt}}</small></p>
+              <p class="card-text">Fuente: {{this.source.name}}</p>
+              <p class="card-text">{{this.content}}</p>
+              <a href="{{this.url}}" target="_blank" class="btn btn-dark">Leer más</a>
+            </div>
+          </div>
+        </div>
+      {{/if}}
+    {{/each}}
+  </div>
+</div>

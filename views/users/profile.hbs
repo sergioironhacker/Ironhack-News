@@ -3,9 +3,10 @@
     <h1>{{currentUser.username}}</h1>
 
     <form action="/profile/upload" method="POST" enctype="multipart/form-data">
-      <label for="profile-image-input">
+      <label for="profile-image-input" class="profile-image-label" style="cursor: pointer;">
         <img class="profile-image" id="profile-img" src="{{currentUser.picture}}" alt="Profile Image">
         <i class="fas fa-user-circle"></i>
+        
         <input type="file" id="profile-image-input" name="image" style="display: none;">
       </label>
       <br>
