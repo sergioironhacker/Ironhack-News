@@ -73,6 +73,13 @@ router.post("/register", authMiddleware.isNotAuthenticated, authController.doReg
 router.get("/logout", authMiddleware.isAuthenticated, authController.logout);
 router.get("/activate/:token", authController.activate);
 
+
+// ruta para aceptar las normas 
+
+router.post('/accept-rules', usersController.acceptRules);
+
+
+
 // Google auth
 router.get('/auth/google', authMiddleware.isNotAuthenticated, passport.authenticate('google-auth', { scope: GOOGLE_SCOPES }));
 router.get('/auth/google/callback', authMiddleware.isNotAuthenticated, authController.doLoginGoogle)
@@ -110,44 +117,11 @@ router.get("/comments/:id/delete", authMiddleware.isAuthenticated, commentsContr
 router.post('/comments/:id/create', authMiddleware.isAuthenticated, commentsController.doCreate);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // likes
-
-/////////////////////////////////
 
 
 
 router.post('/likes/:newsId', authMiddleware.isAuthenticated, likeController.doCreate);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

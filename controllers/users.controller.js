@@ -3,7 +3,7 @@ const User = require('../models/User.model');
 
 
 
-module.exports.profile = (req, res, next) => {
+/* module.exports.profile = (req, res, next) => {
   const currentUser = req.session.currentUser;
 
   if (currentUser) {
@@ -13,6 +13,64 @@ module.exports.profile = (req, res, next) => {
     res.redirect('/login');
   }
 };
+ */
+
+
+// usersController.profile
+
+module.exports.profile = (req, res, next) => {
+  const currentUser = req.session.currentUser;
+
+  if (currentUser) {
+    const acceptedRules = req.session.acceptedRules; // Verificar si el usuario aceptó las reglas
+
+    if (!acceptedRules) {
+      // Si las reglas no han sido aceptadas, mostrar el mensaje
+      req.session.acceptedRules = true; // Marcar las reglas como aceptadas
+
+      return res.render('users/profile', { currentUser, showRules: true });
+    }
+
+    return res.render('users/profile', { currentUser, showRules: false });
+  } else {
+    res.redirect('/login');
+  }
+};
+
+
+
+module.exports.acceptRules = (req, res, next) => {
+  // Marcar las reglas como aceptadas en la sesión del usuario
+  req.session.acceptedRules = req.body.accepted;
+  res.sendStatus(200);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // QR
 module.exports.qr = (req, res, next) => {
