@@ -1,10 +1,10 @@
 {
     "news": [
       {
-        "title": "Noticia 1 lorem ipsum",
-        "subtitle": "Subtítulo de la noticia 1",
-        "newsContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum quam vel sem varius, at elementum neque facilisis. Nullam tincidunt felis sit amet dui cursus, a finibus odio eleifend. Integer euismod ipsum sit amet est rhoncus, vel accumsan tortor feugiat. Sed vestibulum, justo eu rhoncus ultrices, justo urna pellentesque augue, in vulputate nulla arcu in justo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean id quam ac orci lacinia bibendum.",
-        "image": "https://picsum.photos/1280/720"
+        "title": " Ironhack Madrid ☕",
+        "subtitle": "Taller de Codificación para Cafeteras Inteligentes",
+        "newsContent": "¡Noticia curiosa! Ironhack Madrid sorprende al lanzar un innovador taller de codificación para cafeteras inteligentes. Los participantes aprenderán a programar cafeteras capaces de detectar el nivel de sueño del usuario y preparar automáticamente el café con la cantidad exacta de cafeína necesaria para empezar el día. ¡Una forma revolucionaria de despertar con la dosis perfecta de energía y tecnología!",
+        "image": "images/cafe-ironhack-upscaled.png"
       },
       {
         "title": "Noticia 2 lorem ipsum",
@@ -13,7 +13,7 @@
         "image": "https://source.unsplash.com/1280x720?random=5"
       },
       {
-        "title": "Noticia 4 lorem ipsum",
+        "title": "Noticia 3 lorem ipsum",
         "subtitle": "Subtítulo de la noticia 3",
         "newsContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum quam vel sem varius, at elementum neque facilisis. Nullam tincidunt felis sit amet dui cursus, a finibus odio eleifend. Integer euismod ipsum sit amet est rhoncus, vel accumsan tortor feugiat. Sed vestibulum, justo eu rhoncus ultrices, justo urna pellentesque augue, in vulputate nulla arcu in justo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean id quam ac orci lacinia bibendum.",
         "image": "https://loremflickr.com/1280/720/?random=4"
@@ -47,12 +47,6 @@
         "subtitle": "Subtítulo de la noticia 9",
         "newsContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum quam vel sem varius, at elementum neque facilisis. Nullam tincidunt felis sit amet dui cursus, a finibus odio eleifend. Integer euismod ipsum sit amet est rhoncus, vel accumsan tortor feugiat. Sed vestibulum, justo eu rhoncus ultrices, justo urna pellentesque augue, in vulputate nulla arcu in justo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean id quam ac orci lacinia bibendum.",
         "image": "https://picsum.photos/1280/720"
-      },
-      {
-        "title": "Noticia 10 lorem ipsum",
-        "subtitle": "Subtítulo de la noticia 10",
-        "newsContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum quam vel sem varius, at elementum neque facilisis. Nullam tincidunt felis sit amet dui cursus, a finibus odio eleifend. Integer euismod ipsum sit amet est rhoncus, vel accumsan tortor feugiat. Sed vestibulum, justo eu rhoncus ultrices, justo urna pellentesque augue, in vulputate nulla arcu in justo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean id quam ac orci lacinia bibendum.",
-        "image": "https://picsum.photos/1280/720?random=3"
       }
     ]
   }
