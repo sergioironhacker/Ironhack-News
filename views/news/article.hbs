@@ -12,47 +12,17 @@
         data-feather="edit"></i></a>
     <a class="btn btn-danger" href="/admin/news/{{_id}}/delete" style="width: fit-content;"><i
         data-feather="trash-2"></i></a>
-
-   
-
-  
-
- {{!-- likes --}} {{!-- else  --}}
-
-  {{!-- <div>
-    <form id="likeForm" action="/likes/{{_id}}" method="POST">
-      <button type="submit" class="btn btn-like">
+{{!--  likes --}}
+  <form id="likeForm" action="/likes/{{_id}}" method="POST">
+    <button type="submit" class="btn btn-like" id="likeButton">
+      {{#newsIsLikedByUser likes=likes userId=currentUser._id}}
+        <i id="likeIcon" class="bi bi-heart-fill"></i>
+      {{else}}
         <i id="likeIcon" class="bi bi-heart"></i>
-      </button>
-    </form>
-    {{#newsIsLikedByUser likes=likes userId=currentUser._id}} me gusta {{/newsIsLikedByUser}}
+      {{/newsIsLikedByUser}}
+    </button>
+  </form>
 </div>
-  --}}
-
-
-
-    <form id="likeForm" action="/likes/{{_id}}" method="POST">
-        <button type="submit" class="btn btn-like">
-            {{#if newsIsLikedByUser likes=likes userId=currentUser._id}}
-                <i id="likeIcon" class="bi bi-heart-fill"></i>
-            {{else}}
-                <i id="likeIcon" class="bi bi-heart"></i>
-            {{/if}}
-        </button>
-    </form>
-    {{#newsIsLikedByUser likes=likes userId=currentUser._id}}
-        <i class="bi bi-heart-fill"></i> 
-    {{else}}
-         <i class="bi bi-heart"></i> 
-    {{/newsIsLikedByUser}}
-</div>
- 
-
-
-
- 
-
-
 
   
 
@@ -80,3 +50,82 @@
       <button type="submit" class="btn btn-success">Comment</button>
     </form>
   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+ {{!-- likes --}} {{!-- else  --}}
+
+  
+  {{!--   <form id="likeForm" action="/likes/{{_id}}" method="POST">
+      <button type="submit" class="btn btn-like">
+        <i id="likeIcon" class="bi bi-heart"></i>
+      </button>
+    </form>
+    {{#newsIsLikedByUser likes=likes userId=currentUser._id}} <i class="bi bi-heart-fill"></i> {{/newsIsLikedByUser}}
+</div>
+  
+ --}}
+
+
+  {{!--    <form id="likeForm" action="/likes/{{_id}}" method="POST">
+        <button type="submit" class="btn btn-like">
+            {{#if newsIsLikedByUser likes=likes userId=currentUser._id}}
+                <i id="likeIcon" class="bi bi-heart-fill"></i>
+            {{else}}
+                <i id="likeIcon" class="bi bi-heart"></i>
+            {{/if}}
+        </button>
+    </form>
+    {{#newsIsLikedByUser likes=likes userId=currentUser._id}}
+        <i class="bi bi-heart-fill"></i> 
+    {{else}}
+         <i class="bi bi-heart"></i> 
+    {{/newsIsLikedByUser}}
+</div>
+  --}}
+ 
