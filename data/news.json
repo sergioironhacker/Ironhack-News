@@ -7,16 +7,16 @@
         "image": "images/cafe-ironhack-upscaled.png"
       },
       {
-        "title": "Noticia 2 lorem ipsum",
-        "subtitle": "Subtítulo de la noticia 2",
-        "newsContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum quam vel sem varius, at elementum neque facilisis. Nullam tincidunt felis sit amet dui cursus, a finibus odio eleifend. Integer euismod ipsum sit amet est rhoncus, vel accumsan tortor feugiat. Sed vestibulum, justo eu rhoncus ultrices, justo urna pellentesque augue, in vulputate nulla arcu in justo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean id quam ac orci lacinia bibendum.",
-        "image": "https://source.unsplash.com/1280x720?random=5"
+        "title": "!Se busca S.O.S.!",
+        "subtitle": "¡Se Necesita su Genialidad Urgentemente!",
+        "newsContent": "¡Alerta digital! Se busca desesperadamente a [Nombre de la Persona], el as de la programación cuyos superpoderes informáticos son la clave para deshacer el lío monumental.Conocido por domar códigos rebeldes y desafiar a los errores informáticos, [Nombre de la Persona] es imprescindible para salvar el día en este embrollo técnico. Su habilidad para convertir el caos en orden y hacer reír a los bugs es legendario.",
+        "image": "images/C.png"
       },
       {
-        "title": "Noticia 3 lorem ipsum",
-        "subtitle": "Subtítulo de la noticia 3",
-        "newsContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum quam vel sem varius, at elementum neque facilisis. Nullam tincidunt felis sit amet dui cursus, a finibus odio eleifend. Integer euismod ipsum sit amet est rhoncus, vel accumsan tortor feugiat. Sed vestibulum, justo eu rhoncus ultrices, justo urna pellentesque augue, in vulputate nulla arcu in justo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean id quam ac orci lacinia bibendum.",
-        "image": "https://loremflickr.com/1280/720/?random=4"
+        "title": "Presentamos a los Afortunados Ganadores del Gordo de Navidad 2023",
+        "subtitle": "Celebrando con los Triunfadores de la Lotería",
+        "newsContent": "Es hora de desvelar el misterio y compartir la alegría. ¡Aquí están los increíbles ganadores del Gordo de Navidad 2023! Un elenco selecto de afortunados que han sido tocados por la magia de la temporada festiva Estos nombres brillan como estrellas en el firmamento de la suerte, personas cuyas vidas están a punto de dar un giro encantador gracias a la fortuna que les sonríe en esta época tan especial ",
+        "image": "images/cena.png"
       },
       {
         "title": "Noticia 5 lorem ipsum",

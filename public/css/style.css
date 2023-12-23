@@ -105,12 +105,12 @@ footer {
 
 .card {
   border: none;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
+  box-shadow: 10px 14px 18px 18px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
 }
 
 .card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-30px);
 }
 
 
@@ -165,4 +165,20 @@ flex-direction: column;
 
 .colores span.activo::before {
   opacity: 1;
+}
+
+
+.card-style {
+  border: none;
+  box-shadow: 10px 14px 18px 18px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+  display: inline-block; /* Asegura que se apliquen propiedades de bloque para poder ajustar márgenes y padding */
+  padding: 10px; /* Agrega espacio interno para que el efecto hover sea más fácil de notar */
+  text-decoration: none; /* Quita la subrayado predeterminado de los enlaces */
+  color: inherit; /* Hereda el color del texto del elemento padre */
+  border-radius: 8px; /* Añade bordes redondeados */
+}
+
+.card-style:hover {
+  transform: translateY(-10px); /* Reduzco el desplazamiento para una transición más suave */
 }

@@ -45,15 +45,6 @@ module.exports.details = (req, res, next) => {
 
 
 
-
-
-
-
-
-
-
-
-
 //API news
 
 exports.getNews = async (req, res) => {

@@ -49,29 +49,6 @@ module.exports.acceptRules = (req, res, next) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // QR
 module.exports.qr = (req, res, next) => {
 
@@ -127,7 +104,7 @@ module.exports.qr = (req, res, next) => {
       <div class="container">
         <img src="${qrCode}" alt="Código QR para enviar correo electrónico">
         <h3>Escanea para solicitar ayuda 😎</h3>
-        <button onclick="goBack()">Volver Atrás</button>
+        <button onclick="goBack()"><h3>Volver Atrás<h3></button>
       </div>
       <script>
         function goBack() {
