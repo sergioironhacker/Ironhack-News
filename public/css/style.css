@@ -182,3 +182,11 @@ flex-direction: column;
 .card-style:hover {
   transform: translateY(-10px); /* Reduzco el desplazamiento para una transición más suave */
 }
+
+
+
+
+#map {
+  height: 500px;
+  width: 100%;
+ }

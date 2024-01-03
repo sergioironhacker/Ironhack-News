@@ -125,4 +125,8 @@ router.post('/likes/:newsId', authMiddleware.isAuthenticated, likeController.doC
 
 
 
+
+
+
+
 module.exports = router; 
