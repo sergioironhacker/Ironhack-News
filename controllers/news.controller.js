@@ -163,3 +163,15 @@ exports.getAntartidaNews = async (req, res) => {
     res.render('eapiNews/antartidaNews', { articles: [] });
   }
 };  
+
+
+// cointries 
+
+
+module.exports.infoCountries = function (req, res, next) {
+  News.find()
+    .populate('likes')
+    .then(news => res.render("news/infoCountries", { news }))
+    .catch(error => next(error));
+}
+

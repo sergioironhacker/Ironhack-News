@@ -54,7 +54,9 @@ router.get('/oceaniaNews', spainNewsController.getOceaniaNews);
 router.get('/antartidaNews', spainNewsController.getAntartidaNews);
 
 
+// country info 
 
+router.get('/infoCountries', newsController.infoCountries)
 
 
 // news
