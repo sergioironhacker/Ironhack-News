@@ -190,3 +190,34 @@ flex-direction: column;
   height: 500px;
   width: 100%;
  }
+
+
+
+/* flag  */
+
+
+
+.spain-flag {
+  position: relative;
+  width: 200px;
+  height: auto;
+  animation-name: explode;
+  animation-duration: 0.8s;
+  animation-timing-function: ease-out;
+}
+
+@keyframes explode {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+
+
+
+

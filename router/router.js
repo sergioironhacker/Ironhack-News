@@ -128,6 +128,27 @@ router.post('/likes/:newsId', authMiddleware.isAuthenticated, likeController.doC
 
 
 
+// Weather
+
+const axios = require('axios');
+
+// Define la ruta para obtener el tiempo
+router.get('/weather', async (req, res, next) => {
+  try {
+    const city = req.query.city || 'Spain'; 
+    const apiKey = '1144b4b24f28054b05d43e5d00d6df2d'; 
+    const weatherResponse = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`);
+
+    const weatherData = weatherResponse.data;
+  
+    res.render('news/weather', { weather: weatherData });
+  } catch (error) {
+    next(error);
+  }
+});
+
+
+
 
 
 

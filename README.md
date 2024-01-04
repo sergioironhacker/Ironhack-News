@@ -27,7 +27,6 @@ IronHack News es un periódico digital innovador que te mantiene actualizado con
 - Node.js
 - Express.js
 - MongoDB
-- Axios
 - HTML
 - CSS
 - Mongoose
@@ -38,7 +37,6 @@ IronHack News es un periódico digital innovador que te mantiene actualizado con
 - qrcode
 - passport-google-oauth
 - multer-storage-cloudinary
-  
     
 
 ## Contributing
