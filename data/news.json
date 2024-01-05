@@ -1,52 +1,52 @@
 {
-    "news": [
-      {
-        "title": " Ironhack Madrid ☕",
-        "subtitle": "Taller de Codificación para Cafeteras Inteligentes",
-        "newsContent": "¡Noticia curiosa! Ironhack Madrid sorprende al lanzar un innovador taller de codificación para cafeteras inteligentes. Los participantes aprenderán a programar cafeteras capaces de detectar el nivel de sueño del usuario y preparar automáticamente el café con la cantidad exacta de cafeína necesaria para empezar el día. ¡Una forma revolucionaria de despertar con la dosis perfecta de energía y tecnología!",
-        "image": "images/cafe-ironhack-upscaled.png"
-      },
-      {
-        "title": "!Se busca S.O.S.!",
-        "subtitle": "¡Se Necesita su Genialidad Urgentemente!",
-        "newsContent": "¡Alerta digital! Se busca desesperadamente a [Nombre de la Persona], el as de la programación cuyos superpoderes informáticos son la clave para deshacer el lío monumental.Conocido por domar códigos rebeldes y desafiar a los errores informáticos, [Nombre de la Persona] es imprescindible para salvar el día en este embrollo técnico. Su habilidad para convertir el caos en orden y hacer reír a los bugs es legendario.",
-        "image": "images/C.png"
-      },
-      {
-        "title": "Presentamos a los Afortunados Ganadores del Gordo de Navidad 2023",
-        "subtitle": "Celebrando con los Triunfadores de la Lotería",
-        "newsContent": "Es hora de desvelar el misterio y compartir la alegría. ¡Aquí están los increíbles ganadores del Gordo de Navidad 2023! Un elenco selecto de afortunados que han sido tocados por la magia de la temporada festiva Estos nombres brillan como estrellas en el firmamento de la suerte, personas cuyas vidas están a punto de dar un giro encantador gracias a la fortuna que les sonríe en esta época tan especial ",
-        "image": "images/cena.png"
-      },
-      {
-        "title": "Noticia 5 lorem ipsum",
-        "subtitle": "Subtítulo de la noticia 5",
-        "newsContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum quam vel sem varius, at elementum neque facilisis. Nullam tincidunt felis sit amet dui cursus, a finibus odio eleifend. Integer euismod ipsum sit amet est rhoncus, vel accumsan tortor feugiat. Sed vestibulum, justo eu rhoncus ultrices, justo urna pellentesque augue, in vulputate nulla arcu in justo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean id quam ac orci lacinia bibendum.",
-        "image": "https://source.unsplash.com/1280x720"
-      },
-      {
-        "title": "Noticia 6 lorem ipsum",
-        "subtitle": "Subtítulo de la noticia 6",
-        "newsContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum quam vel sem varius, at elementum neque facilisis. Nullam tincidunt felis sit amet dui cursus, a finibus odio eleifend. Integer euismod ipsum sit amet est rhoncus, vel accumsan tortor feugiat. Sed vestibulum, justo eu rhoncus ultrices, justo urna pellentesque augue, in vulputate nulla arcu in justo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean id quam ac orci lacinia bibendum.",
-        "image": "https://picsum.photos/1280/720?random=1"
-      },
-      {
-        "title": "Noticia 7 lorem ipsum",
-        "subtitle": "Subtítulo de la noticia 7",
-        "newsContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum quam vel sem varius, at elementum neque facilisis. Nullam tincidunt felis sit amet dui cursus, a finibus odio eleifend. Integer euismod ipsum sit amet est rhoncus, vel accumsan tortor feugiat. Sed vestibulum, justo eu rhoncus ultrices, justo urna pellentesque augue, in vulputate nulla arcu in justo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean id quam ac orci lacinia bibendum.",
-        "image": "https://picsum.photos/1280/720"
-      },
-      {
-        "title": "Noticia 8 lorem ipsum",
-        "subtitle": "Subtítulo de la noticia 8",
-        "newsContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum quam vel sem varius, at elementum neque facilisis. Nullam tincidunt felis sit amet dui cursus, a finibus odio eleifend. Integer euismod ipsum sit amet est rhoncus, vel accumsan tortor feugiat. Sed vestibulum, justo eu rhoncus ultrices, justo urna pellentesque augue, in vulputate nulla arcu in justo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean id quam ac orci lacinia bibendum.",
-        "image": "https://picsum.photos/1280/720?random=2"
-      },
-      {
-        "title": "Noticia 9 lorem ipsum",
-        "subtitle": "Subtítulo de la noticia 9",
-        "newsContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum quam vel sem varius, at elementum neque facilisis. Nullam tincidunt felis sit amet dui cursus, a finibus odio eleifend. Integer euismod ipsum sit amet est rhoncus, vel accumsan tortor feugiat. Sed vestibulum, justo eu rhoncus ultrices, justo urna pellentesque augue, in vulputate nulla arcu in justo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean id quam ac orci lacinia bibendum.",
-        "image": "https://picsum.photos/1280/720"
-      }
-    ]
-  }
+  "news": [
+    {
+      "title": " Ironhack Madrid ☕",
+      "subtitle": "Taller de Codificación para Cafeteras Inteligentes",
+      "newsContent": "¡Noticia curiosa! Ironhack Madrid sorprende al lanzar un innovador taller de codificación para cafeteras inteligentes. Los participantes aprenderán a programar cafeteras capaces de detectar el nivel de sueño del usuario y preparar automáticamente el café con la cantidad exacta de cafeína necesaria para empezar el día. ¡Una forma revolucionaria de despertar con la dosis perfecta de energía y tecnología!",
+      "image": "images/cafe-ironhack-upscaled.png"
+    },
+    {
+      "title": "!Se busca S.O.S.!",
+      "subtitle": "¡Se Necesita su Genialidad Urgentemente!",
+      "newsContent": "¡Alerta digital! Se busca desesperadamente a Carlos, el as de la programación cuyos superpoderes informáticos son la clave para deshacer el lío monumental.Conocido por domar códigos rebeldes y desafiar a los errores informáticos, Carlos es imprescindible para salvar el día en este embrollo técnico. Su habilidad para convertir el caos en orden y hacer reír a los bugs es legendario.",
+      "image": "images/C.png"
+    },
+    {
+      "title": "Presentamos a los Afortunados Ganadores del Gordo de Navidad 2023",
+      "subtitle": "Celebrando con los Triunfadores de la Lotería",
+      "newsContent": "Es hora de desvelar el misterio y compartir la alegría. ¡Aquí están los increíbles ganadores del Gordo de Navidad 2023! Un elenco selecto de afortunados que han sido tocados por la magia de la temporada festiva Estos nombres brillan como estrellas en el firmamento de la suerte, personas cuyas vidas están a punto de dar un giro encantador gracias a la fortuna que les sonríe en esta época tan especial ",
+      "image": "images/cena.png"
+    },
+    {
+      "title": "Modelo y Diseñador de ropa",
+      "subtitle": "Subtítulo de la noticia 5",
+      "newsContent": "Pablo Modelo, reconocido por su visión vanguardista en el mundo de la moda como diseñador de La Panda, ha dado un giro innovador a su carrera al lanzar su nueva firma, La Vaca. Con una pasión incansable por la creatividad y el estilo único, Pablo ha consolidado su reputación como un visionario en la industria de la moda. Su transición de La Panda a La Vaca representa un cambio audaz y emocionante en su trayectoria profesional.<img src='public/images/Vaca.jpg' alt='Imagen de Pablo Modelo' />",
+      "image": "images/Pablo.png"
+    },
+    {
+      "title": "Noticia 6 lorem ipsum",
+      "subtitle": "Subtítulo de la noticia 6",
+      "newsContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum quam vel sem varius, at elementum neque facilisis. Nullam tincidunt felis sit amet dui cursus, a finibus odio eleifend. Integer euismod ipsum sit amet est rhoncus, vel accumsan tortor feugiat. Sed vestibulum, justo eu rhoncus ultrices, justo urna pellentesque augue, in vulputate nulla arcu in justo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean id quam ac orci lacinia bibendum.",
+      "image": "https://picsum.photos/1280/720?random=1"
+    },
+    {
+      "title": "Noticia 7 lorem ipsum",
+      "subtitle": "Subtítulo de la noticia 7",
+      "newsContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum quam vel sem varius, at elementum neque facilisis. Nullam tincidunt felis sit amet dui cursus, a finibus odio eleifend. Integer euismod ipsum sit amet est rhoncus, vel accumsan tortor feugiat. Sed vestibulum, justo eu rhoncus ultrices, justo urna pellentesque augue, in vulputate nulla arcu in justo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean id quam ac orci lacinia bibendum.",
+      "image": "https://picsum.photos/1280/720"
+    },
+    {
+      "title": "Noticia 8 lorem ipsum",
+      "subtitle": "Subtítulo de la noticia 8",
+      "newsContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum quam vel sem varius, at elementum neque facilisis. Nullam tincidunt felis sit amet dui cursus, a finibus odio eleifend. Integer euismod ipsum sit amet est rhoncus, vel accumsan tortor feugiat. Sed vestibulum, justo eu rhoncus ultrices, justo urna pellentesque augue, in vulputate nulla arcu in justo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean id quam ac orci lacinia bibendum.",
+      "image": "https://picsum.photos/1280/720?random=2"
+    },
+    {
+      "title": "Noticia 9 lorem ipsum",
+      "subtitle": "Subtítulo de la noticia 9",
+      "newsContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum quam vel sem varius, at elementum neque facilisis. Nullam tincidunt felis sit amet dui cursus, a finibus odio eleifend. Integer euismod ipsum sit amet est rhoncus, vel accumsan tortor feugiat. Sed vestibulum, justo eu rhoncus ultrices, justo urna pellentesque augue, in vulputate nulla arcu in justo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean id quam ac orci lacinia bibendum.",
+      "image": "https://picsum.photos/1280/720"
+    }
+  ]
+}
