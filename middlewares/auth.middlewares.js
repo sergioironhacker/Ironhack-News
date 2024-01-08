@@ -15,7 +15,7 @@ module.exports.isAuthenticated = (req, res, next) => {
   };
   
   module.exports.isAdmin = (req, res, next) => {
-    if (req.currentUser.isAdmin) {
+    if (req.session.currentUser.isAdmin) {
       next();
     } else {
       res.render("error", {
@@ -24,9 +24,13 @@ module.exports.isAuthenticated = (req, res, next) => {
     }
   };
   
-
-
-  
-
-  // is not admin
+  module.exports.isNotAdmin = (req, res, next) => {
+    if (!req.session.currentUser.isAdmin) {
+      next();
+    } else {
+      res.redirect("/home", {
+        error: "No eres admin",
+      });
+    }
+  };
 

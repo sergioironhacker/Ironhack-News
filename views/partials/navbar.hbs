@@ -36,7 +36,7 @@
       </li>
 
 
-<li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link active card-style" aria-current="page" href="/weather">Weather</a>
       </li>
 
@@ -44,12 +44,14 @@
 
 
       {{!-- esto solo si eres admin --}}
+{{#if currentUser.isAdmin}}
       <li class="nav-item">
         <a class="nav-link active card-style" aria-current="page" href="/admin/userlist">Users</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active card-style" aria-current="page" href="/admin/newslist">News list</a>
+        <a class="nav-link active card-style" aria-current="page" href="/admin/index">Admin index</a>
       </li>
+{{/if}}
       <li class="nav-item">
         <a class="nav-link active card-style" aria-current="page" href="/generar-codigo-qr">Help</a>
       </li>

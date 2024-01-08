@@ -4,49 +4,49 @@
       "title": " Ironhack Madrid ☕",
       "subtitle": "Taller de Codificación para Cafeteras Inteligentes",
       "newsContent": "¡Noticia curiosa! Ironhack Madrid sorprende al lanzar un innovador taller de codificación para cafeteras inteligentes. Los participantes aprenderán a programar cafeteras capaces de detectar el nivel de sueño del usuario y preparar automáticamente el café con la cantidad exacta de cafeína necesaria para empezar el día. ¡Una forma revolucionaria de despertar con la dosis perfecta de energía y tecnología!",
-      "image": "images/cafe-ironhack-upscaled.png"
+      "image": "/images/cafe-ironhack-upscaled.png"
     },
     {
       "title": "!Se busca S.O.S.!",
       "subtitle": "¡Se Necesita su Genialidad Urgentemente!",
       "newsContent": "¡Alerta digital! Se busca desesperadamente a Carlos, el as de la programación cuyos superpoderes informáticos son la clave para deshacer el lío monumental.Conocido por domar códigos rebeldes y desafiar a los errores informáticos, Carlos es imprescindible para salvar el día en este embrollo técnico. Su habilidad para convertir el caos en orden y hacer reír a los bugs es legendario.",
-      "image": "images/C.png"
+      "image": "/images/C.png"
     },
     {
       "title": "Presentamos a los Afortunados Ganadores del Gordo de Navidad 2023",
       "subtitle": "Celebrando con los Triunfadores de la Lotería",
       "newsContent": "Es hora de desvelar el misterio y compartir la alegría. ¡Aquí están los increíbles ganadores del Gordo de Navidad 2023! Un elenco selecto de afortunados que han sido tocados por la magia de la temporada festiva Estos nombres brillan como estrellas en el firmamento de la suerte, personas cuyas vidas están a punto de dar un giro encantador gracias a la fortuna que les sonríe en esta época tan especial ",
-      "image": "images/cena.png"
+      "image": "/images/cena.png"
     },
     {
       "title": "Modelo y Diseñador de ropa",
       "subtitle": "'La Vaca",
       "newsContent": "Pablo Modelo, reconocido por su visión vanguardista en el mundo de la moda como diseñador de La Panda, ha dado un giro innovador a su carrera al lanzar su nueva firma, La Vaca. Con una pasión incansable por la creatividad y el estilo único, Pablo ha consolidado su reputación como un visionario en la industria de la moda. Su transición de La Panda a La Vaca representa un cambio audaz y emocionante en su trayectoria profesional.<img src='public/images/Vaca.jpg' alt='Imagen de Pablo Modelo' />",
-      "image": "images/Pablo.png"
+      "image": "/images/Pablo.png"
     },
     {
       "title": "Vlad, conocido como 'El Relámpago'",
       "subtitle": "'El Relámpago'",
       "newsContent": "Vlad, conocido como 'El Relámpago', ha dejado atónitos a los fanáticos del atletismo al registrar un nuevo récord mundial en los 100 metros. En una actuación impresionante, Azme cruzó la línea de meta en un increíble tiempo de 9.45 segundos durante una exhibición especial. Su velocidad sin igual continúa generando asombro y expectación en el mundo del deporte, dejando a todos preguntándose qué hazaña logrará alcanzar a continuación.",
-      "image": "images/maraton.jpg"
+      "image": "/images/maraton.jpg"
     },
     {
       "title": "Ironhack lanza curso de programación",
       "subtitle": "Ruumba",
       "newsContent": "Ironhack lanza curso de programación para robots aspiradores; se reporta que un Roomba ha creado un código para bailar salsa mientras limpia. Los usuarios están emocionados por tener un compañero de limpieza con ritmo.",
-      "image": "images/roomba.png"
+      "image": "/images/roomba.png"
     },
     {
       "title": "ironhack sorprende",
       "subtitle": "curso de codificación para plantas",
       "newsContent": "Ironhack sorprende al lanzar un curso de codificación para plantas. Se ha informado que un helecho ha creado un algoritmo para comunicarse con otros vegetales a través de señales lumínicas. Se espera que pronto las plantas dominen el lenguaje de la programación",
-      "image": "images/planta.jpg"
+      "image": "/images/planta.jpg"
     },
     {
       "title": "React",
       "subtitle": "ReactGifify",
       "newsContent": "React anuncia el lanzamiento de 'ReactGifify', una función innovadora que permite a los desarrolladores convertir automáticamente partes de su código en divertidos GIFs animados. Esta característica única está destinada a facilitar la comprensión y el intercambio de fragmentos de código entre equipos de desarrollo. Se dice que los programadores están entusiasmados por la posibilidad de comunicarse mediante GIFs de su propio código, convirtiendo la programación en una experiencia aún más creativa y visual.",
-      "image": "images/react.png"
+      "image": "/images/react.png"
     }
   ]
 }

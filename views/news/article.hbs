@@ -6,12 +6,13 @@
     <p>{{{newsContent}}}</p>
   </div>
 
-
   <div class="d-flex align-items-center justify-content-between">
+{{#if currentUser.isAdmin}}
     <a class="btn btn-success" href="/admin/news/{{_id}}/update" style="width: fit-content;"><i
         data-feather="edit"></i></a>
     <a class="btn btn-danger" href="/admin/news/{{_id}}/delete" style="width: fit-content;"><i
         data-feather="trash-2"></i></a>
+        {{/if}}
 {{!--  likes --}}
   <form id="likeForm" action="/likes/{{_id}}" method="POST">
     <button type="submit" class="btn btn-like" id="likeButton">

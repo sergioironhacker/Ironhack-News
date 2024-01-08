@@ -1,6 +1,12 @@
 const User = require('../models/User.model')
 const News = require('../models/News.model')
 
+module.exports.index = function(req, res, next) {
+  News.find()
+    .then(news => res.render("admin/index", { news }))
+    .catch(error => next(error));
+}
+
 module.exports.userlist = function(req, res, next) {
   User.find()
     .then(users => res.render("admin/userlist", { users }))
