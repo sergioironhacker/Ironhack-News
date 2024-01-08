@@ -2,80 +2,75 @@
   <div class="container-fluid">
     <a class="navbar-brand card-style" href="/">Home</a>
 
-    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <!-- Botón de hamburguesa para dispositivos móviles -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        {{#if currentUser}}
+
+        {{!-- news API --}}
+        <li class="nav-item dropdown card-style">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Select News
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/news">American News</a></li>
+            <li><a class="dropdown-item" href="/japanNews">Asian News</a></li>
+            <li><a class="dropdown-item" href="/europeNews">Europe News</a></li>
+            <li><a class="dropdown-item" href="/africanNews">Africa News</a></li>
+            <li><a class="dropdown-item" href="/oceaniaNews">Oceania News</a></li>
+            <li><a class="dropdown-item" href="/antartidaNews">Antarctica News</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active card-style" aria-current="page" href="/profile">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active card-style" aria-current="page" href="/newsindex">News</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active card-style" aria-current="page" href="/infoCountries">Countries info</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active card-style" aria-current="page" href="/weather">Weather</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active card-style" aria-current="page" href="/admin/userlist">Users</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active card-style" aria-current="page" href="/admin/newslist">News list</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active card-style" aria-current="page" href="/generar-codigo-qr">Help</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active text-danger card-style" aria-current="page" href="/logout">Logout</a>
+        </li>
+        {{else}}
+        <li class="nav-item">
+          <a class="nav-link active card-style" aria-current="page" href="/register">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active card-style" aria-current="page" href="/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active card-style" aria-current="page" href="/generar-codigo-qr">Ayuda</a>
+        </li>
+        {{/if}}
+      </ul>
       {{#if currentUser}}
-
-      {{!-- news API --}}
-      <div class="dropdown card-style">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-          data-bs-toggle="dropdown" aria-expanded="false">
-          Select News
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <li><a class="dropdown-item" href="/news">American News</a></li>
-          <li><a class="dropdown-item" href="/japanNews">Asian News</a></li>
-          <li><a class="dropdown-item" href="/europeNews">Europe News</a></li>
-          <li><a class="dropdown-item" href="/africanNews">Africa News</a></li>
-          <li><a class="dropdown-item" href="/oceaniaNews">Oceania News</a></li>
-          <li><a class="dropdown-item" href="/antartidaNews">Antarctica News</a></li>
-        </ul>
+      <div class="d-flex align-items-center">
+        <span class="{{#if currentUser}}me-3 {{/if}} navbar-text">
+          📰 Hi {{currentUser.username}}
+        </span>
       </div>
-
-
-      <li class="nav-item">
-        <a class="nav-link active card-style" aria-current="page" href="/profile">Profile</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active card-style" aria-current="page" href="/newsindex">News</a>
-      </li>
-
-
-
-      <li class="nav-item">
-        <a class="nav-link active card-style" aria-current="page" href="/infoCountries">Countries info</a>
-      </li>
-
-
-<li class="nav-item">
-        <a class="nav-link active card-style" aria-current="page" href="/weather">Weather</a>
-      </li>
-
-
-
-
-      {{!-- esto solo si eres admin --}}
-      <li class="nav-item">
-        <a class="nav-link active card-style" aria-current="page" href="/admin/userlist">Users</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active card-style" aria-current="page" href="/admin/newslist">News list</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active card-style" aria-current="page" href="/generar-codigo-qr">Help</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active text-danger card-style" aria-current="page" href="/logout">Logout</a>
-      </li>
-      {{else}}
-      <li class="nav-item">
-        <a class="nav-link active card-style" aria-current="page" href="/register">Register</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active card-style" aria-current="page" href="/login">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active card-style" aria-current="page" href="/generar-codigo-qr">Ayuda</a>
-      </li>
-
       {{/if}}
-    </ul>
-
-    {{#if currentUser}}
-    <div class="d-flex align-items-center">
-      <span class="{{#if currentUser}}me-3 {{/if}} navbar-text">
-        📰 Hi {{currentUser.username}}
-      </span>
     </div>
-    {{/if}}
   </div>
 </nav>
