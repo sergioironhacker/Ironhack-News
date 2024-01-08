@@ -1,18 +1,18 @@
-/*  body {
-    background-image: url('https://previews.123rf.com/images/sergiobarrios/sergiobarrios1504/sergiobarrios150400072/38517914-diarios-del-mundo-detalle-de-peri%C3%B3dicos-con-noticias-informaci%C3%B3n-y-lectura.jpg');
+/*   body {
+    background-image:url('../images/whassap.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-}  */
+}  
+ */
 
-
-footer {
+/* footer {
   
-  /* background-image: url('https://previews.123rf.com/images/sergiobarrios/sergiobarrios1504/sergiobarrios150400072/38517914-diarios-del-mundo-detalle-de-peri%C3%B3dicos-con-noticias-informaci%C3%B3n-y-lectura.jpg'); /* Reemplaza 'ruta/de/la/imagen.jpg' con la ruta de tu imagen */
+   background-image: url('../images/whassap.jpg'); 
   background-size: cover;  
   background-position: center; 
   background-repeat: no-repeat; 
-}
+} */
 
 /* // manejo del profile  */
 

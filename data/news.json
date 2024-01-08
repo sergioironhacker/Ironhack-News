@@ -20,33 +20,33 @@
     },
     {
       "title": "Modelo y Diseñador de ropa",
-      "subtitle": "Subtítulo de la noticia 5",
+      "subtitle": "'La Vaca",
       "newsContent": "Pablo Modelo, reconocido por su visión vanguardista en el mundo de la moda como diseñador de La Panda, ha dado un giro innovador a su carrera al lanzar su nueva firma, La Vaca. Con una pasión incansable por la creatividad y el estilo único, Pablo ha consolidado su reputación como un visionario en la industria de la moda. Su transición de La Panda a La Vaca representa un cambio audaz y emocionante en su trayectoria profesional.<img src='public/images/Vaca.jpg' alt='Imagen de Pablo Modelo' />",
       "image": "images/Pablo.png"
     },
     {
-      "title": "Noticia 6 lorem ipsum",
-      "subtitle": "Subtítulo de la noticia 6",
-      "newsContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum quam vel sem varius, at elementum neque facilisis. Nullam tincidunt felis sit amet dui cursus, a finibus odio eleifend. Integer euismod ipsum sit amet est rhoncus, vel accumsan tortor feugiat. Sed vestibulum, justo eu rhoncus ultrices, justo urna pellentesque augue, in vulputate nulla arcu in justo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean id quam ac orci lacinia bibendum.",
-      "image": "https://picsum.photos/1280/720?random=1"
+      "title": "Vlad, conocido como 'El Relámpago'",
+      "subtitle": "'El Relámpago'",
+      "newsContent": "Vlad, conocido como 'El Relámpago', ha dejado atónitos a los fanáticos del atletismo al registrar un nuevo récord mundial en los 100 metros. En una actuación impresionante, Azme cruzó la línea de meta en un increíble tiempo de 9.45 segundos durante una exhibición especial. Su velocidad sin igual continúa generando asombro y expectación en el mundo del deporte, dejando a todos preguntándose qué hazaña logrará alcanzar a continuación.",
+      "image": "images/maraton.jpg"
     },
     {
-      "title": "Noticia 7 lorem ipsum",
-      "subtitle": "Subtítulo de la noticia 7",
-      "newsContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum quam vel sem varius, at elementum neque facilisis. Nullam tincidunt felis sit amet dui cursus, a finibus odio eleifend. Integer euismod ipsum sit amet est rhoncus, vel accumsan tortor feugiat. Sed vestibulum, justo eu rhoncus ultrices, justo urna pellentesque augue, in vulputate nulla arcu in justo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean id quam ac orci lacinia bibendum.",
-      "image": "https://picsum.photos/1280/720"
+      "title": "Ironhack lanza curso de programación",
+      "subtitle": "Ruumba",
+      "newsContent": "Ironhack lanza curso de programación para robots aspiradores; se reporta que un Roomba ha creado un código para bailar salsa mientras limpia. Los usuarios están emocionados por tener un compañero de limpieza con ritmo.",
+      "image": "images/roomba.png"
     },
     {
-      "title": "Noticia 8 lorem ipsum",
-      "subtitle": "Subtítulo de la noticia 8",
-      "newsContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum quam vel sem varius, at elementum neque facilisis. Nullam tincidunt felis sit amet dui cursus, a finibus odio eleifend. Integer euismod ipsum sit amet est rhoncus, vel accumsan tortor feugiat. Sed vestibulum, justo eu rhoncus ultrices, justo urna pellentesque augue, in vulputate nulla arcu in justo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean id quam ac orci lacinia bibendum.",
-      "image": "https://picsum.photos/1280/720?random=2"
+      "title": "ironhack sorprende",
+      "subtitle": "curso de codificación para plantas",
+      "newsContent": "Ironhack sorprende al lanzar un curso de codificación para plantas. Se ha informado que un helecho ha creado un algoritmo para comunicarse con otros vegetales a través de señales lumínicas. Se espera que pronto las plantas dominen el lenguaje de la programación",
+      "image": "images/planta.jpg"
     },
     {
-      "title": "Noticia 9 lorem ipsum",
-      "subtitle": "Subtítulo de la noticia 9",
-      "newsContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum quam vel sem varius, at elementum neque facilisis. Nullam tincidunt felis sit amet dui cursus, a finibus odio eleifend. Integer euismod ipsum sit amet est rhoncus, vel accumsan tortor feugiat. Sed vestibulum, justo eu rhoncus ultrices, justo urna pellentesque augue, in vulputate nulla arcu in justo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean id quam ac orci lacinia bibendum.",
-      "image": "https://picsum.photos/1280/720"
+      "title": "React",
+      "subtitle": "ReactGifify",
+      "newsContent": "React anuncia el lanzamiento de 'ReactGifify', una función innovadora que permite a los desarrolladores convertir automáticamente partes de su código en divertidos GIFs animados. Esta característica única está destinada a facilitar la comprensión y el intercambio de fragmentos de código entre equipos de desarrollo. Se dice que los programadores están entusiasmados por la posibilidad de comunicarse mediante GIFs de su propio código, convirtiendo la programación en una experiencia aún más creativa y visual.",
+      "image": "images/react.png"
     }
   ]
 }
