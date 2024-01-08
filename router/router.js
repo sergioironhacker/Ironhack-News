@@ -98,13 +98,14 @@ router.get("/profile", authMiddleware.isAuthenticated, usersController.profile);
 
 // admin
 
-router.get("/admin/userlist", authMiddleware.isAuthenticated, adminController.userlist);
-router.get('/admin/newslist', authMiddleware.isAuthenticated, adminController.newslist);
-router.get("/admin/news/create", authMiddleware.isAuthenticated, adminController.create);
-router.post("/admin/news/create", authMiddleware.isAuthenticated, upload.single('image'), adminController.doCreate);
-router.get("/admin/news/:id/delete", authMiddleware.isAuthenticated, adminController.delete);
-router.get("/admin/news/:id/update", authMiddleware.isAuthenticated, adminController.update);
-router.post("/admin/news/:id/update", authMiddleware.isAuthenticated, upload.single('image'), adminController.doUpdate);
+router.get('/admin/index', authMiddleware.isAuthenticated, authMiddleware.isAdmin, adminController.index)
+router.get("/admin/userlist", authMiddleware.isAuthenticated, authMiddleware.isAdmin, adminController.userlist);
+router.get('/admin/newslist', authMiddleware.isAuthenticated, authMiddleware.isAdmin, adminController.newslist);
+router.get("/admin/news/create", authMiddleware.isAuthenticated, authMiddleware.isAdmin, adminController.create);
+router.post("/admin/news/create", authMiddleware.isAuthenticated, authMiddleware.isAdmin, upload.single('image'), adminController.doCreate);
+router.get("/admin/news/:id/delete", authMiddleware.isAuthenticated, authMiddleware.isAdmin, adminController.delete);
+router.get("/admin/news/:id/update", authMiddleware.isAuthenticated, authMiddleware.isAdmin, adminController.update);
+router.post("/admin/news/:id/update", authMiddleware.isAuthenticated, authMiddleware.isAdmin, upload.single('image'), adminController.doUpdate);
 
 
 
