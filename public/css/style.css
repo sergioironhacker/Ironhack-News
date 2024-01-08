@@ -1,20 +1,4 @@
-/*   body {
-    background-image:url('../images/whassap.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}  
- */
 
-/* footer {
-  
-   background-image: url('../images/whassap.jpg'); 
-  background-size: cover;  
-  background-position: center; 
-  background-repeat: no-repeat; 
-} */
-
-/* // manejo del profile  */
 
 .profile-image-label {
     cursor: pointer;
@@ -107,11 +91,14 @@
   border: none;
   box-shadow: 10px 14px 18px 18px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease-in-out;
+ 
 }
 
 .card:hover {
   transform: translateY(-30px);
 }
+
+
 
 
 /* // cambio de colores en la pagina  */
@@ -122,10 +109,7 @@
 
 }
 
-body {
-  min-height: 100vh;
-  background: white;
-}
+
 
 .colores {
 position: absolute;
@@ -172,15 +156,16 @@ flex-direction: column;
   border: none;
   box-shadow: 10px 14px 18px 18px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease-in-out;
-  display: inline-block; /* Asegura que se apliquen propiedades de bloque para poder ajustar márgenes y padding */
-  padding: 10px; /* Agrega espacio interno para que el efecto hover sea más fácil de notar */
-  text-decoration: none; /* Quita la subrayado predeterminado de los enlaces */
-  color: inherit; /* Hereda el color del texto del elemento padre */
-  border-radius: 8px; /* Añade bordes redondeados */
+  display: inline-block; 
+  padding: 10px; 
+  text-decoration: none; 
+  color: inherit; 
+  border-radius: 8px; 
+  
 }
 
 .card-style:hover {
-  transform: translateY(-10px); /* Reduzco el desplazamiento para una transición más suave */
+  transform: translateY(-10px); 
 }
 
 
@@ -216,6 +201,8 @@ flex-direction: column;
     opacity: 0;
   }
 }
+
+
 
 
 

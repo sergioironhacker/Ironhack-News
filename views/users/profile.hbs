@@ -5,7 +5,7 @@
     <form action="/profile/upload" method="POST" enctype="multipart/form-data">
       <label for="profile-image-input" class="profile-image-label" style="cursor: pointer;">
         <img class="profile-image" id="profile-img" src="{{currentUser.picture}}" alt="Profile Image">
-        <i class="fas fa-user-circle"></i>
+     
         
         <input type="file" id="profile-image-input" name="image" style="display: none;">
       </label>
@@ -15,7 +15,11 @@
   </div>
 </div>
 
-<h1>Mis noticias</h1>
+
+
+
+<button id="delete-profile-btn" class="card-style">Eliminar perfil</button>
+
 
 
 
@@ -38,7 +42,13 @@
 {{/if}}
 
 
+
+
+
 <script>
+
+
+  
   function closeRules() {
     fetch('/accept-rules', {
       method: 'POST',
@@ -53,3 +63,5 @@
     .catch(error => console.error('Error:', error));
   }
 </script>
+
+
