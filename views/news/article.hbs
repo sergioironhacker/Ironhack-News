@@ -7,50 +7,67 @@
   </div>
 
   <div class="d-flex align-items-center justify-content-between">
-{{#if currentUser.isAdmin}}
+    {{#if currentUser.isAdmin}}
     <a class="btn btn-success" href="/admin/news/{{_id}}/update" style="width: fit-content;"><i
         data-feather="edit"></i></a>
     <a class="btn btn-danger" href="/admin/news/{{_id}}/delete" style="width: fit-content;"><i
         data-feather="trash-2"></i></a>
-        {{/if}}
-{{!--  likes --}}
-  <form id="likeForm" action="/likes/{{_id}}" method="POST">
-    <button type="submit" class="btn btn-like" id="likeButton">
-      {{#newsIsLikedByUser likes=likes userId=currentUser._id}}
+    {{/if}}
+    {{!-- likes --}}
+    <form id="likeForm" action="/likes/{{_id}}" method="POST">
+      <button type="submit" class="btn btn-like" id="likeButton">
+        {{#newsIsLikedByUser likes=likes userId=currentUser._id}}
         <i id="likeIcon" class="bi bi-heart-fill"></i>
-      {{else}}
+        {{else}}
         <i id="likeIcon" class="bi bi-heart"></i>
-      {{/newsIsLikedByUser}}
-    </button>
+        {{/newsIsLikedByUser}}
+      </button>
+    </form>
+
+    <!-- Rating -->
+    <form id="ratingForm" action="/ratings" method="POST" class="rating-form">
+      <fieldset class="rating">
+        <input type="radio" id="star5" name="score" value="5"/><label for="star5" title="5 estrellas"></label>
+        <input type="radio" id="star4" name="score" value="4" /><label for="star4" title="4 estrellas"></label>
+        <input type="radio" id="star3" name="score" value="3" /><label for="star3" title="3 estrellas"></label>
+        <input type="radio" id="star2" name="score" value="2" /><label for="star2" title="2 estrellas"></label>
+        <input type="radio" id="star1" name="score" value="1" /><label for="star1" title="1 estrella"></label>
+      </fieldset>
+       <input type="hidden" name="news" value="{{_id}}">
+      <button type="submit" class="btn btn-primary">Calificar</button>
+    </form>
+  </div>
+</div>
+
+
+
+
+
+
+<hr>
+<div class="col-12">
+  <h2>Comments</h2>
+  {{#each comments}}
+  <div class="card my-2">
+    <div class="card-body">
+      <p class="card-text">{{this.content}}</p>
+    </div>
+    <div class="card-footer d-flex justify-content-between">
+      <small class="text-body-secondary">by {{this.user.username}}</small>
+      <a href="/comments/{{this._id}}/delete" style="width: fit-content;"><i data-feather="trash-2" width="26"
+          style="color: red;"></i></a>
+    </div>
+  </div>
+  {{/each}}
+  <form action="/comments/{{_id}}/create" method="POST">
+    <div class="mb-3">
+      <label for="comment" class="form-label">Comment</label>
+      <textarea class="form-control" name="content" id="comment" rows="3" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-success">Comment</button>
   </form>
 </div>
 
-  
-
-
-  <hr>
-  <div class="col-12">
-    <h2>Comments</h2>
-    {{#each comments}}
-    <div class="card my-2">
-      <div class="card-body">
-        <p class="card-text">{{this.content}}</p>
-      </div>
-      <div class="card-footer d-flex justify-content-between">
-        <small class="text-body-secondary">by {{this.user.username}}</small>
-        <a href="/comments/{{this._id}}/delete" style="width: fit-content;"><i data-feather="trash-2" width="26"
-            style="color: red;"></i></a>
-      </div>
-    </div>
-    {{/each}}
-    <form action="/comments/{{_id}}/create" method="POST">
-      <div class="mb-3">
-        <label for="comment" class="form-label">Comment</label>
-        <textarea class="form-control" name="content" id="comment" rows="3" required></textarea>
-      </div>
-      <button type="submit" class="btn btn-success">Comment</button>
-    </form>
-  </div>
 
 
 
@@ -98,35 +115,33 @@
 
 
 
-  
- {{!-- likes --}} {{!-- else  --}}
+{{!-- likes --}} {{!-- else --}}
 
-  
-  {{!--   <form id="likeForm" action="/likes/{{_id}}" method="POST">
-      <button type="submit" class="btn btn-like">
-        <i id="likeIcon" class="bi bi-heart"></i>
-      </button>
-    </form>
-    {{#newsIsLikedByUser likes=likes userId=currentUser._id}} <i class="bi bi-heart-fill"></i> {{/newsIsLikedByUser}}
+
+{{!-- <form id="likeForm" action="/likes/{{_id}}" method="POST">
+  <button type="submit" class="btn btn-like">
+    <i id="likeIcon" class="bi bi-heart"></i>
+  </button>
+</form>
+{{#newsIsLikedByUser likes=likes userId=currentUser._id}} <i class="bi bi-heart-fill"></i> {{/newsIsLikedByUser}}
 </div>
-  
- --}}
+
+--}}
 
 
-  {{!--    <form id="likeForm" action="/likes/{{_id}}" method="POST">
-        <button type="submit" class="btn btn-like">
-            {{#if newsIsLikedByUser likes=likes userId=currentUser._id}}
-                <i id="likeIcon" class="bi bi-heart-fill"></i>
-            {{else}}
-                <i id="likeIcon" class="bi bi-heart"></i>
-            {{/if}}
-        </button>
-    </form>
-    {{#newsIsLikedByUser likes=likes userId=currentUser._id}}
-        <i class="bi bi-heart-fill"></i> 
+{{!-- <form id="likeForm" action="/likes/{{_id}}" method="POST">
+  <button type="submit" class="btn btn-like">
+    {{#if newsIsLikedByUser likes=likes userId=currentUser._id}}
+    <i id="likeIcon" class="bi bi-heart-fill"></i>
     {{else}}
-         <i class="bi bi-heart"></i> 
-    {{/newsIsLikedByUser}}
+    <i id="likeIcon" class="bi bi-heart"></i>
+    {{/if}}
+  </button>
+</form>
+{{#newsIsLikedByUser likes=likes userId=currentUser._id}}
+<i class="bi bi-heart-fill"></i>
+{{else}}
+<i class="bi bi-heart"></i>
+{{/newsIsLikedByUser}}
 </div>
-  --}}
- 
+--}}

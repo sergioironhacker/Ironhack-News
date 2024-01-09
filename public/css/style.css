@@ -203,6 +203,28 @@ flex-direction: column;
 }
 
 
+.rating {
+  display: inline-block;
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+.rating input {
+  display: none;
+}
+.rating label {
+  float: right;
+  font-size: 30px;
+  padding: 0 0.1em;
+  color: #ddd;
+  cursor: pointer;
+}
+.rating label:before {
+  content: "\2605";
+}
+.rating input:checked ~ label,
+.rating input:checked ~ label ~ label {
+  color: #ffca08;
+}
 
 
 

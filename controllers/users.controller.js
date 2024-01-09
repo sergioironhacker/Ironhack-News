@@ -3,19 +3,6 @@ const User = require('../models/User.model');
 
 
 
-/* module.exports.profile = (req, res, next) => {
-  const currentUser = req.session.currentUser;
-
-  if (currentUser) {
-    res.render('users/profile', { currentUser });
-    console.log('currentUser:', currentUser);
-  } else {
-    res.redirect('/login');
-  }
-};
- */
-
-
 // usersController.profile
 
 module.exports.profile = (req, res, next) => {
@@ -133,3 +120,28 @@ module.exports.profileUpload = async (req, res, next) => {
     console.log(error)
   }
 }
+
+
+
+
+//////////////////////////
+
+
+
+/* module.exports.deleteAccount = async (req, res, next) => {
+  try {
+    if (!req.session.currentUser || !req.session.currentUser._id) {
+      return res.status(401).json({ message: 'Usuario no autenticado o información de usuario no disponible' });
+    }
+
+    // Verificación del ID de usuario actual
+    console.log('ID de usuario actual:', req.session.currentUser._id);
+
+    const currentUserId = req.session.currentUser._id;
+    // Resto del código para eliminar la cuenta...
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: 'Error al eliminar la cuenta del usuario' });
+  }
+};
+ */

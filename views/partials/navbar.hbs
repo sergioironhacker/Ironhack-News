@@ -2,7 +2,8 @@
   <div class="container-fluid">
     <a class="navbar-brand card-style" href="/">Home</a>
 
-    <!-- Botón de hamburguesa para dispositivos móviles -->
+
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -10,45 +11,61 @@
 
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        {{!-- En la home sin registrar y si logear --}}
+
+        <li class="nav-item">
+          <a class="nav-link active card-style" aria-current="page" href="/login">Login</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active card-style" aria-current="page" href="/register">Register</a>
+        </li>
+
+
+
+
+
+
         {{#if currentUser}}
 
 
-      <li class="nav-item">
-        <a class="nav-link active card-style" aria-current="page" href="/weather">Weather</a>
-      </li>
+        <li class="nav-item">
+          <a class="nav-link active card-style" aria-current="page" href="/weather">Weather</a>
+        </li>
 
-      <li class="nav-item">
+        <li class="nav-item">
           <a class="nav-link active card-style" aria-current="page" href="/profile">Profile</a>
         </li>
 
 
 
 
-      {{!-- esto solo si eres admin --}}
-{{#if currentUser.isAdmin}}
-      <li class="nav-item">
-        <a class="nav-link active card-style" aria-current="page" href="/admin/userlist">Users</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active card-style" aria-current="page" href="/admin/index">Admin index</a>
-      </li>
-{{/if}}
-      <li class="nav-item">
-        <a class="nav-link active card-style" aria-current="page" href="/generar-codigo-qr">Help</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active text-danger card-style" aria-current="page" href="/logout">Logout</a>
-      </li>
-      {{else}}
-      <li class="nav-item">
-        <a class="nav-link active card-style" aria-current="page" href="/register">Register</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active card-style" aria-current="page" href="/login">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active card-style" aria-current="page" href="/generar-codigo-qr">Ayuda</a>
-      </li>
+        {{!-- esto solo si eres admin --}}
+        {{#if currentUser.isAdmin}}
+        <li class="nav-item">
+          <a class="nav-link active card-style" aria-current="page" href="/admin/userlist">Users</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active card-style" aria-current="page" href="/admin/index">Admin index</a>
+        </li>
+        {{/if}}
+        <li class="nav-item">
+          <a class="nav-link active card-style" aria-current="page" href="/generar-codigo-qr">Help</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active text-danger card-style" aria-current="page" href="/logout">Logout</a>
+        </li>
+        {{else}}
+        <li class="nav-item">
+          <a class="nav-link active card-style" aria-current="page" href="/register">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active card-style" aria-current="page" href="/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active card-style" aria-current="page" href="/generar-codigo-qr">Ayuda</a>
+        </li>
         {{!-- news API --}}
         <li class="nav-item dropdown card-style">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
@@ -90,7 +107,7 @@
         <li class="nav-item">
           <a class="nav-link active text-danger card-style" aria-current="page" href="/logout">Logout</a>
         </li>
-      
+
         <li class="nav-item">
           <a class="nav-link active card-style" aria-current="page" href="/register">Register</a>
         </li>
