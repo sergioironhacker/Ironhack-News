@@ -230,3 +230,55 @@ flex-direction: column;
 
 
 
+/* Estilos para el contenedor de video */
+.video-like-container {
+  width: 500px; /* Ancho deseado */
+  height: 100px; /* Altura deseada */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Estilos para la pantalla del "video" */
+.video-like-screen {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: url('/images/banner.jpeg') center/cover no-repeat; /* Imagen que simula el "video" */
+  animation: flickerEffect 1s infinite; /* Duración, repetición de la animación */
+  transform: translate(-50%, -50%);
+}
+
+/* Definir la animación de flickering */
+@keyframes flickerEffect {
+  0%, 100% {
+    opacity: 0;
+  }
+  10%, 90% {
+    opacity: 1;
+  }
+}
+
+
+.video-like-screen {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background: url('/images/banner2.png') center/cover no-repeat; /* Imagen que simula el "video" */
+  animation: flickerEffect 3s infinite; /* Duración, repetición de la animación */
+}
+
+/* Definir la animación de flickering */
+@keyframes flickerEffect {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
