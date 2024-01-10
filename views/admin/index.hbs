@@ -1,1 +1,36 @@
-<h1>admin</h1>
+<h1 class="mt-3">Panel de admin</h1>
+
+ 
+
+{{!-- Latest News Column --}}
+<div class="container mt-4">
+    <div class="row mt-4 mb-4">
+    <div class="col-md-12">
+      <a href="/admin/news/create" class="btn btn-primary">Create News</a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <h2>Latest News</h2>
+      <ul class="list-group">
+        {{#each news}}
+          <li class="list-group-item"><a href="/news/{{_id}}">{{title}}</a>
+          <a class="btn btn-success" href="/admin/news/{{_id}}/update" style="width: fit-content;"><i
+        data-feather="edit"></i></a>
+    <a class="btn btn-danger" href="/admin/news/{{_id}}/delete" style="width: fit-content;"><i
+        data-feather="trash-2"></i></a></li>
+        {{/each}}
+      </ul>
+    </div>
+
+    {{!-- Registered Users Column --}}
+    <div class="col-md-4">
+      <h2>Registered Users</h2>
+      <ul class="list-group">
+        {{#each users}}
+          <li class="list-group-item"><a href="/profile/{{_id}}">{{username}}</a></li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</div>

@@ -20,7 +20,10 @@ const NewsSchema = mongoose.Schema ({
     },  
 }, {
     virtual: true,
-});
+}, {
+    timestamps: true,
+}
+);
 
 NewsSchema.virtual("likes", {
     ref: "Like",
