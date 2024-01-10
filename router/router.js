@@ -14,6 +14,81 @@ const likeController = require('../controllers/like.controller');
 const { toggleLike } = require('../helpers/helpers-hbs');
 
 
+
+const Rating = require('../models/rating.model'); ///////////////////
+
+
+
+
+
+// Ruta para crear una nueva calificación
+router.post('/ratings', async (req, res) => {
+  try {
+    const { user, news, score } = req.body;
+    const newRating = new Rating({ user, news, score });
+    await newRating.save();
+    
+    res.redirect(`/news/${news}`);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
+// Ruta para obtener todas las calificaciones para una noticia específica
+router.get('/ratings/news/:newsId', async (req, res) => {
+  try {
+    const newsId = req.params.newsId;
+    const ratings = await Rating.find({ news: newsId });
+    res.json(ratings);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+
+
+
+
+/////////////////////////////////
+
+const User = require('../models/User.model')  ////////////////////////
+
+
+
+
+// Ruta para eliminar el perfil del usuario
+router.post('/delete-account', async (req, res) => {
+  
+  const userId = req.session.currentUser._id; // Obtén el ID del usuario autenticado
+
+  console.log('ID de usuario actual:', userId);
+
+  try {
+    
+    const deletedUser = await User.findByIdAndDelete(userId);
+
+      res.redirect('/');
+    
+
+   
+
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ message: 'Error al eliminar el perfil del usuario' });
+  }
+});
+
+
+
+
+
+
+//////////////////////////////////////////
+
+
+
+
+
 const GOOGLE_SCOPES = [
   'https://www.googleapis.com/auth/userinfo.email',
   'https://www.googleapis.com/auth/userinfo.profile'
