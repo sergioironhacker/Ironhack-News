@@ -162,7 +162,7 @@ exports.getAntartidaNews = async (req, res) => {
     console.error('Hubo un problema con la solicitud:', error);
     res.render('eapiNews/antartidaNews', { articles: [] });
   }
-};  
+};
 
 
 // cointries 

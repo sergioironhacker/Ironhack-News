@@ -27,13 +27,13 @@
     <!-- Rating -->
     <form id="ratingForm" action="/ratings" method="POST" class="rating-form">
       <fieldset class="rating">
-        <input type="radio" id="star5" name="score" value="5"/><label for="star5" title="5 estrellas"></label>
+        <input type="radio" id="star5" name="score" value="5" /><label for="star5" title="5 estrellas"></label>
         <input type="radio" id="star4" name="score" value="4" /><label for="star4" title="4 estrellas"></label>
         <input type="radio" id="star3" name="score" value="3" /><label for="star3" title="3 estrellas"></label>
         <input type="radio" id="star2" name="score" value="2" /><label for="star2" title="2 estrellas"></label>
         <input type="radio" id="star1" name="score" value="1" /><label for="star1" title="1 estrella"></label>
       </fieldset>
-       <input type="hidden" name="news" value="{{_id}}">
+      <input type="hidden" name="news" value="{{_id}}">
       <button type="submit" class="btn btn-primary">Calificar</button>
     </form>
   </div>

@@ -1,6 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand card-style" href="/">Home</a>
+    <a class="navbar-brand card-style" href="/">Home 
+    <i class="bi bi-house-door-fill"></i>
+    </a>
 
 
 
@@ -16,6 +18,7 @@
             <li class="nav-item dropdown card-style">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
+                 <i class="bi bi-globe"></i> 
                 Select News
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -27,51 +30,53 @@
                 <li><a class="dropdown-item" href="/antartidaNews">Antarctica News</a></li>
               </ul>
             </li>
-                    {{#if currentUser}}
+
+            
+  {{#if currentUser}}
+            
 
             <li class="nav-item">
-              <a class="nav-link active card-style" aria-current="page" href="/profile">Profile</a>
+              <a class="nav-link active card-style" aria-current="page" href="/newsindex">News <i class="bi bi-newspaper"></i></a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link active card-style" aria-current="page" href="/infoCountries">Countries info <i class="bi bi-geo-alt"></i></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active card-style" aria-current="page" href="/newsindex">News</a>
+              <a class="nav-link active card-style" aria-current="page" href="/weather">Weather <i class="bi bi-cloud-sun"></i></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active card-style" aria-current="page" href="/infoCountries">Countries info</a>
+              <a class="nav-link active card-style" aria-current="page" href="/generar-codigo-qr">Help <i class="bi bi-question-circle"></i></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active card-style" aria-current="page" href="/weather">Weather</a>
+              <a class="nav-link active text-danger card-style" aria-current="page" href="/logout">Logout <i class="bi bi-box-arrow-right"></i></a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link active card-style" aria-current="page" href="/generar-codigo-qr">Help</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active text-danger card-style" aria-current="page" href="/logout">Logout</a>
-            </li>
+
       {{!-- esto solo si eres admin --}}
             {{#if currentUser.isAdmin}}
                 <li class="nav-item">
-                  <a class="nav-link active card-style" aria-current="page" href="/admin/userlist">Users</a>
+                  <a class="nav-link active card-style" aria-current="page" href="/admin/userlist">Users <i class="bi bi-people"></i></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active card-style" aria-current="page" href="/admin/index">Admin index</a>
+                  <a class="nav-link active card-style" aria-current="page" href="/admin/index">Admin index <i class="bi bi-gear"></i></a>
                 </li>
             {{/if}}
           {{else}}
             <li class="nav-item">
-              <a class="nav-link active card-style" aria-current="page" href="/register">Register</a>
+              <a class="nav-link active card-style" aria-current="page" href="/register">Register <i class="bi bi-person-plus"></i></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active card-style" aria-current="page" href="/login">Login</a>
+              <a class="nav-link active card-style" aria-current="page" href="/login">Login <i class="bi bi-door-open"></i></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active card-style" aria-current="page" href="/generar-codigo-qr">Ayuda</a>
+              <a class="nav-link active card-style" aria-current="page" href="/generar-codigo-qr">Ayuda <i class="bi bi-question-circle"></i></a>
             </li>
           {{/if}}
       </ul>
       {{#if currentUser}}
       <div class="d-flex align-items-center">
         <span class="{{#if currentUser}}me-3 {{/if}} navbar-text">
-          📰 Hi {{currentUser.username}}
+         <a class="nav-link active card-style" href="/profile"> 📰 Hi {{currentUser.username}} <i class="bi bi-person"></i></a>
         </span>
       </div>
       {{/if}}
