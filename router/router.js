@@ -27,7 +27,7 @@ router.post('/ratings', async (req, res) => {
     const { user, news, score } = req.body;
     const newRating = new Rating({ user, news, score });
     await newRating.save();
-    
+
     res.redirect(`/news/${news}`);
   } catch (error) {
     res.status(400).json({ message: error.message });
@@ -58,19 +58,21 @@ const User = require('../models/User.model')  ////////////////////////
 
 // Ruta para eliminar el perfil del usuario
 router.post('/delete-account', async (req, res) => {
-  
-  const userId = req.session.currentUser._id; // Obtén el ID del usuario autenticado
+
+  const userId = req.session.currentUser._id;
 
   console.log('ID de usuario actual:', userId);
 
   try {
-    
+
     const deletedUser = await User.findByIdAndDelete(userId);
 
-      res.redirect('/');
-    
+    console.log('borro al user');
 
-   
+    res.status(200).send('OK');
+
+
+
 
   } catch (err) {
     console.error(err);
@@ -211,12 +213,12 @@ const axios = require('axios');
 // Define la ruta para obtener el tiempo
 router.get('/weather', async (req, res, next) => {
   try {
-    const city = req.query.city || 'Spain'; 
-    const apiKey = '1144b4b24f28054b05d43e5d00d6df2d'; 
+    const city = req.query.city || 'Spain';
+    const apiKey = '1144b4b24f28054b05d43e5d00d6df2d';
     const weatherResponse = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`);
 
     const weatherData = weatherResponse.data;
-  
+
     res.render('news/weather', { weather: weatherData });
   } catch (error) {
     next(error);

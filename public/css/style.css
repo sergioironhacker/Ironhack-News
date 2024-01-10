@@ -1,30 +1,25 @@
 
 
 .profile-image-label {
-    cursor: pointer;
-    transition: transform 0.3s ease-in-out;
-    display: inline-block;
-  }
-  
-  .profile-image-label:hover .profile-image {
-    transform: scale(1.05);
-  }
-
-
-.profile-image {
-
-    max-height: 300px; 
-    width: 300px; 
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  display: inline-block;
 }
 
+.profile-image-label:hover .profile-image {
+  transform: scale(1.05);
+}
 
+.profile-image {
+  max-height: 300px;
+  width: 300px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
 
 /* // likes  */
 
-
 #likeIcon {
-    font-size: 28px; 
+  font-size: 28px;
 }
 
 .bi-heart-fill {
@@ -34,55 +29,51 @@
 
 @keyframes colorChange {
   0% {
-    color: pink; 
+    color: pink;
   }
   50% {
-    color: rgba(238, 2, 2, 0.486); 
+    color: rgba(238, 2, 2, 0.486);
   }
   100% {
-    color: rgba(252, 167, 180, 0.979); 
+    color: rgba(252, 167, 180, 0.979);
   }
 }
-
 
 /* // reglas del sitio web  */
 
 .rules-container {
   position: fixed;
-  top: 50%; 
-  left: 50%; 
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   background-color: white;
   padding: 20px;
   border: 1px solid #ccc;
-  z-index: 9999; 
-  max-width: 80%; 
+  z-index: 9999;
+  max-width: 80%;
   display: block;
   background-color: #ccc;
   display: flex;
   flex-direction: column;
-  justify-content: center; 
-  align-items: center; 
+  justify-content: center;
+  align-items: center;
   text-align: center;
   list-style: none;
   background-repeat: no-repeat;
   color: black;
 }
 
-
 .rules-container ul {
-  list-style: none; 
+  list-style: none;
   padding: 0;
-  margin: 0; 
-  text-align: left; 
+  margin: 0;
+  text-align: left;
   color: black;
 }
 
 .rules-container button {
-
-  margin-top: 20px; 
+  margin-top: 20px;
   margin-left: 15px;
- 
 }
 
 /* // estilo de las cards */
@@ -91,37 +82,29 @@
   border: none;
   box-shadow: 10px 14px 18px 18px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease-in-out;
- 
 }
 
 .card:hover {
   transform: translateY(-30px);
 }
 
-
-
-
 /* // cambio de colores en la pagina  */
 
-* {
+/* * {
   margin: 0;
   padding: 0;
-
+  background-color: #ffca08;
 }
-
-
-
+ */
 .colores {
-position: absolute;
-right: 0;
-width: 75px;
-height: 100vh;
-display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: column;
-
-
+  position: absolute;
+  right: 0;
+  width: 75px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .colores span {
@@ -151,36 +134,27 @@ flex-direction: column;
   opacity: 1;
 }
 
-
 .card-style {
   border: none;
   box-shadow: 10px 14px 18px 18px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease-in-out;
-  display: inline-block; 
-  padding: 10px; 
-  text-decoration: none; 
-  color: inherit; 
-  border-radius: 8px; 
-  
+  display: inline-block;
+  padding: 10px;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 8px;
 }
 
 .card-style:hover {
-  transform: translateY(-10px); 
+  transform: translateY(-10px);
 }
-
-
-
 
 #map {
   height: 500px;
   width: 100%;
- }
-
-
+}
 
 /* flag  */
-
-
 
 .spain-flag {
   position: relative;
@@ -201,7 +175,6 @@ flex-direction: column;
     opacity: 0;
   }
 }
-
 
 .rating {
   display: inline-block;
@@ -226,10 +199,6 @@ flex-direction: column;
   color: #ffca08;
 }
 
-
-
-
-
 /* Estilos para el contenedor de video */
 .video-like-container {
   width: 500px; /* Ancho deseado */
@@ -243,28 +212,29 @@ flex-direction: column;
   width: 100%;
   height: 100%;
   position: absolute;
-  background: url('/images/banner.jpeg') center/cover no-repeat; /* Imagen que simula el "video" */
+  background: url("/images/banner.jpeg") center/cover no-repeat; /* Imagen que simula el "video" */
   animation: flickerEffect 1s infinite; /* Duración, repetición de la animación */
   transform: translate(-50%, -50%);
 }
 
 /* Definir la animación de flickering */
 @keyframes flickerEffect {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0;
   }
-  10%, 90% {
+  10%,
+  90% {
     opacity: 1;
   }
 }
-
 
 .video-like-screen {
   width: 100%;
   height: 100%;
   position: absolute;
   transform: translate(-50%, -50%);
-  background: url('/images/banner2.png') center/cover no-repeat; /* Imagen que simula el "video" */
+  background: url("/images/banner2.png") center/cover no-repeat; /* Imagen que simula el "video" */
   animation: flickerEffect 3s infinite; /* Duración, repetición de la animación */
 }
 
@@ -282,10 +252,6 @@ flex-direction: column;
 }
 
 
-
-
-
-
-
-
-
+#delete-profile-btn {
+ background-color: rgba(255, 0, 0, 0.201);
+}
