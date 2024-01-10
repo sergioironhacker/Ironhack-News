@@ -47,6 +47,10 @@ const UserSchema = mongoose.Schema({
     likedNews: {
       type: [mongoose.Schema.Types.ObjectId],
       ref: 'News',
+    },
+    commentedNews: {
+      type: [mongoose.Schema.Types.ObjectId],
+      ref: 'News',
     }
   }, {
     timestamps: true,

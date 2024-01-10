@@ -27,6 +27,7 @@
                 <li><a class="dropdown-item" href="/antartidaNews">Antarctica News</a></li>
               </ul>
             </li>
+                    {{#if currentUser}}
 
             <li class="nav-item">
               <a class="nav-link active card-style" aria-current="page" href="/profile">Profile</a>
@@ -46,7 +47,6 @@
             <li class="nav-item">
               <a class="nav-link active text-danger card-style" aria-current="page" href="/logout">Logout</a>
             </li>
-                    {{#if currentUser}}
       {{!-- esto solo si eres admin --}}
             {{#if currentUser.isAdmin}}
                 <li class="nav-item">
