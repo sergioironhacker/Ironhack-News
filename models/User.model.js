@@ -48,7 +48,9 @@ const UserSchema = mongoose.Schema({
       type: [mongoose.Schema.Types.ObjectId],
       ref: 'News',
     }
-  });
+  }, {
+    timestamps: true,
+});
 
   UserSchema.pre('save', function (next) {
     if (this.isModified('password')) {

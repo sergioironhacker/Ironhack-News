@@ -11,113 +11,62 @@
 
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            {{!-- news API --}}
+            <li class="nav-item dropdown card-style">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Select News
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="/news">American News</a></li>
+                <li><a class="dropdown-item" href="/japanNews">Asian News</a></li>
+                <li><a class="dropdown-item" href="/europeNews">Europe News</a></li>
+                <li><a class="dropdown-item" href="/africanNews">Africa News</a></li>
+                <li><a class="dropdown-item" href="/oceaniaNews">Oceania News</a></li>
+                <li><a class="dropdown-item" href="/antartidaNews">Antarctica News</a></li>
+              </ul>
+            </li>
 
-        {{!-- En la home sin registrar y si logear --}}
-
-        <li class="nav-item">
-          <a class="nav-link active card-style" aria-current="page" href="/login">Login</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link active card-style" aria-current="page" href="/register">Register</a>
-        </li>
-
-
-
-
-
-
-        {{#if currentUser}}
-
-
-        <li class="nav-item">
-          <a class="nav-link active card-style" aria-current="page" href="/weather">Weather</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link active card-style" aria-current="page" href="/profile">Profile</a>
-        </li>
-
-
-
-
-        {{!-- esto solo si eres admin --}}
-        {{#if currentUser.isAdmin}}
-        <li class="nav-item">
-          <a class="nav-link active card-style" aria-current="page" href="/admin/userlist">Users</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active card-style" aria-current="page" href="/admin/index">Admin index</a>
-        </li>
-        {{/if}}
-        <li class="nav-item">
-          <a class="nav-link active card-style" aria-current="page" href="/generar-codigo-qr">Help</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active text-danger card-style" aria-current="page" href="/logout">Logout</a>
-        </li>
-        {{else}}
-        <li class="nav-item">
-          <a class="nav-link active card-style" aria-current="page" href="/register">Register</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active card-style" aria-current="page" href="/login">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active card-style" aria-current="page" href="/generar-codigo-qr">Ayuda</a>
-        </li>
-        {{!-- news API --}}
-        <li class="nav-item dropdown card-style">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false">
-            Select News
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="/news">American News</a></li>
-            <li><a class="dropdown-item" href="/japanNews">Asian News</a></li>
-            <li><a class="dropdown-item" href="/europeNews">Europe News</a></li>
-            <li><a class="dropdown-item" href="/africanNews">Africa News</a></li>
-            <li><a class="dropdown-item" href="/oceaniaNews">Oceania News</a></li>
-            <li><a class="dropdown-item" href="/antartidaNews">Antarctica News</a></li>
-          </ul>
-        </li>
-
-
-        <li class="nav-item">
-          <a class="nav-link active card-style" aria-current="page" href="/profile">Profile</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active card-style" aria-current="page" href="/newsindex">News</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active card-style" aria-current="page" href="/infoCountries">Countries info</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active card-style" aria-current="page" href="/weather">Weather</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active card-style" aria-current="page" href="/admin/userlist">Users</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active card-style" aria-current="page" href="/admin/newslist">News list</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active card-style" aria-current="page" href="/generar-codigo-qr">Help</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active text-danger card-style" aria-current="page" href="/logout">Logout</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link active card-style" aria-current="page" href="/register">Register</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active card-style" aria-current="page" href="/login">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active card-style" aria-current="page" href="/generar-codigo-qr">Ayuda</a>
-        </li>
-        {{/if}}
+            <li class="nav-item">
+              <a class="nav-link active card-style" aria-current="page" href="/profile">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active card-style" aria-current="page" href="/newsindex">News</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active card-style" aria-current="page" href="/infoCountries">Countries info</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active card-style" aria-current="page" href="/weather">Weather</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active card-style" aria-current="page" href="/generar-codigo-qr">Help</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active text-danger card-style" aria-current="page" href="/logout">Logout</a>
+            </li>
+                    {{#if currentUser}}
+      {{!-- esto solo si eres admin --}}
+            {{#if currentUser.isAdmin}}
+                <li class="nav-item">
+                  <a class="nav-link active card-style" aria-current="page" href="/admin/userlist">Users</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active card-style" aria-current="page" href="/admin/index">Admin index</a>
+                </li>
+            {{/if}}
+          {{else}}
+            <li class="nav-item">
+              <a class="nav-link active card-style" aria-current="page" href="/register">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active card-style" aria-current="page" href="/login">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active card-style" aria-current="page" href="/generar-codigo-qr">Ayuda</a>
+            </li>
+          {{/if}}
       </ul>
       {{#if currentUser}}
       <div class="d-flex align-items-center">
