@@ -1,4 +1,5 @@
 const Like = require('../models/Like.model');
+const User = require('../models/User.model')
 
 module.exports.doCreate = (req, res, next) => {
     const { newsId } = req.params;
@@ -8,16 +9,21 @@ module.exports.doCreate = (req, res, next) => {
         .then((like) => {
             if (!like) {
                 return Like.create({ user: req.session.currentUser._id, news: newsId })
-                    .then((like) => {
-                        res.redirect(`/news/${newsId}`)
-                    })
+                    .then(() => {
+                        // Update the likedNews array in the User model
+                        return User.findByIdAndUpdate(userId, { $push: { likedNews: newsId } }, { new: true })
+                            .then(() => res.redirect(`/news/${newsId}`));
+                    });
             } else {
                 return Like.findByIdAndDelete(like._id)
                     .then(() => {
-                        res.redirect(`/news/${newsId}`)
-                    })
+                        // Update the likedNews array in the User model
+                        return User.findByIdAndUpdate(userId, { $pull: { likedNews: newsId } }, { new: true })
+                            .then(() => res.redirect(`/news/${newsId}`));
+                    });
             }
         })
-        .catch(next)
+        .catch(next);
+
 
 }

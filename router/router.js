@@ -67,6 +67,9 @@ router.post('/delete-account', async (req, res) => {
 
     const deletedUser = await User.findByIdAndDelete(userId);
 
+
+    
+
     console.log('borro al user');
 
     res.status(200).send('OK');
@@ -172,6 +175,7 @@ router.post("/profile/upload", authMiddleware.isAuthenticated, upload.single('im
 // users
 
 router.get("/profile", authMiddleware.isAuthenticated, usersController.profile);
+router.get("/profile/:id", authMiddleware.isAuthenticated, usersController.otherProfile);
 
 // admin
 

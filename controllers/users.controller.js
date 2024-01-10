@@ -24,6 +24,21 @@ module.exports.profile = (req, res, next) => {
   }
 };
 
+module.exports.otherProfile = (req, res, next) => {
+
+  const { id } = req.params
+
+  User.findById(id)
+  .then(user => {
+    if (user) {
+      res.render('users/other-users', { user } );
+    } else {
+      res.redirect('/login');
+    }
+  })
+  .catch(next)
+}
+
 
 
 module.exports.acceptRules = (req, res, next) => {

@@ -1,0 +1,36 @@
+<h1 class="mt-3">Perfil de {{user.username}}</h1>
+
+ <div class="container profile-container text-center">
+    <h1>{{user.username}}</h1>
+    <img class="profile-image" id="profile-img" src="{{user.picture}}" alt="Profile Image">
+ 
+
+{{!-- Commented News Column --}}
+<div class="container mt-4">
+    <div class="row mt-4 mb-4">
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <h2>Latest Comments</h2>
+      <ul class="list-group">
+        {{#each news}}
+          <li class="list-group-item"><a href="/news/{{_id}}">{{title}}</a>
+          <a class="btn btn-success" href="/admin/news/{{_id}}/update" style="width: fit-content;"><i
+        data-feather="edit"></i></a>
+    <a class="btn btn-danger" href="/admin/news/{{_id}}/delete" style="width: fit-content;"><i
+        data-feather="trash-2"></i></a></li>
+        {{/each}}
+      </ul>
+    </div>
+
+    {{!-- Liked News Column --}}
+    <div class="col-md-4">
+      <h2>Liked news</h2>
+      <ul class="list-group">
+        {{#each user.likedNews}}
+          <li class="list-group-item"><a href="/news/{{_id}}">AAAAAAAAAAA</a></li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</div>
