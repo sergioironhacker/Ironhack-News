@@ -21,31 +21,27 @@ const Rating = require('../models/rating.model'); ///////////////////
 
 
 
-// Ruta para crear una nueva calificación
 router.post('/ratings', async (req, res) => {
   try {
     const { user, news, score } = req.body;
+
     const newRating = new Rating({ user, news, score });
     await newRating.save();
+
+    // Calcular el porcentaje promedio
+    const ratings = await Rating.find({ news });
+    const totalScore = ratings.reduce((acc, rating) => acc + rating.score, 0);
+    const averageScore = totalScore / ratings.length || 0;
+    const percentage = averageScore * 20;
+
+    // Actualizar el porcentaje en la noticia
+    await News.findByIdAndUpdate(news, { $set: { percentage } });
 
     res.redirect(`/news/${news}`);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
 });
-
-// Ruta para obtener todas las calificaciones para una noticia específica
-router.get('/ratings/news/:newsId', async (req, res) => {
-  try {
-    const newsId = req.params.newsId;
-    const ratings = await Rating.find({ news: newsId });
-    res.json(ratings);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-});
-
-
 
 
 
@@ -68,7 +64,7 @@ router.post('/delete-account', async (req, res) => {
     const deletedUser = await User.findByIdAndDelete(userId);
 
 
-    
+
 
     console.log('borro al user');
 

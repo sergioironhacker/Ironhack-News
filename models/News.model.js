@@ -17,7 +17,11 @@ const NewsSchema = mongoose.Schema ({
     image: {
         type: String,
         required: true,
-    },  
+    }, 
+    percentage: {
+        type: Number, 
+        default: 0, 
+    }, 
 }, {
     virtual: true,
 }, {
