@@ -52,9 +52,34 @@ hbs.registerHelper('ifEquals', function(arg1, arg2, options) {
 });
 
 
+
 hbs.registerHelper('formatPercentage', function(percentage) {
-    const roundedStars = Math.round(percentage / 20 * 2) / 2; 
-    return roundedStars.toFixed(1); 
+    
+    const numericPercentage = parseFloat(percentage);
+
+    
+    if (!isNaN(numericPercentage) && isFinite(numericPercentage)) {
+      
+        const formattedPercentage = numericPercentage.toFixed(1);
+
+        
+        return formattedPercentage >= 1 ? formattedPercentage.substring(1) : formattedPercentage;
+    } else {
+
+        return 'Error';
+    }
+});
+
+
+///// helpers necesarios para api del tiempo 
+
+
+hbs.registerHelper('isTemperatureAbove', function (temperature, threshold, options) {
+    return temperature > threshold ? options.fn(this) : options.inverse(this);
+  });
+
+hbs.registerHelper('isTemperatureBelow', function (temperature, threshold, options) {
+    return temperature < threshold ? options.fn(this) : options.inverse(this);
 });
 
 

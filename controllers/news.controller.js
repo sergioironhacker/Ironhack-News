@@ -165,7 +165,7 @@ exports.getAntartidaNews = async (req, res) => {
 };
 
 
-// cointries 
+// countries 
 
 
 module.exports.infoCountries = function (req, res, next) {

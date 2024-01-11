@@ -12,12 +12,9 @@ const spainNewsController = require('../controllers/news.controller');
 const Like = require('../models/Like.model');
 const likeController = require('../controllers/like.controller');
 const { toggleLike } = require('../helpers/helpers-hbs');
-
-
-
-const Rating = require('../models/rating.model'); ///////////////////
-
-
+const Rating = require('../models/rating.model'); 
+const User = require('../models/User.model');
+const axios = require('axios');
 
 
 
@@ -44,14 +41,6 @@ router.post('/ratings', async (req, res) => {
 });
 
 
-
-/////////////////////////////////
-
-const User = require('../models/User.model')  ////////////////////////
-
-
-
-
 // Ruta para eliminar el perfil del usuario
 router.post('/delete-account', async (req, res) => {
 
@@ -63,30 +52,15 @@ router.post('/delete-account', async (req, res) => {
 
     const deletedUser = await User.findByIdAndDelete(userId);
 
-
-
-
     console.log('borro al user');
 
     res.status(200).send('OK');
-
-
-
 
   } catch (err) {
     console.error(err);
     return res.status(500).json({ message: 'Error al eliminar el perfil del usuario' });
   }
 });
-
-
-
-
-
-
-//////////////////////////////////////////
-
-
 
 
 
@@ -97,7 +71,7 @@ const GOOGLE_SCOPES = [
 
 
 
-// home 
+//////// home 
 router.get("/", async (req, res, next) => {
   try {
     const news = await News.find(); // Obtiene todas las noticias creadas por nosotros a modo gracioso
@@ -206,24 +180,39 @@ router.post('/likes/:newsId', authMiddleware.isAuthenticated, likeController.doC
 
 
 
+
+
 // Weather
-
-const axios = require('axios');
-
-// Define la ruta para obtener el tiempo
 router.get('/weather', async (req, res, next) => {
   try {
-    const city = req.query.city || 'Spain';
-    const apiKey = '1144b4b24f28054b05d43e5d00d6df2d';
-    const weatherResponse = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`);
+    const city = req.query.city || 'Spain'; // Obtén la ciudad de la consulta o usa 'Spain' por defecto
+    const apiKey = '0f4b0edc8f284cdb437507a5ebefadca';
 
-    const weatherData = weatherResponse.data;
+    const weatherResponse = await axios.get(`http://api.weatherstack.com/current?access_key=${apiKey}&query=${city}`);
+
+    const weatherData = {
+      name: weatherResponse.data.location.name,
+      main: {
+        temp: weatherResponse.data.current.temperature,
+        feels_like: weatherResponse.data.current.feelslike,
+      },
+      wind: {
+        speed: weatherResponse.data.current.wind_speed,
+      },
+      cloudcover: weatherResponse.data.current.cloudcover,
+      humidity: weatherResponse.data.current.humidity,
+      // ... Agrega otros campos según la estructura de la respuesta de WeatherStack
+    };
 
     res.render('news/weather', { weather: weatherData });
   } catch (error) {
     next(error);
   }
 });
+
+
+
+module.exports = router;
 
 
 

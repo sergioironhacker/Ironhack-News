@@ -1,34 +1,37 @@
 <div class="container">
-    <div class="card mt-4">
+    <div class="card mt-4" style="background-color: #eee199bb;">
         <h1 class="card-header">Weather Information for <span id="weatherName">{{weather.name}}</span></h1>
         <div class="card-body">
+            <form action="/weather" method="GET" class="mb-3">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Enter city" name="city">
+                    <button class="btn btn-dark" type="submit" style="background-color: #d6b80a;">Search</button>
+                </div>
+            </form>
             <div class="row">
                 <div class="col-md-6">
                     <p><strong>Temperature:</strong> <span id="temperature">{{weather.main.temp}} &#8451;</span></p>
                     <p><strong>Feels Like:</strong> <span id="feelsLike">{{weather.main.feels_like}} &#8451;</span></p>
-                    <p><strong>Minimum Temperature:</strong> <span id="minTemperature">{{weather.main.temp_min}} &#8451;</span></p>
-                    <p><strong>Maximum Temperature:</strong> <span id="maxTemperature">{{weather.main.temp_max}} &#8451;</span></p>
-                    <p><strong>Pressure:</strong> <span id="pressure">{{weather.main.pressure}} hPa</span></p>
-                    <p><strong>Humidity:</strong> <span id="humidity">{{weather.main.humidity}}%</span></p>
                     <p><strong>Wind Speed:</strong> <span id="windSpeed">{{weather.wind.speed}} m/s</span></p>
-                    <p><strong>Cloudiness:</strong> <span id="cloudiness">{{weather.clouds.all}}%</span></p>
+                    <p><strong>Cloud Cover:</strong> <span id="cloudCover">{{weather.cloudcover}}%</span></p>
+                    <p><strong>Humidity:</strong> <span id="humidity">{{weather.humidity}}%</span></p>
                 </div>
                 <div class="col-md-6">
-                    <img src="https://openweathermap.org/img/wn/01d.png" alt="Weather Icon" class="img-fluid">
-                    <p>Clear sky</p>
-                    <div class="d-flex align-items-center">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/1200px-Flag_of_Spain.svg.png"
-                            alt="Flag of Spain" class="img-fluid spain-flag" onclick="reloadPage()">
+                    <div class="col-md-6">
+
+                        {{#isTemperatureAbove weather.main.temp 20}}
+                        <img src="https://cdn-icons-png.flaticon.com/512/979/979585.png" alt="Weather Icon"
+                            class="img-fluid" style="width: 200px; height: 200px;">
+                        {{else isTemperatureBelow weather.main.temp 0}}
+                        <img src="https://creazilla-store.fra1.digitaloceanspaces.com/emojis/49468/snowflake-emoji-clipart-md.png"
+                            alt="Weather Icon" class="img-fluid" style="width: 200px; height: 200px;">
+                        {{else}}
+                        <img src="https://cdn-icons-png.flaticon.com/512/1838/1838873.png" alt="Weather Icon"
+                            class="img-fluid" style="width: 200px; height: 200px;">
+                        {{/isTemperatureAbove}}
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
-<script>
-    function reloadPage() {
-        location.reload(true); 
-    }
-</script>
