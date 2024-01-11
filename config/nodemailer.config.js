@@ -1,4 +1,5 @@
 const nodemailer = require('nodemailer');
+const mongoose = require('mongoose');
 
 module.exports.transporter = nodemailer.createTransport({
   service: 'gmail',
@@ -31,3 +32,13 @@ module.exports.createEmailTemplate = (user) => {
   </div>
     `;
 };
+
+
+
+const subscriptionSchema = new mongoose.Schema({
+  email: { type: String, required: true,  },
+});
+
+const Subscription = mongoose.model('Subscription', subscriptionSchema);
+
+module.exports.Subscription = Subscription;

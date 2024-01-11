@@ -7,6 +7,7 @@ const passport = require("passport");
 
 
 
+
 require('./config/db.config');
 require("./config/passport.config");
 require('./helpers/helpers-hbs')
@@ -46,6 +47,7 @@ app.use((err, req, res, next) => {
 });
 
 
+///// helpers para rating 
 
 hbs.registerHelper('ifEquals', function(arg1, arg2, options) {
     return (arg1 === arg2) ? options.fn(this) : options.inverse(this);

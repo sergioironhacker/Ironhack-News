@@ -15,6 +15,9 @@ const { toggleLike } = require('../helpers/helpers-hbs');
 const Rating = require('../models/rating.model'); 
 const User = require('../models/User.model');
 const axios = require('axios');
+const { Subscription } = require('../config/nodemailer.config');
+const { transporter, createEmailTemplate } = require('../config/nodemailer.config');
+
 
 
 
@@ -25,13 +28,11 @@ router.post('/ratings', async (req, res) => {
     const newRating = new Rating({ user, news, score });
     await newRating.save();
 
-    // Calcular el porcentaje promedio
     const ratings = await Rating.find({ news });
     const totalScore = ratings.reduce((acc, rating) => acc + rating.score, 0);
     const averageScore = totalScore / ratings.length || 0;
     const percentage = averageScore * 20;
 
-    // Actualizar el porcentaje en la noticia
     await News.findByIdAndUpdate(news, { $set: { percentage } });
 
     res.redirect(`/news/${news}`);
@@ -71,7 +72,7 @@ const GOOGLE_SCOPES = [
 
 
 
-//////// home 
+// home 
 router.get("/", async (req, res, next) => {
   try {
     const news = await News.find(); // Obtiene todas las noticias creadas por nosotros a modo gracioso
@@ -158,8 +159,6 @@ router.get("/admin/news/:id/delete", authMiddleware.isAuthenticated, authMiddlew
 router.get("/admin/news/:id/update", authMiddleware.isAuthenticated, authMiddleware.isAdmin, adminController.update);
 router.post("/admin/news/:id/update", authMiddleware.isAuthenticated, authMiddleware.isAdmin, upload.single('image'), adminController.doUpdate);
 
-
-
 // QR
 
 router.get('/generar-codigo-qr', usersController.qr);
@@ -173,19 +172,12 @@ router.post('/comments/:id/create', authMiddleware.isAuthenticated, commentsCont
 
 // likes
 
-
-
 router.post('/likes/:newsId', authMiddleware.isAuthenticated, likeController.doCreate);
 
-
-
-
-
-
-// Weather
+// Weather API
 router.get('/weather', async (req, res, next) => {
   try {
-    const city = req.query.city || 'Spain'; // Obtén la ciudad de la consulta o usa 'Spain' por defecto
+    const city = req.query.city || 'Spain'; 
     const apiKey = '0f4b0edc8f284cdb437507a5ebefadca';
 
     const weatherResponse = await axios.get(`http://api.weatherstack.com/current?access_key=${apiKey}&query=${city}`);
@@ -201,7 +193,7 @@ router.get('/weather', async (req, res, next) => {
       },
       cloudcover: weatherResponse.data.current.cloudcover,
       humidity: weatherResponse.data.current.humidity,
-      // ... Agrega otros campos según la estructura de la respuesta de WeatherStack
+  
     };
 
     res.render('news/weather', { weather: weatherData });
@@ -212,7 +204,36 @@ router.get('/weather', async (req, res, next) => {
 
 
 
-module.exports = router;
+// newsletter
+
+router.post('/subscribe', async (req, res) => {
+  const email = req.body.email;
+
+  try {
+  
+
+    
+   
+    const newSubscription = new Subscription({ email });
+    await newSubscription.save();
+
+  
+    const emailContent = createEmailTemplate({ username: 'Subscriber', activationToken: 'your-activation-token' }); // Puedes ajustar los valores según sea necesario
+    await transporter.sendMail({
+      from: process.env.NODEMAILER_EMAIL,
+      to: email,
+      subject: 'Confirmación de Suscripción',
+      html: emailContent,
+    });
+
+    res.render('users/profile', { email });
+  } catch (error) {
+    console.error(error);
+   
+  }
+});
+
+
 
 
 
