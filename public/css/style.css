@@ -269,3 +269,19 @@
 .strong-percentage {
   font-weight: bold;
 }
+
+
+.icon-button {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.icon-button:hover {
+  transform: scale(1.1);
+}
+
+.icon {
+  margin-right: 8px;
+}

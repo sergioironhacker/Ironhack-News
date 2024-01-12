@@ -1,7 +1,7 @@
 const passport = require("passport");
 const mongoose = require("mongoose");
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-
+const GitHubStrategy = require('passport-github2').Strategy;
 const User = require("../models/User.model");
 
 passport.serializeUser((user, next) => {
@@ -53,3 +53,46 @@ passport.use('google-auth', new GoogleStrategy({
     next(null, null, { error: 'Error connecting with Google OAuth' });
   }
 }))
+
+
+// auth githun
+
+passport.use('github-auth', new GitHubStrategy({
+  clientID: process.env.GITHUB_CLIENT_ID,
+  clientSecret: process.env.GITHUB_CLIENT_SECRET,
+  callbackURL: process.env.GITHUB_REDIRECT_URI || '/auth/github/callback',
+}, (accessToken, refreshToken, profile, next) => {
+  const githubID = profile.id;
+  const email = profile.emails && profile.emails.length > 0 ? profile.emails[0].value : undefined;
+  const username = profile.username;
+  const picture = profile.photos && profile.photos.length > 0 ? profile.photos[0].value : undefined;
+
+  if (githubID && email) {
+    User.findOne({ $or: [
+      { email: email },
+      { githubID: githubID }
+    ]})
+      .then(user => {
+        if (!user) {
+          const newUserInstance = new User({
+            email,
+            username,
+            picture,
+            password: new mongoose.Types.ObjectId(),
+            githubID: githubID,
+            isActive: true
+          });
+
+          return newUserInstance.save()
+            .then(newUser => next(null, newUser));
+        } else {
+          next(null, user);
+        }
+      })
+      .catch((err) => {
+        next(err);
+      });
+  } else {
+    next(null, null, { error: 'Error connecting with GitHub OAuth' });
+  }
+}));

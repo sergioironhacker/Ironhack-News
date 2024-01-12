@@ -71,7 +71,7 @@ router.get("/news/:id", authMiddleware.isAuthenticated, newsController.details);
 
 
 
-// auth
+// auth google
 
 router.get("/login", authMiddleware.isNotAuthenticated, authController.login);
 router.post("/login", authMiddleware.isNotAuthenticated, authController.doLogin);
@@ -79,6 +79,15 @@ router.get("/register", authMiddleware.isNotAuthenticated, authController.regist
 router.post("/register", authMiddleware.isNotAuthenticated, authController.doRegister);
 router.get("/logout", authMiddleware.isAuthenticated, authController.logout);
 router.get("/activate/:token", authController.activate);
+
+
+// auth github 
+
+router.get('/auth/github', passport.authenticate('github-auth'));
+router.get('/auth/github/callback', passport.authenticate('github-auth', {
+  successRedirect: '/', 
+  failureRedirect: '/login', 
+}));
 
 
 // ruta para aceptar las normas 

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand card-style" href="/">Home 
-    <i class="bi bi-house-door-fill"></i>
+    <a class="navbar-brand card-style" href="/">Home
+      <i class="bi bi-house-door-fill text-warning"></i>
     </a>
 
 
@@ -13,73 +13,117 @@
 
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          {{!-- news API --}}
+        <li class="nav-item dropdown card-style">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <i class="bi bi-globe"></i>
+            Select News
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/news">American News</a></li>
+            <li><a class="dropdown-item" href="/japanNews">Asian News</a></li>
+            <li><a class="dropdown-item" href="/europeNews">Europe News</a></li>
+            <li><a class="dropdown-item" href="/africanNews">Africa News</a></li>
+            <li><a class="dropdown-item" href="/oceaniaNews">Oceania News</a></li>
+            <li><a class="dropdown-item" href="/antartidaNews">Antarctica News</a></li>
+          </ul>
+        </li>
+
+
+
+
+
+        {{#if currentUser}}
+
+
+        <li class="nav-item">
+          <a class="nav-link active card-style" aria-current="page" href="/newsindex">News <i
+              class="bi bi-newspaper"></i></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active card-style" aria-current="page" href="/infoCountries">Countries info <i
+              class="bi bi-geo-alt  text-success"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active card-style" aria-current="page" href="/weather">Weather <i
+              class="bi bi-cloud-sun text-primary">
+            </i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active card-style" aria-current="page" href="/generar-codigo-qr">Help <i
+              class="bi bi-question-circle " style="color: #fffb00;"></i></a>
+        </li>
+
+
+        <li class="nav-item">
+          <a class="nav-link active text-danger card-style" aria-current="page" href="/logout">Logout <i
+              class="bi bi-box-arrow-right"></i></a>
+        </li>
+
+
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            {{!-- news API --}}
-            <li class="nav-item dropdown card-style">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                 <i class="bi bi-globe"></i> 
-                Select News
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="/news">American News</a></li>
-                <li><a class="dropdown-item" href="/japanNews">Asian News</a></li>
-                <li><a class="dropdown-item" href="/europeNews">Europe News</a></li>
-                <li><a class="dropdown-item" href="/africanNews">Africa News</a></li>
-                <li><a class="dropdown-item" href="/oceaniaNews">Oceania News</a></li>
-                <li><a class="dropdown-item" href="/antartidaNews">Antarctica News</a></li>
-              </ul>
-            </li>
-
-            
-  {{#if currentUser}}
-            
-
-            <li class="nav-item">
-              <a class="nav-link active card-style" aria-current="page" href="/newsindex">News <i class="bi bi-newspaper"></i></a>
-            </li>
-            
-            <li class="nav-item">
-              <a class="nav-link active card-style" aria-current="page" href="/infoCountries">Countries info <i class="bi bi-geo-alt"></i></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active card-style" aria-current="page" href="/weather">Weather <i class="bi bi-cloud-sun"> </i></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active card-style" aria-current="page" href="/generar-codigo-qr">Help <i class="bi bi-question-circle"></i></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active text-danger card-style" aria-current="page" href="/logout">Logout <i class="bi bi-box-arrow-right"></i></a>
-            </li>
-
-      {{!-- esto solo si eres admin --}}
-            {{#if currentUser.isAdmin}}
-                <li class="nav-item">
-                  <a class="nav-link active card-style" aria-current="page" href="/admin/userlist">Users <i class="bi bi-people"></i></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link active card-style" aria-current="page" href="/admin/index">Admin index <i class="bi bi-gear"></i></a>
-                </li>
-            {{/if}}
-          {{else}}
-            <li class="nav-item">
-              <a class="nav-link active card-style" aria-current="page" href="/register">Register <i class="bi bi-person-plus"></i></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active card-style" aria-current="page" href="/login">Login <i class="bi bi-door-open"></i></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active card-style" aria-current="page" href="/generar-codigo-qr">Ayuda <i class="bi bi-question-circle"></i></a>
-            </li>
-          {{/if}}
-      </ul>
-      {{#if currentUser}}
-      <div class="d-flex align-items-center">
-        <span class="{{#if currentUser}}me-3 {{/if}} navbar-text">
-         <a class="nav-link active card-style" href="/profile"> 📰 Hi {{currentUser.username}} <i class="bi bi-person"></i></a>
-        </span>
-      </div>
-      {{/if}}
+          <li class="nav-item">
+            <a class="nav-link btn btn-dark btn-sm" href="tel:+123456789"> Contact Us
+              <i class="bi bi-phone text-success "></i>
+            </a>
+          </li>
+          </li>
+        </ul>
     </div>
+
+
+    {{!-- esto solo si eres admin --}}
+    {{#if currentUser.isAdmin}}
+    <li class="nav-item">
+      <a class="nav-link active card-style" aria-current="page" href="/admin/userlist">Users <i
+          class="bi bi-people"></i></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active card-style" aria-current="page" href="/admin/index">Admin index <i
+          class="bi bi-gear"></i></a>
+    </li>
+    {{/if}}
+    {{else}}
+    <li class="nav-item">
+      <a class="nav-link active card-style" aria-current="page" href="/register">Register <i
+          class="bi bi-person-plus text-primary"></i></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active card-style" aria-current="page" href="/login">Login <i class="bi bi-door-open"></i></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active card-style" aria-current="page" href="/generar-codigo-qr">Help
+        <i class="bi bi-question-circle" style="color: #fffb00;"></i></a>
+    </li>
+
+
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+      <li class="nav-item">
+        <a class="nav-link btn btn-dark btn-sm" href="tel:+123456789"> Contact Us
+          <i class="bi bi-phone text-success "></i>
+        </a>
+      </li>
+      </li>
+    </ul>
+  </div>
+
+
+
+  {{/if}}
+  </ul>
+  {{#if currentUser}}
+  <div class="d-flex align-items-center">
+    <span class="{{#if currentUser}}me-3 {{/if}} navbar-text">
+      <a class="nav-link active card-style" href="/profile"> 📰 Hi {{currentUser.username}} <i
+          class="bi bi-person"></i></a>
+    </span>
+  </div>
+  {{/if}}
+  </div>
   </div>
 </nav>
