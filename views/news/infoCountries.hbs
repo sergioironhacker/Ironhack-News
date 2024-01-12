@@ -1,27 +1,34 @@
-<div class="container text-center mt-4">
-  <h1 class="display-4">🗺️</h1>
-</div>
+<div class="container mt-5" > 
+    <div class="card text-center" style="background: linear-gradient(to right, #4c669f, #a7b2ca);">
+        <div class="card-header">
+            <h1 class="display-4">🗺️</h1>
+        </div>
+        <div class="card-body">
+            <div class="input-group mb-3">
+                <input id="country-name-input" type="text" class="form-control" placeholder="Enter country name" />
+                <button id="get-country-btn" class="btn btn-dark">Get the country</button>
+            </div>
 
-<div class="text-center mt-4">
-        <input id="country-name-input" type="text" />
-        <button id="get-country-btn">Get the country</button>
-    </div>
+            <h2 id="country-name"></h2>
+            <p id="country-capital"></p>
+            <p id="country-population"></p>
+            <p id="country-area"></p>
+            <p id="country-code"></p>
+            <p id="country-region"></p>
+            <p id="country-currencies"></p>
+            <p id="country-languages"></p>
+            <p id="country-borders"></p>
+            <p id="country-timezones"></p>
+            <p id="country-callcode"></p>
 
-    <h2 id="country-name"></h2>
-    <p id="country-capital"></p>
-    <p id="country-population"></p>
-    <p id="country-area"></p>
-    <p id="country-code"></p>
-    <p id="country-region"></p>
-    <p id="country-currencies"></p>
-    <p id="country-languages"></p>
-    <p id="country-borders"></p>
-    <p id="country-timezones"></p>
-    <p id="country-callcode"></p>
-
-    <div>
+            <div>
         <img id="country-flag" src="" height="200px" />
     </div>
+        </div>
+    </div>
+</div>
+
+    
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="/index.js"></script>

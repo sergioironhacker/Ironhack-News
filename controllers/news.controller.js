@@ -3,6 +3,7 @@ const apiKey = process.env.NEWS_API_KEY;
 const mongoose = require('mongoose');
 const News = require('../models/News.model');
 const User = require('../models/User.model');
+const axios = require('axios');
 
 
 
@@ -47,7 +48,7 @@ module.exports.details = (req, res, next) => {
 
 //API news
 
-exports.getNews = async (req, res) => {
+module.exports.getNews = async (req, res) => {
   try {
     const response = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`);
     if (!response.ok) {
@@ -64,10 +65,7 @@ exports.getNews = async (req, res) => {
 
 
 
-// japan news 
-
-
-exports.getJapanNews = async (req, res) => {
+module.exports.getJapanNews = async (req, res) => {
   try {
     const apiKey = process.env.API_KEY;
 
@@ -86,7 +84,7 @@ exports.getJapanNews = async (req, res) => {
 
 
 
-exports.getSpainNews = async (req, res) => {
+module.exports.getSpainNews = async (req, res) => {
   try {
     const apiKey = process.env.API_KEY;
 
@@ -105,7 +103,7 @@ exports.getSpainNews = async (req, res) => {
 
 
 
-exports.getOceaniaNews = async (req, res) => {
+module.exports.getOceaniaNews = async (req, res) => {
   try {
     const apiKey = process.env.API_KEY;
 
@@ -125,7 +123,7 @@ exports.getOceaniaNews = async (req, res) => {
 
 
 
-exports.getafricanNews = async (req, res) => {
+module.exports.getafricanNews = async (req, res) => {
   try {
     const apiKey = process.env.API_KEY;
 
@@ -147,7 +145,7 @@ exports.getafricanNews = async (req, res) => {
 
 
 
-exports.getAntartidaNews = async (req, res) => {
+module.exports.getAntartidaNews = async (req, res) => {
   try {
     const apiKey = process.env.API_KEY;
 
@@ -165,7 +163,7 @@ exports.getAntartidaNews = async (req, res) => {
 };
 
 
-// countries 
+// countries info
 
 
 module.exports.infoCountries = function (req, res, next) {
@@ -175,3 +173,35 @@ module.exports.infoCountries = function (req, res, next) {
     .catch(error => next(error));
 }
 
+
+
+
+// weather 
+
+
+module.exports.weather = async (req, res, next) => {
+  try {
+    const city = req.query.city || 'Spain'; 
+    const apiKey = '0f4b0edc8f284cdb437507a5ebefadca';
+
+    const weatherResponse = await axios.get(`http://api.weatherstack.com/current?access_key=${apiKey}&query=${city}`);
+
+    const weatherData = {
+      name: weatherResponse.data.location.name,
+      main: {
+        temp: weatherResponse.data.current.temperature,
+        feels_like: weatherResponse.data.current.feelslike,
+      },
+      wind: {
+        speed: weatherResponse.data.current.wind_speed,
+      },
+      cloudcover: weatherResponse.data.current.cloudcover,
+      humidity: weatherResponse.data.current.humidity,
+  
+    };
+
+    res.render('news/weather', { weather: weatherData });
+  } catch (error) {
+    next(error);
+  }
+};

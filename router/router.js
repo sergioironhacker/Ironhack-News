@@ -12,59 +12,11 @@ const spainNewsController = require('../controllers/news.controller');
 const Like = require('../models/Like.model');
 const likeController = require('../controllers/like.controller');
 const { toggleLike } = require('../helpers/helpers-hbs');
-const Rating = require('../models/rating.model'); 
+const Rating = require('../models/rating.model');
 const User = require('../models/User.model');
 const axios = require('axios');
 const { Subscription } = require('../config/nodemailer.config');
 const { transporter, createEmailTemplate } = require('../config/nodemailer.config');
-
-
-
-
-router.post('/ratings', async (req, res) => {
-  try {
-    const { user, news, score } = req.body;
-
-    const newRating = new Rating({ user, news, score });
-    await newRating.save();
-
-    const ratings = await Rating.find({ news });
-    const totalScore = ratings.reduce((acc, rating) => acc + rating.score, 0);
-    const averageScore = totalScore / ratings.length || 0;
-    const percentage = averageScore * 20;
-
-    await News.findByIdAndUpdate(news, { $set: { percentage } });
-
-    res.redirect(`/news/${news}`);
-  } catch (error) {
-    res.status(400).json({ message: error.message });
-  }
-});
-
-
-// Ruta para eliminar el perfil del usuario
-router.post('/delete-account', async (req, res) => {
-
-  const userId = req.session.currentUser._id;
-
-  console.log('ID de usuario actual:', userId);
-
-  try {
-
-    const deletedUser = await User.findByIdAndDelete(userId);
-
-    console.log('borro al user');
-
-    res.status(200).send('OK');
-
-  } catch (err) {
-    console.error(err);
-    return res.status(500).json({ message: 'Error al eliminar el perfil del usuario' });
-  }
-});
-
-
-
 const GOOGLE_SCOPES = [
   'https://www.googleapis.com/auth/userinfo.email',
   'https://www.googleapis.com/auth/userinfo.profile'
@@ -72,7 +24,9 @@ const GOOGLE_SCOPES = [
 
 
 
+
 // home 
+
 router.get("/", async (req, res, next) => {
   try {
     const news = await News.find(); // Obtiene todas las noticias creadas por nosotros a modo gracioso
@@ -175,32 +129,7 @@ router.post('/comments/:id/create', authMiddleware.isAuthenticated, commentsCont
 router.post('/likes/:newsId', authMiddleware.isAuthenticated, likeController.doCreate);
 
 // Weather API
-router.get('/weather', async (req, res, next) => {
-  try {
-    const city = req.query.city || 'Spain'; 
-    const apiKey = '0f4b0edc8f284cdb437507a5ebefadca';
-
-    const weatherResponse = await axios.get(`http://api.weatherstack.com/current?access_key=${apiKey}&query=${city}`);
-
-    const weatherData = {
-      name: weatherResponse.data.location.name,
-      main: {
-        temp: weatherResponse.data.current.temperature,
-        feels_like: weatherResponse.data.current.feelslike,
-      },
-      wind: {
-        speed: weatherResponse.data.current.wind_speed,
-      },
-      cloudcover: weatherResponse.data.current.cloudcover,
-      humidity: weatherResponse.data.current.humidity,
-  
-    };
-
-    res.render('news/weather', { weather: weatherData });
-  } catch (error) {
-    next(error);
-  }
-});
+router.get('/weather', authMiddleware.isAuthenticated, newsController.weather);
 
 
 
@@ -210,14 +139,11 @@ router.post('/subscribe', async (req, res) => {
   const email = req.body.email;
 
   try {
-  
 
-    
-   
     const newSubscription = new Subscription({ email });
     await newSubscription.save();
 
-  
+
     const emailContent = createEmailTemplate({ username: 'Subscriber', activationToken: 'your-activation-token' }); // Puedes ajustar los valores según sea necesario
     await transporter.sendMail({
       from: process.env.NODEMAILER_EMAIL,
@@ -229,12 +155,56 @@ router.post('/subscribe', async (req, res) => {
     res.render('users/profile', { email });
   } catch (error) {
     console.error(error);
-   
+
+  }
+});
+
+// rating 
+
+
+router.post('/ratings', async (req, res) => {
+  try {
+    const { user, news, score } = req.body;
+
+    const newRating = new Rating({ user, news, score });
+    await newRating.save();
+
+    const ratings = await Rating.find({ news });
+    const totalScore = ratings.reduce((acc, rating) => acc + rating.score, 0);
+    const averageScore = totalScore / ratings.length || 0;
+    const percentage = averageScore * 20;
+
+    await News.findByIdAndUpdate(news, { $set: { percentage } });
+
+    res.redirect(`/news/${news}`);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
   }
 });
 
 
 
+// Ruta para eliminar el perfil del usuario
+
+router.post('/delete-account', async (req, res) => {
+
+  const userId = req.session.currentUser._id;
+
+  console.log('ID de usuario actual:', userId);
+
+  try {
+
+    const deletedUser = await User.findByIdAndDelete(userId);
+
+    console.log('borro al user');
+
+    res.status(200).send('OK');
+
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ message: 'Error al eliminar el perfil del usuario' });
+  }
+});
 
 
 

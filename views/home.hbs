@@ -1,20 +1,21 @@
 <div class="main">
   <section class="hero-section section mt-5">
     <div class="container text-center">
-      <h1 class="display-3" id="username">Welcome {{currentUser.username}}</h1>
-      <p class="lead">Welcome to Ironhack-news 🌎</p>
+       <h1 class="display-4">Welcome</h1>
+       <br>
+      <h3 class="display-4" id="username">{{currentUser.username}}</h3>
+      <br>
+      <p class="lead"style="font-size: xx-large;">Welcome to Ironhack-news 🌎</p>
     </div>
   </section>
-  <br>
 
-  {{!-- nuestras noticias propias
-  --}}
+  
+
 
 
   <div class="container text-center mt-4">
-    <h1 class="display-4">Our News</h1>
-  </div>
-  <br>
+    <h1 class="display-4 font-weight-bold text-dark">Breaking <span class="text-danger">News</span></h1>
+</div>
 
 
 
@@ -52,10 +53,6 @@
     </div>
     {{/each}}
   </div>
-
-
-
-
 
 
   {{!-- Función para generar un color del usuario aleatorio en formato hexadecimal --}}

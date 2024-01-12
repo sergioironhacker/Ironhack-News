@@ -1,12 +1,15 @@
-<div class="container mt-4">
-  <h1 class="display-4">Our News</h1>
-</div>
+ <h1 class="display-2 text-center " style="margin-top: 1rem;">Our News</h1>
+
+<div class="container mt-5 text-center">
+ 
 
 
- <div class="card news-card w-100 h-100 d-flex flex-column"></div>
+
+ <div class="card news-card w-100 h-100 d-flex flex-column">
   {{#each news as |news|}}
-    <div class="col">
+    <div class="col mb-4">
       {{> card news=news}}
     </div>
   {{/each}}
+</div>
 </div>
