@@ -1,4 +1,4 @@
-const comment = require('../models/Comment.model');
+const Comment = require('../models/comment.model');
 
 module.exports.doCreate = (req, res, next) => {
 
@@ -16,9 +16,9 @@ module.exports.doCreate = (req, res, next) => {
 module.exports.delete = (req, res, next) => {
     const { id } = req.params;
   
-    comment.findByIdAndDelete(id)
+    Comment.findByIdAndDelete(id)
       .then((comment) => {
-        res.redirect(`/news/${comment.news}`);
+        res.redirect(`/news/${Comment.news}`);
       })
       .catch(next)
   }
