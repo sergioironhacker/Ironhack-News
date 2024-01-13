@@ -1,4 +1,4 @@
-/* const Rating = require('../models/rating.model');
+/* const Rating = require('../models/Rating.model');
 
 module.exports.doCreateRating = (req, res, next) => {
     const { newsId } = req.params;
