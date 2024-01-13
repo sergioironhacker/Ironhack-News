@@ -17,7 +17,7 @@ const User = require('../models/User.model');
 const axios = require('axios');
 const { Subscription } = require('../config/nodemailer.config');
 const { transporter, createEmailTemplate } = require('../config/nodemailer.config');
-/* const Comment = require('../models/Comment.model'); */
+const Comment = require('./Comment.model');
 const GOOGLE_SCOPES = [
   'https://www.googleapis.com/auth/userinfo.email',
   'https://www.googleapis.com/auth/userinfo.profile'
