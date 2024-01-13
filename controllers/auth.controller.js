@@ -1,10 +1,9 @@
-const mongoose = require('mongoose');
-const User = require('../models/User.model');
+const mongoose = require("mongoose");
+const User = require("../models/User.model");
 const passport = require("passport");
 
-
 module.exports.register = (req, res, next) => {
-  res.render('auth/register');
+  res.render("auth/register");
 };
 
 module.exports.doRegister = (req, res, next) => {
@@ -13,13 +12,13 @@ module.exports.doRegister = (req, res, next) => {
   User.findOne({ email })
     .then((dbUser) => {
       if (dbUser) {
-        res.render('auth/register', {
+        res.render("auth/register", {
           user: {
             email,
             username,
           },
           errors: {
-            email: 'Email already registered!',
+            email: "Email already registered!",
           },
         });
       } else {
@@ -32,28 +31,28 @@ module.exports.doRegister = (req, res, next) => {
             const {
               transporter,
               createEmailTemplate,
-            } = require('../config/nodemailer.config');
+            } = require("../config/nodemailer.config");
 
             transporter.sendMail(
               {
                 from: process.env.NODEMAILER_EMAIL,
                 to: email,
-                subject: 'Ironhack-news - Validation your email',
+                subject: "Ironhack-news - Validation your email",
                 html: createEmailTemplate(userCreated),
               },
               function (error, info) {
                 if (error) {
-                  console.log('Nodemailer error: ', error);
+                  console.log("Nodemailer error: ", error);
                 } else {
-                  console.log('Email sent: ' + info.response);
+                  console.log("Email sent: " + info.response);
                 }
-                res.redirect('/login');
+                res.redirect("/login");
               }
             );
           })
           .catch((error) => {
             if (error instanceof mongoose.Error.ValidationError) {
-              res.render('auth/register', {
+              res.render("auth/register", {
                 user: {
                   email,
                   username,
@@ -73,25 +72,29 @@ module.exports.doRegister = (req, res, next) => {
 
 module.exports.activate = (req, res, next) => {
   const { token } = req.params;
-  User.findOneAndUpdate({ activationToken: token }, { isActive: true }, { new: true })
+  User.findOneAndUpdate(
+    { activationToken: token },
+    { isActive: true },
+    { new: true }
+  )
     .then((dbUser) => {
-      res.render('auth/login', { email: dbUser.email });
+      res.render("auth/login", { email: dbUser.email });
     })
     .catch((error) => next(error));
 };
 
 module.exports.login = (req, res, next) => {
-  res.render('auth/login', { errors: false });
+  res.render("auth/login", { errors: false });
 };
 
 module.exports.doLogin = (req, res, next) => {
   const { email, password } = req.body;
 
   const renderWithErrors = (msg) => {
-    res.render('auth/login', {
+    res.render("auth/login", {
       email,
       errors: {
-        msg: msg || 'Email or password are incorrect',
+        msg: msg || "Email or password are incorrect",
       },
     });
   };
@@ -111,10 +114,10 @@ module.exports.doLogin = (req, res, next) => {
                 renderWithErrors();
               } else {
                 if (!dbUser.isActive) {
-                  renderWithErrors('User not active');
+                  renderWithErrors("User not active");
                 } else {
                   req.session.currentUser = dbUser;
-                  res.redirect('/profile');
+                  res.redirect("/profile");
                 }
               }
             })
@@ -125,27 +128,28 @@ module.exports.doLogin = (req, res, next) => {
   }
 };
 
-
 module.exports.doLoginGoogle = (req, res, next) => {
-  passport.authenticate('google-auth', (error, user, validations) => {
+  passport.authenticate("google-auth", (error, user, validations) => {
     if (error) {
       next(error);
     } else if (!user) {
-      res.status(400).render('auth/login', { user: req.body, error: validations });
+      res
+        .status(400)
+        .render("auth/login", { user: req.body, error: validations });
     } else {
-      req.login(user, loginErr => {
-        if (loginErr) next(loginErr)
+      req.login(user, (loginErr) => {
+        if (loginErr) next(loginErr);
         else {
           req.session.currentUser = user;
-          res.redirect('/profile');
+          res.redirect("/profile");
         }
-      })
+      });
     }
-  })(req, res, next)
-}
+  })(req, res, next);
+};
 
 module.exports.logout = (req, res, next) => {
   req.session.destroy();
-  res.clearCookie('connect.sid');
-  res.redirect('/login');
+  res.clearCookie("connect.sid");
+  res.redirect("/login");
 };

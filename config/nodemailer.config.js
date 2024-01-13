@@ -1,17 +1,16 @@
-const nodemailer = require('nodemailer');
-const mongoose = require('mongoose');
+const nodemailer = require("nodemailer");
+const mongoose = require("mongoose");
 
 module.exports.transporter = nodemailer.createTransport({
-  service: 'gmail',
+  service: "gmail",
   auth: {
     user: process.env.NODEMAILER_EMAIL,
-    pass: process.env.NODEMAILER_PASSWORD
+    pass: process.env.NODEMAILER_PASSWORD,
   },
   tls: {
-    rejectUnauthorized: false
-  }
+    rejectUnauthorized: false,
+  },
 });
-
 
 module.exports.createEmailTemplate = (user) => {
   return `
@@ -33,12 +32,10 @@ module.exports.createEmailTemplate = (user) => {
     `;
 };
 
-
-
 const subscriptionSchema = new mongoose.Schema({
-  email: { type: String, required: true,  },
+  email: { type: String, required: true },
 });
 
-const Subscription = mongoose.model('Subscription', subscriptionSchema);
+const Subscription = mongoose.model("Subscription", subscriptionSchema);
 
 module.exports.Subscription = Subscription;

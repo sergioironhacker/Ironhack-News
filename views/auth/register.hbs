@@ -1,54 +1,43 @@
 <div id="signup" class="container col-xxl-4">
-  <h1 class="text-center mt-5 mb-4">User Register</h1>
+  <h1 class="text-center mt-5 mb-4">Regístrate</h1>
 
   <form class="container-sm mx-auto" style="max-width: 400px;" action="/register" method="POST">
     <div class="input-group mb-2">
-      <label class="w-100 mb-2" for="username" style="color: #3498db;">User Name</label>
-      <input type="text" name="username" class="form-control  py-2 ps-4 {{#if errors.username}}is-invalid{{/if}}"
-        placeholder="Name" aria-label="User name" value="{{ user.username }}">
+      <label class="w-100 mb-2" for="username" style="color: #3498db;">Nombre de usuario</label>
+      <input type="text" name="" class="form-control  py-2 ps-4 {{#if errors.username}}is-invalid{{/if}}"
+        placeholder="Nombre de usuario" aria-label="User name" value="{{ user.username }}">
       {{#if errors.username}}<div class="invalid-feedback">{{ errors.username }}</div>{{/if}}
     </div>
 
     <div class="input-group mb-2">
-      <label class="w-100 mb-2" for="email" style="color: #3498db;">Email</label>
+      <label class="w-100 mb-2" for="email" style="color: #3498db;">Dirección de email</label>
       <input type="text" name="email" class="form-control  py-2 ps-4 {{#if errors.email}}is-invalid{{/if}}"
         placeholder="Email: user@example.org" aria-label="User email" value="{{ user.email }}" required>
       {{#if errors.email}}<div class="invalid-feedback">{{ errors.email }}</div>{{/if}}
     </div>
 
     <div class="input-group mb-3">
-      <label class="w-100 mb-2" for="password" style="color: #3498db;">Password</label>
+      <label class="w-100 mb-2" for="password" style="color: #3498db;">Contraseña</label>
       <input type="password" name="password" class="form-control  py-2 ps-4 {{#if errors.password}}is-invalid{{/if}}"
-        placeholder="Password" aria-label="User password" required>
+        placeholder="**********" aria-label="User password" required>
       {{#if errors.password}}<div class="invalid-feedback">{{ errors.password }}</div>{{/if}}
     </div>
 
- <div class="d-flex flex-column align-items-center justify-content-center">
-    <div class="d-grid gap-2">
-        <button type="submit" class="btn btn-success bg-light-green">Register</button>
-        <strong>Sign in with</strong>
+    <div class="d-flex flex-column align-items-center justify-content-center">
+      <div class="d-grid gap-2">
+          <button type="submit" class="btn btn-success bg-light-green">Completa el registro</button>
+          <div class="ml-3"><strong>Regístrate con:</strong></div>
+      </div>
+      <div class="d-flex align-items-center mt-3">
+          <a class="btn btn-white text-bg-white icon-button" href="/auth/google">
+              <img src="/images/google-icon.png" class="mx-2" width="25" alt="Google Logo"> Google
+          </a>
+          <span class="mx-2"></span>
+          <a href="/auth/github" class="btn btn-white text-bg-white icon-button">
+              <img src="/images/github.png" class="mx-2" width="25" alt="GitHub Logo">  GitHub
+          </a>
+      </div>
     </div>
-
-    <div class="d-flex align-items-center mt-3">
-        <a class="btn btn-white text-bg-white icon-button" href="/auth/google">
-            <img src="/images/google-icon.png" class="mx-2" width="25" alt="Google Logo"> Google
-        </a>
-        <span class="mx-2"></span>
-        <a href="/auth/github" class="btn btn-white text-bg-white icon-button">
-            <img src="/images/github.png" class="mx-2" width="25" alt="GitHub Logo">  GitHub
-        </a>
-    </div>
-</div>
-
-
-
-
-
-
-
-
-
-
 
   </form>
 </div>

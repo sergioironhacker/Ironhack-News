@@ -3,115 +3,79 @@
     <h1>{{currentUser.username}}</h1>
 
     <form action="/profile/upload" method="POST" enctype="multipart/form-data">
-      <label for="profile-image-input" class="profile-image-label" style="cursor: pointer;">
-        <img class="profile-image" id="profile-img" src="{{currentUser.picture}}" alt="Profile Image">
+      <label
+        for="profile-image-input"
+        class="profile-image-label"
+        style="cursor: pointer;"
+      >
+        <img
+          class="profile-image"
+          id="profile-img"
+          src="{{currentUser.picture}}"
+          alt="Profile Image"
+        />
 
-
-        <input type="file" id="profile-image-input" name="image" style="display: none;">
+        <input
+          type="file"
+          id="profile-image-input"
+          name="image"
+          style="display: none;"
+        />
       </label>
-      <br>
-      <button type="submit" id="change-image-btn" class="card-style">Cambiar imagen de perfil</button>
+      <br />
+      <button type="submit" id="change-image-btn" class="card-style">Cambiar
+        imagen de perfil</button>
     </form>
   </div>
 </div>
 
+{{! ///////////////////////// }}
 
-{{!-- ///////////////////////// --}}
-
-
-
-{{!-- <form action="/delete-account" method="post">
+{{! <form action="/delete-account" method="post">
   <button id="delete-profile-btn" class="card-style">Eliminar perfil</button>
-</form> --}}
+</form> }}
 
 <!-- Agrega SweetAlert2 -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
-
-<form onsubmit="return confirmDelete(event)">
-  <button type="submit" id="delete-profile-btn" class="card-style">Eliminar perfil</button>
+<form class="d-flex justify-content-center mt-3" onsubmit="return confirmDelete(event)">
+  <button type="submit" id="delete-profile-btn" class="card-style d-flex justify-content-center">Eliminar
+    perfil</button>
 </form>
 
 <script>
-  async function confirmDelete(event) {
-    event.preventDefault();
-
-
-    const result = await Swal.fire({
-      icon: 'warning',
-      title: ' ¿Estás seguro que quieres borrar tu cuenta? Esta acción no se puede deshacer ⚠️',
-      showCancelButton: true,
-      confirmButtonText: 'Sí, borrar cuenta',
-      cancelButtonText: 'Cancelar',
-      confirmButtonColor: '#d33',
-      cancelButtonColor: '#3085d6',
-    });
-
-    if (result.isConfirmed) {
-
-      fetch("/delete-account", {
-        method: "POST",
-      })
-        .then((res) => {
-          console.log(res);
-          if (res.status === 200) {
-            window.location.href = "/logout";
-          }
-        })
-
-    } else {
-
-      console.log('Cancelado');
-    }
-  }
+  async function confirmDelete(event) { event.preventDefault(); const result =
+  await Swal.fire({ icon: 'warning', title: ' ¿Estás seguro que quieres borrar
+  tu cuenta? Esta acción no se puede deshacer ⚠️', showCancelButton: true,
+  confirmButtonText: 'Sí, borrar cuenta', cancelButtonText: 'Cancelar',
+  confirmButtonColor: '#d33', cancelButtonColor: '#3085d6', }); if
+  (result.isConfirmed) { fetch("/delete-account", { method: "POST", })
+  .then((res) => { console.log(res); if (res.status === 200) {
+  window.location.href = "/logout"; } }) } else { console.log('Cancelado'); } }
 </script>
 
-
-
-
-
-
-
-
-
-
 {{#if showRules}}
-<div class="rules-container">
-  <h2>Normas del sitio - Ironhack News</h2>
-  <ul>
-    <li>No se permiten comentarios irrespetuosos ni ofensivos.</li>
-    <li>Respeta a todos los miembros de la comunidad.</li>
-    <li>Escribe comentarios pertinentes al contenido del artículo.</li>
-    <li>No compartas información falsa o engañosa.</li>
-    <li>Evita utilizar lenguaje inapropiado o grosero.</li>
-    <li>No realices spam ni publiques contenido no relacionado.</li>
-    <li>Abstente de hacer ataques personales o discriminatorios.</li>
-    <li>No se tolerará el acoso ni la intimidación hacia otros usuarios.</li>
+  <div class="rules-container">
+    <h2>Normas del sitio - Ironhack News</h2>
+    <ul>
+      <li>No se permiten comentarios irrespetuosos ni ofensivos.</li>
+      <li>Respeta a todos los miembros de la comunidad.</li>
+      <li>Escribe comentarios pertinentes al contenido del artículo.</li>
+      <li>No compartas información falsa o engañosa.</li>
+      <li>Evita utilizar lenguaje inapropiado o grosero.</li>
+      <li>No realices spam ni publiques contenido no relacionado.</li>
+      <li>Abstente de hacer ataques personales o discriminatorios.</li>
+      <li>No se tolerará el acoso ni la intimidación hacia otros usuarios.</li>
 
-  </ul>
-  <button onclick="closeRules()">Aceptar</button>
-</div>
+    </ul>
+    <button onclick="closeRules()">Aceptar</button>
+  </div>
 {{/if}}
-
-
-
-
 
 <script>
 
-
-
-  function closeRules() {
-    fetch('/accept-rules', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ accepted: true })
-    })
-      .then(() => {
-        document.querySelector('.rules-container').style.display = 'none';
-      })
-      .catch(error => console.error('Error:', error));
-  }
+  function closeRules() { fetch('/accept-rules', { method: 'POST', headers: {
+  'Content-Type': 'application/json' }, body: JSON.stringify({ accepted: true })
+  }) .then(() => { document.querySelector('.rules-container').style.display =
+  'none'; }) .catch(error => console.error('Error:', error)); }
 </script>

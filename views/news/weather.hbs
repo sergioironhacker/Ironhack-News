@@ -1,37 +1,64 @@
 <div class="container">
-    <div class="card mt-5" style="background-color: #eee199bb;">
-        <h1 class="card-header">Weather Information for <span id="weatherName">{{weather.name}}</span></h1>
-        <div class="card-body">
-            <form action="/weather" method="GET" class="mb-3">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Enter city" name="city">
-                    <button class="btn btn-dark" type="submit" style="background-color: #99d3eef6;">Search</button>
-                </div>
-            </form>
-            <div class="row">
-                <div class="col-md-6">
-                    <p><strong>Temperature:</strong> <span id="temperature">{{weather.main.temp}} &#8451;</span></p>
-                    <p><strong>Feels Like:</strong> <span id="feelsLike">{{weather.main.feels_like}} &#8451;</span></p>
-                    <p><strong>Wind Speed:</strong> <span id="windSpeed">{{weather.wind.speed}} m/s</span></p>
-                    <p><strong>Cloud Cover:</strong> <span id="cloudCover">{{weather.cloudcover}}%</span></p>
-                    <p><strong>Humidity:</strong> <span id="humidity">{{weather.humidity}}%</span></p>
-                </div>
-                <div class="col-md-6">
-                    <div class="col-md-6">
-
-                        {{#isTemperatureAbove weather.main.temp 20}}
-                        <img src="https://cdn-icons-png.flaticon.com/512/979/979585.png" alt="Weather Icon"
-                            class="img-fluid" style="width: 200px; height: 200px;">
-                        {{else isTemperatureBelow weather.main.temp 0}}
-                        <img src="https://creazilla-store.fra1.digitaloceanspaces.com/emojis/49468/snowflake-emoji-clipart-md.png"
-                            alt="Weather Icon" class="img-fluid" style="width: 200px; height: 200px;">
-                        {{else}}
-                        <img src="https://cdn-icons-png.flaticon.com/512/1838/1838873.png" alt="Weather Icon"
-                            class="img-fluid" style="width: 200px; height: 200px;">
-                        {{/isTemperatureAbove}}
-                    </div>
-                </div>
-            </div>
+  <div class="card mt-5" style="background-color: #eee199bb;">
+    <h1 class="card-header">La información del tiempo en
+      <span id="weatherName">{{weather.name}}</span></h1>
+    <div class="card-body">
+      <form action="/weather" method="GET" class="mb-3">
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Introduce una ciudad"
+            name="city"
+          />
+          <button
+            class="btn btn-dark"
+            type="submit"
+            style="background-color: #99d3eef6;"
+          >Buscar</button>
         </div>
+      </form>
+      <div class="row">
+        <div class="col-md-6">
+          <p><strong>Temperatura:</strong>
+            <span id="temperature">{{weather.main.temp}} &#8451;</span></p>
+          <p><strong>Sensación térmica:</strong>
+            <span id="feelsLike">{{weather.main.feels_like}} &#8451;</span></p>
+          <p><strong>Vel. viento:</strong>
+            <span id="windSpeed">{{weather.wind.speed}} m/s</span></p>
+          <p><strong>Nubosidad:</strong>
+            <span id="cloudCover">{{weather.cloudcover}}%</span></p>
+          <p><strong>Humedad:</strong>
+            <span id="humidity">{{weather.humidity}}%</span></p>
+        </div>
+        <div class="col-md-6">
+          <div class="col-md-6">
+
+            {{#isTemperatureAbove weather.main.temp 20}}
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/979/979585.png"
+                alt="Weather Icon"
+                class="img-fluid"
+                style="width: 200px; height: 200px;"
+              />
+            {{else}}{{#isTemperatureBelow weather.main.temp 0}}
+                <img
+                  src="https://creazilla-store.fra1.digitaloceanspaces.com/emojis/49468/snowflake-emoji-clipart-md.png"
+                  alt="Weather Icon"
+                  class="img-fluid"
+                  style="width: 200px; height: 200px;"
+                />
+              {{else}}
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/1838/1838873.png"
+                  alt="Weather Icon"
+                  class="img-fluid"
+                  style="width: 200px; height: 200px;"
+                />
+              {{/isTemperatureBelow}}{{/isTemperatureAbove}}
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>

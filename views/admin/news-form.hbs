@@ -1,24 +1,24 @@
-<div id="login" class="container col-xxl-4">
-  <h1 class="text-center mt-5 mb-4">{{#if news}}Update{{else}}Create{{/if}}</h1>
+<div id="login" class="container col-xxl-8">
+  <h1 class="text-center mt-5 mb-4">{{#if news}}Editar noticia{{else}}Crear noticia{{/if}}</h1>
   {{#if news}}
     <h2 class="text-center mb-4 text-secondary">{{news.title}}</h2>
   {{/if}}
 
-  <form class="container-sm mx-auto" style="max-width: 400px;" action="/admin/news/{{#if news}}{{news._id}}/update{{else}}create{{/if}}" method="POST" enctype="multipart/form-data">
+  <form  style="max-width: 600px;" action="/admin/news/{{#if news}}{{news._id}}/update{{else}}create{{/if}}" method="POST" enctype="multipart/form-data">
     <div class="mb-3">
-      <label for="title" style="color: #3498db;" class="form-label">Title</label>
-      <input {{#if news}}value="{{news.title}}"{{else}}placeholder="Type title" required{{/if}} type="text" name="title" class="{{#if errors}}is-invalid{{/if}} form-control" id="title" aria-describedby="titleHelp">
+      <label for="title" style="color: #3498db;" class="form-label">Titular</label>
+      <input {{#if news}}value="{{news.title}}"{{else}}placeholder="Introduce el titular" required{{/if}} type="text" name="title" class="{{#if errors}}is-invalid{{/if}} form-control" id="title" aria-describedby="titleHelp">
     </div>
     <div class="mb-3">
-      <label for="subtitle" style="color: #3498db;" class="form-label">Subtitle</label>
-      <input {{#if news}}value="{{news.subtitle}}"{{else}}placeholder="Type subtitle" required{{/if}} type="text" name="subtitle" class="{{#if errors}}is-invalid{{/if}} form-control" id="subtitle">
+      <label for="subtitle" style="color: #3498db;" class="form-label">Subtítulo</label>
+      <input {{#if news}}value="{{news.subtitle}}"{{else}}placeholder="Introduce el subtítulo" required{{/if}} type="text" name="subtitle" class="{{#if errors}}is-invalid{{/if}} form-control" id="subtitle">
     </div>
    <div class="mb-3" style="width: 800px">
-  <label for="newsContent" style="color: #3498db;" class="form-label">Text of the article</label>
+  <label for="newsContent" style="color: #3498db;" class="form-label">Texto de la noticia</label>
   <textarea id="editor" name="newsContent" class="{{#if errors}}is-invalid{{/if}} form-control" style="height: 300px;">{{#if news}}{{news.newsContent}}{{else}}{{/if}}</textarea>
 </div>
     <div class="mb-3">
-      <label for="image" style="color: #3498db;" class="form-label">Image</label>
+      <label for="image" style="color: #3498db;" class="form-label">Imagen</label>
       <input placeholder="Upload an image" type="file" name="image" class="{{#if errors}}is-invalid{{/if}} form-control" id="image">
     </div>
     {{#if errors}}
@@ -28,9 +28,9 @@
     {{/if}}
     {{#if news}}
       <button type="submit" class="btn btn-success"><i data-feather="edit"></i></button>
-      <a href="/admin/news/{{news._id}}" class="btn btn-secondary"><i data-feather="skip-back"></i></a>
+      <a href="/news/{{news._id}}" class="btn btn-secondary"><i data-feather="skip-back"></i></a>
     {{else}}
-      <button type="submit" class="btn btn-success">Create</button>
+      <button type="submit" class="btn btn-success">Crear noticia</button>
     {{/if}}
   </form>
 </div>

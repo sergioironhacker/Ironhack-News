@@ -1,6 +1,6 @@
 <div class="container my-5">
   <div class="col-12 text-center">
-    <img src="{{image}}" class="img-thumbnail" alt="{{title}}" width="200" />
+    <img src="{{image}}" class="img-thumbnail" alt="{{title}}" width="720" />
     <h1 class="mt-3">{{title}}</h1>
     <p><span class="fw-bold">{{subtitle}}</span></p>
     <p>{{{newsContent}}}</p>
@@ -29,37 +29,32 @@
 
     
     <div class="d-flex align-items-center">
-  <form id="ratingForm" action="/ratings" method="POST" class="rating-form">
-    <div class="d-flex align-items-center"> <!-- Nuevo contenedor para las estrellas y el porcentaje -->
-      <fieldset class="rating">
-        <input type="radio" id="star5" name="score" value="5" {{#ifEquals selectedScore 5}}checked{{/ifEquals}} /><label
-          for="star5" title="5 estrellas"></label>
-        <input type="radio" id="star4" name="score" value="4" {{#ifEquals selectedScore 4}}checked{{/ifEquals}} /><label
-          for="star4" title="4 estrellas"></label>
-        <input type="radio" id="star3" name="score" value="3" {{#ifEquals selectedScore 3}}checked{{/ifEquals}} /><label
-          for="star3" title="3 estrellas"></label>
-        <input type="radio" id="star2" name="score" value="2" {{#ifEquals selectedScore 2}}checked{{/ifEquals}} /><label
-          for="star2" title="2 estrellas"></label>
-        <input type="radio" id="star1" name="score" value="1" {{#ifEquals selectedScore 1}}checked{{/ifEquals}} /><label
-          for="star1" title="1 estrella"></label>
-      </fieldset>
-    <p class="ms-2 mb-0 strong-percentage">{{formatPercentage percentage}}%</p>
-    </div>
+      <form id="ratingForm" action="/ratings" method="POST" class="rating-form">
+        <div class="d-flex align-items-center"> <!-- Nuevo contenedor para las estrellas y el porcentaje -->
+          <fieldset class="rating">
+            <input type="radio" id="star5" name="score" value="5" {{#ifEquals selectedScore 5}}checked{{/ifEquals}} /><label
+              for="star5" title="5 estrellas"></label>
+            <input type="radio" id="star4" name="score" value="4" {{#ifEquals selectedScore 4}}checked{{/ifEquals}} /><label
+              for="star4" title="4 estrellas"></label>
+            <input type="radio" id="star3" name="score" value="3" {{#ifEquals selectedScore 3}}checked{{/ifEquals}} /><label
+              for="star3" title="3 estrellas"></label>
+            <input type="radio" id="star2" name="score" value="2" {{#ifEquals selectedScore 2}}checked{{/ifEquals}} /><label
+              for="star2" title="2 estrellas"></label>
+            <input type="radio" id="star1" name="score" value="1" {{#ifEquals selectedScore 1}}checked{{/ifEquals}} /><label
+              for="star1" title="1 estrella"></label>
+          </fieldset>
+          <p class="ms-2 mb-0 strong-percentage">{{formatPercentage percentage}}%</p>
+        </div>
 
     <input type="hidden" name="news" value="{{_id}}">
- <div class="d-flex flex-column align-items-center"> 
-      <div class="mt-2"> 
-        <button type="submit" class="btn btn-light btn-light-custom my-custom-button">Calificar</button>
+    <div class="d-flex flex-column align-items-center"> 
+        <div class="mt-2"> 
+          <button type="submit" class="btn btn-light btn-light-custom my-custom-button">Calificar</button>
 
-      </div>
+        </div>
     </div>
-  </form>
-</div>
-
-
-
-
-
+    </form>
+  </div>
 
   </div>
 </div>
@@ -100,22 +95,17 @@
     }
   </script>
 
-
-
-
-
-
   <hr>
   <div class="col-12">
 
-    <h2>Comments</h2>
+    <h2>Comentarios:</h2>
     {{#each comments}}
     <div class="card my-2">
       <div class="card-body">
         <p class="card-text">{{this.content}}</p>
       </div>
       <div class="card-footer d-flex justify-content-between">
-        <small class="text-body-secondary">by {{this.user.username}}</small>
+        <small class="text-body-secondary">por {{this.user.username}}</small>
         <a href="/comments/{{this._id}}/delete" style="width: fit-content;"><i data-feather="trash-2" width="26"
             style="color: red;"></i></a>
       </div>
@@ -123,10 +113,10 @@
     {{/each}}
     <form action="/comments/{{_id}}/create" method="POST">
       <div class="mb-3">
-        <label for="comment" class="form-label">Comment</label>
+        <label for="comment" class="form-label">Comenta la noticia</label>
         <textarea class="form-control" name="content" id="comment" rows="3" required></textarea>
       </div>
-      <button type="submit" class="btn btn-success">Comment</button>
+      <button type="submit" class="btn btn-success">Publicar comentario</button>
     </form>
   </div>
 

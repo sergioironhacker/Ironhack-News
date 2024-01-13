@@ -1,7 +1,5 @@
-const qr = require('qrcode');
-const User = require('../models/User.model');
-
-
+const qr = require("qrcode");
+const User = require("../models/User.model");
 
 // usersController.profile
 
@@ -15,31 +13,28 @@ module.exports.profile = (req, res, next) => {
       // Si las reglas no han sido aceptadas, mostrar el mensaje
       req.session.acceptedRules = true; // Marcar las reglas como aceptadas
 
-      return res.render('users/profile', { currentUser, showRules: true });
+      return res.render("users/profile", { currentUser, showRules: true });
     }
 
-    return res.render('users/profile', { currentUser, showRules: false });
+    return res.render("users/profile", { currentUser, showRules: false });
   } else {
-    res.redirect('/login');
+    res.redirect("/login");
   }
 };
 
 module.exports.otherProfile = (req, res, next) => {
-
-  const { id } = req.params
+  const { id } = req.params;
 
   User.findById(id)
-  .then(user => {
-    if (user) {
-      res.render('users/other-users', { user } );
-    } else {
-      res.redirect('/login');
-    }
-  })
-  .catch(next)
-}
-
-
+    .then((user) => {
+      if (user) {
+        res.render("users/other-users", { user });
+      } else {
+        res.redirect("/login");
+      }
+    })
+    .catch(next);
+};
 
 module.exports.acceptRules = (req, res, next) => {
   // Marcar las reglas como aceptadas en la sesión del usuario
@@ -47,28 +42,22 @@ module.exports.acceptRules = (req, res, next) => {
   res.sendStatus(200);
 };
 
-
-
-
-
 // QR
 module.exports.qr = (req, res, next) => {
+  const email_address = "proyectoironhack@gmail.com";
 
-  const email_address = 'proyectoironhack@gmail.com';
+  const subject = "Ayuda";
 
-  const subject = 'Ayuda';
+  const body = "Si necesitas ayuda, contáctanos 😉";
 
-
-  const body = 'Si necesitas ayuda, contáctanos 😉';
-
-
-  const mailto_link = `mailto:${email_address}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
+  const mailto_link = `mailto:${email_address}?subject=${encodeURIComponent(
+    subject
+  )}&body=${encodeURIComponent(body)}`;
 
   qr.toDataURL(mailto_link, (err, qrCode) => {
     if (err) {
       console.error(err);
-      return res.status(500).send('Error al generar el código QR');
+      return res.status(500).send("Error al generar el código QR");
     }
 
     res.send(`
@@ -116,47 +105,66 @@ module.exports.qr = (req, res, next) => {
     </body>
   </html>
 `);
-
   });
-}
+};
 
-
-// image 
+// image
 module.exports.profileUpload = async (req, res, next) => {
   try {
-    const currentUserId = req.session.currentUser._id
-    const updateUser = await User.findByIdAndUpdate(currentUserId, {
-      picture: req.file.path
-    }, { new: true })
-    req.session.currentUser = updateUser
-    res.redirect('/profile')
+    const currentUserId = req.session.currentUser._id;
+    const updateUser = await User.findByIdAndUpdate(
+      currentUserId,
+      {
+        picture: req.file.path,
+      },
+      { new: true }
+    );
+    req.session.currentUser = updateUser;
+    res.redirect("/profile");
+  } catch (error) {
+    console.log(error);
   }
-  catch (error) {
-    console.log(error)
+};
+
+module.exports.deleteAccount = async (req, res) => {
+  const userId = req.session.currentUser._id;
+
+  console.log("ID de usuario actual:", userId);
+
+  try {
+    const deletedUser = await User.findByIdAndDelete(userId);
+
+    console.log("borro al user");
+
+    res.status(200).send("OK");
+  } catch (err) {
+    console.error(err);
+    return res
+      .status(500)
+      .json({ message: "Error al eliminar el perfil del usuario" });
   }
 }
 
+module.exports.subscribe = async (req, res) => {
+  const email = req.body.email;
 
-
-
-//////////////////////////
-
-
-
-/* module.exports.deleteAccount = async (req, res, next) => {
   try {
-    if (!req.session.currentUser || !req.session.currentUser._id) {
-      return res.status(401).json({ message: 'Usuario no autenticado o información de usuario no disponible' });
-    }
+    const newSubscription = new Subscription({ email });
+    await newSubscription.save();
 
-    // Verificación del ID de usuario actual
-    console.log('ID de usuario actual:', req.session.currentUser._id);
+    const emailContent = createEmailTemplate({
+      username: "Subscriber",
+      activationToken: "your-activation-token",
+    }); // Puedes ajustar los valores según sea necesario
+    await transporter.sendMail({
+      from: process.env.NODEMAILER_EMAIL,
+      to: email,
+      subject: "Confirmación de Suscripción",
+      html: emailContent,
+    });
 
-    const currentUserId = req.session.currentUser._id;
-    // Resto del código para eliminar la cuenta...
+    res.render("users/profile", { email });
   } catch (error) {
     console.error(error);
-    return res.status(500).json({ message: 'Error al eliminar la cuenta del usuario' });
   }
-};
- */
+}

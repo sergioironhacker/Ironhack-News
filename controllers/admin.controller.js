@@ -2,10 +2,8 @@ const User = require("../models/User.model");
 const News = require("../models/News.model");
 
 module.exports.index = function (req, res, next) {
-  let newsPromise = News.find().sort({ timestamp: 1 }); 
+  let newsPromise = News.find().sort({ timestamp: 1 });
   let usersPromise = User.find().sort({ timestamp: 1 });
-
-
 
   Promise.all([newsPromise, usersPromise])
     .then(([news, users]) => {
