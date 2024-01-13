@@ -17,7 +17,7 @@ module.exports.delete = (req, res, next) => {
   const { id } = req.params;
 
   Comment.findByIdAndDelete(id)
-    .then((comment) => {
+    .then((Comment) => {
       res.redirect(`/news/${Comment.news}`);
     })
     .catch(next)
