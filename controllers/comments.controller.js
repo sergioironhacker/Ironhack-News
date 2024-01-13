@@ -6,7 +6,7 @@ module.exports.doCreate = (req, res, next) => {
   commentCreate.user = req.session.currentUser._id;
   commentCreate.news = req.params.id;
 
-  comment.create(req.body)
+  Comment.create(req.body)
     .then(news => {
       res.redirect(`/news/${req.params.id}`);
     })
