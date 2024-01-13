@@ -17,7 +17,7 @@ const User = require('../models/User.model');
 const axios = require('axios');
 const { Subscription } = require('../config/nodemailer.config');
 const { transporter, createEmailTemplate } = require('../config/nodemailer.config');
-const Comment = require('../models/comment.model');
+const Comment = require('../models/Comment.model');
 const GOOGLE_SCOPES = [
   'https://www.googleapis.com/auth/userinfo.email',
   'https://www.googleapis.com/auth/userinfo.profile'
@@ -86,8 +86,8 @@ router.get("/activate/:token", authController.activate);
 
 router.get('/auth/github', passport.authenticate('github-auth'));
 router.get('/auth/github/callback', passport.authenticate('github-auth', {
-  successRedirect: '/', 
-  failureRedirect: '/login', 
+  successRedirect: '/',
+  failureRedirect: '/login',
 }));
 
 
