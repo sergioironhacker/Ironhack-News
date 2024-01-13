@@ -23,8 +23,6 @@ const GOOGLE_SCOPES = [
 ]
 
 
-
-
 // home 
 
 router.get("/", async (req, res, next) => {
