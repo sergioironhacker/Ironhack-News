@@ -195,7 +195,7 @@ router.get("/generar-codigo-qr", usersController.qr);
 router.get(
   "/comments/:id/delete",
   authMiddleware.isAuthenticated,
-  commentsController.delete
+  commentsController.deleteAccount
 );
 router.post(
   "/comments/:id/create",
