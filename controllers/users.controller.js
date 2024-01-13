@@ -1,5 +1,7 @@
 const qr = require("qrcode");
 const User = require("../models/User.model");
+const News = require('../models/News.model');
+const Comment = require ('../models/Comment.model')
 
 // usersController.profile
 
@@ -26,6 +28,13 @@ module.exports.otherProfile = (req, res, next) => {
   const { id } = req.params;
 
   User.findById(id)
+    .populate({
+      path: 'likedNews commentedNews',
+      populate: {
+        path: 'news',
+        model: 'News',
+      },
+    })
     .then((user) => {
       if (user) {
         res.render("users/other-users", { user });
