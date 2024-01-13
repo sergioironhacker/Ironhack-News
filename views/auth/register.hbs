@@ -4,8 +4,8 @@
   <form class="container-sm mx-auto" style="max-width: 400px;" action="/register" method="POST">
     <div class="input-group mb-2">
       <label class="w-100 mb-2" for="username" style="color: #3498db;">Nombre de usuario</label>
-      <input type="text" name="" class="form-control  py-2 ps-4 {{#if errors.username}}is-invalid{{/if}}"
-        placeholder="Nombre de usuario" aria-label="User name" value="{{ user.username }}">
+      <input type="text" name="username" class="form-control  py-2 ps-4 {{#if errors.username}}is-invalid{{/if}}"
+        placeholder="Nombre de usuario" aria-label="User name" value="{{ user.username }}" required>
       {{#if errors.username}}<div class="invalid-feedback">{{ errors.username }}</div>{{/if}}
     </div>
 
