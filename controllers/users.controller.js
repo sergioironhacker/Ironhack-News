@@ -164,7 +164,7 @@ module.exports.subscribe = async (req, res) => {
     const emailContent = createEmailTemplate({
       username: "Subscriber",
       activationToken: "your-activation-token",
-    }); // Puedes ajustar los valores según sea necesario
+    }); 
     await transporter.sendMail({
       from: process.env.NODEMAILER_EMAIL,
       to: email,

@@ -18,7 +18,6 @@ const Like = require("../models/Like.model");
 const Rating = require("../models/Rating.model");
 const User = require("../models/User.model");
 const Comment = require("../models/Comment.model");
-
 const {
   transporter,
   createEmailTemplate,
@@ -196,7 +195,7 @@ router.get("/generar-codigo-qr", usersController.qr);
 router.get(
   "/comments/:id/delete",
   authMiddleware.isAuthenticated,
-  commentsController.deleteAccount
+  commentsController.delete
 );
 router.post(
   "/comments/:id/create",
