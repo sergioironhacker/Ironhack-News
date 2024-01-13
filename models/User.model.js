@@ -51,19 +51,41 @@ const UserSchema = mongoose.Schema(
       type: Boolean,
       default: true,
     },
-    likedNews: {
-      type: [mongoose.Schema.Types.ObjectId],
-      ref: "News",
-    },
-    commentedNews: {
-      type: [mongoose.Schema.Types.ObjectId],
-      ref: "News",
-    },
   },
   {
     timestamps: true,
-  }
+  },
+  {
+    virtual: true,
+  },
 );
+
+UserSchema.virtual("likedNews", {
+  ref: "Like",
+  localField: "_id",
+  foreignField: "user",
+  justOne: false,
+  options: {
+    refPath: 'title'
+  }
+});
+
+UserSchema.virtual("commentedNews", {
+  ref: "Comment",
+  localField: "_id",
+  foreignField: "user",
+  justOne: false,
+  options: {
+    refPath: 'title'
+  }
+});
+
+UserSchema.virtual("rating", {
+  ref: "Rating",
+  localField: "_id",
+  foreignField: "user",
+  justOne: false,
+});
 
 UserSchema.pre("save", function (next) {
   if (this.isModified("password")) {
