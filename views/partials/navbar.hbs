@@ -62,6 +62,11 @@
                   </a>
                 </li>
 
+                <span class="colores">
+  <span class="activo" style="--clr:#ffffffb4;" onclick="cambiarColor('#ffffffb4')"></span>
+  <span style="--clr:#473f3fc2;" onclick="cambiarColor('#473f3fc2')"></span>
+</span>
+
                 {{!-- esto solo si eres admin --}}
                 {{#if currentUser.isAdmin}}
                 
@@ -87,6 +92,9 @@
                       <i class="bi bi-phone text-success "></i>
                     </a>
                   </li>
+                
+
+
             {{/if}}
         </ul>
         {{#if currentUser}}
@@ -99,3 +107,17 @@
         {{/if}}
   </div>
 </nav>
+
+
+
+<script>
+
+  function cambiarColor(color) {
+    document.body.style.background = color;
+    document.querySelectorAll('span').forEach(function (item) {
+      item.classList.remove('activo');
+    }); event.target.classList.add('activo');
+  }
+
+</script>
+

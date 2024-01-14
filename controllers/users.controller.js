@@ -48,8 +48,11 @@ module.exports.otherProfile = (req, res, next) => {
 module.exports.acceptRules = (req, res, next) => {
   // Marcar las reglas como aceptadas en la sesión del usuario
   req.session.acceptedRules = req.body.accepted;
-  res.sendStatus(200);
+  res.redirect('/profile')
+  
 };
+
+
 
 // QR
 module.exports.qr = (req, res, next) => {
