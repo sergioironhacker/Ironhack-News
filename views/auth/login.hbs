@@ -1,13 +1,12 @@
 <div id="login" class="container col-xxl-4">
   <h1 class="text-center mt-5 mb-4">Inicia sesión</h1>
-
   <form class="container-sm mx-auto" style="max-width: 400px;" action="/login" method="POST">
     <div class="mb-3">
-      <label for="email" style="color: #3498db;" class="form-label">Dirección de email</label>
+      <label for="email" style="color: #3498DB;" class="form-label">Dirección de email</label>
       <input value="{{email}}" type="email" name="email" class="{{#if errors}}is-invalid{{/if}} form-control" id="email" aria-describedby="emailHelp" required>
     </div>
     <div class="mb-3">
-      <label for="password" style="color: #3498db;" class="form-label">Contraseña</label>
+      <label for="password" style="color: #3498DB;" class="form-label">Contraseña</label>
       <input type="password" name="password" class="{{#if errors}}is-invalid{{/if}} form-control" id="password" required >
     </div>
     {{#if errors}}
@@ -15,6 +14,9 @@
         <small class="text-danger">{{errors.msg}}</small>
       </div>
     {{/if}}
-    <button type="submit" class="btn btn-success">Inicia sesión</button>
+    <div>
+    <div class="d-flex justify-content-center"><button type="submit" class="btn btn-success">Inicia sesión</button></div>
+    <div class="d-flex justify-content-center"><p>¿No tienes cuenta? <a href="/register">Regístrate</a></p></div>
+    </div>
   </form>
 </div>
