@@ -18,7 +18,7 @@ IronHack News es un periódico digital innovador que te mantiene actualizado con
 ## Usage
 
 1. Start the application: `npm start`
-2. Open your browser and go to `http://localhost:3000`
+2. Open your browser and go to `https://ironhack-news-dev-qxnb.1.ie-1.fl0.io/`
 3. Sign up or log in to your account
 4. Read the newspaper
 
