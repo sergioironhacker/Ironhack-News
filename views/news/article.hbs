@@ -27,155 +27,157 @@
 
     <!-- Rating -->
 
-    
+
     <div class="d-flex align-items-center">
       <form id="ratingForm" action="/ratings" method="POST" class="rating-form">
         <div class="d-flex align-items-center"> <!-- Nuevo contenedor para las estrellas y el porcentaje -->
           <fieldset class="rating">
-            <input type="radio" id="star5" name="score" value="5" {{#ifEquals selectedScore 5}}checked{{/ifEquals}} /><label
-              for="star5" title="5 estrellas"></label>
-            <input type="radio" id="star4" name="score" value="4" {{#ifEquals selectedScore 4}}checked{{/ifEquals}} /><label
-              for="star4" title="4 estrellas"></label>
-            <input type="radio" id="star3" name="score" value="3" {{#ifEquals selectedScore 3}}checked{{/ifEquals}} /><label
-              for="star3" title="3 estrellas"></label>
-            <input type="radio" id="star2" name="score" value="2" {{#ifEquals selectedScore 2}}checked{{/ifEquals}} /><label
-              for="star2" title="2 estrellas"></label>
-            <input type="radio" id="star1" name="score" value="1" {{#ifEquals selectedScore 1}}checked{{/ifEquals}} /><label
-              for="star1" title="1 estrella"></label>
+            <input type="radio" id="star5" name="score" value="5" {{#ifEquals selectedScore
+              5}}checked{{/ifEquals}} /><label for="star5" title="5 estrellas"></label>
+            <input type="radio" id="star4" name="score" value="4" {{#ifEquals selectedScore
+              4}}checked{{/ifEquals}} /><label for="star4" title="4 estrellas"></label>
+            <input type="radio" id="star3" name="score" value="3" {{#ifEquals selectedScore
+              3}}checked{{/ifEquals}} /><label for="star3" title="3 estrellas"></label>
+            <input type="radio" id="star2" name="score" value="2" {{#ifEquals selectedScore
+              2}}checked{{/ifEquals}} /><label for="star2" title="2 estrellas"></label>
+            <input type="radio" id="star1" name="score" value="1" {{#ifEquals selectedScore
+              1}}checked{{/ifEquals}} /><label for="star1" title="1 estrella"></label>
           </fieldset>
           <p class="ms-2 mb-0 strong-percentage">{{formatPercentage percentage}}%</p>
         </div>
 
-    <input type="hidden" name="news" value="{{_id}}">
-    <div class="d-flex flex-column align-items-center"> 
-        <div class="mt-2"> 
-          <button type="submit" class="btn btn-light btn-light-custom my-custom-button">Calificar</button>
+        <input type="hidden" name="news" value="{{_id}}">
+        <div class="d-flex flex-column align-items-center">
+          <div class="mt-2">
+            <button type="submit" class="btn btn-light btn-light-custom my-custom-button">Calificar</button>
 
+          </div>
         </div>
+      </form>
     </div>
-    </form>
-  </div>
 
   </div>
 </div>
 
 
-  <script>
-    // Recuperar el estado almacenado al cargar la página
-    const selectedScore = getCookie('selectedScore');
-    if (selectedScore) {
-      document.getElementById(`star${selectedScore}`).checked = true;
-    }
+<script>
+  // Recuperar el estado almacenado al cargar la página
+  const selectedScore = getCookie('selectedScore');
+  if (selectedScore) {
+    document.getElementById(`star${selectedScore}`).checked = true;
+  }
 
-    // Función para manejar el cambio de calificación
-    const ratingForm = document.getElementById('ratingForm');
-    ratingForm.addEventListener('change', function (event) {
-      const selectedValue = event.target.value;
-      setCookie('selectedScore', selectedValue, 365); // Establecer la cookie con una duración de 365 días
-    });
+  // Función para manejar el cambio de calificación
+  const ratingForm = document.getElementById('ratingForm');
+  ratingForm.addEventListener('change', function (event) {
+    const selectedValue = event.target.value;
+    setCookie('selectedScore', selectedValue, 365); // Establecer la cookie con una duración de 365 días
+  });
 
-    // Funciones de cookies
-    function setCookie(name, value, days) {
-      const date = new Date();
-      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-      const expires = "expires=" + date.toUTCString();
-      document.cookie = name + "=" + value + ";" + expires + ";path=/";
-    }
+  // Funciones de cookies
+  function setCookie(name, value, days) {
+    const date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    const expires = "expires=" + date.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+  }
 
-    function getCookie(name) {
-      const decodedCookie = decodeURIComponent(document.cookie);
-      const cookies = decodedCookie.split(';');
-      for (let i = 0; i < cookies.length; i++) {
-        const cookie = cookies[i].trim();
-        if (cookie.indexOf(name + "=") === 0) {
-          return cookie.substring(name.length + 1, cookie.length);
-        }
+  function getCookie(name) {
+    const decodedCookie = decodeURIComponent(document.cookie);
+    const cookies = decodedCookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i].trim();
+      if (cookie.indexOf(name + "=") === 0) {
+        return cookie.substring(name.length + 1, cookie.length);
       }
-      return "";
     }
-  </script>
+    return "";
+  }
+</script>
 
-  <hr>
-  <div class="col-12">
+<hr>
+<div class="col-12">
 
-    <h2>Comentarios:</h2>
-    {{#each comments}}
-    <div class="card my-2">
-      <div class="card-body">
-        <p class="card-text">{{this.content}}</p>
-      </div>
-      <div class="card-footer d-flex justify-content-between">
-        <small class="text-body-secondary">por {{this.user.username}}</small>
-        <a href="/comments/{{this._id}}/delete" style="width: fit-content;"><i data-feather="trash-2" width="26"
-            style="color: red;"></i></a>
-      </div>
+  <h2>Comentarios:</h2>
+  {{#each comments}}
+  <div class="card my-2">
+    <div class="card-body">
+      <p class="card-text">{{this.content}}</p>
     </div>
-    {{/each}}
-    <form action="/comments/{{_id}}/create" method="POST">
-      <div class="mb-3">
-        <label for="comment" class="form-label">Comenta la noticia</label>
-        <textarea class="form-control" name="content" id="comment" rows="3" required></textarea>
-      </div>
-      <button type="submit" class="btn btn-success">Publicar comentario</button>
-    </form>
+    {{#if currentUser.isAdmin}}
+    <div class="card-footer d-flex justify-content-between">
+      <small class="text-body-secondary">por {{this.user.username}}</small>
+      <a href="/comments/{{this._id}}/delete" style="width: fit-content;"><i data-feather="trash-2" width="26"
+          style="color: red;"></i></a>
+    </div>
+    {{/if}}
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  {{!-- likes --}} {{!-- else --}}
-
-
-  {{!-- <form id="likeForm" action="/likes/{{_id}}" method="POST">
-    <button type="submit" class="btn btn-like">
-      <i id="likeIcon" class="bi bi-heart"></i>
-    </button>
+  {{/each}}
+  <form action="/comments/{{_id}}/create" method="POST">
+    <div class="mb-3">
+      <label for="comment" class="form-label">Comenta la noticia</label>
+      <textarea class="form-control" name="content" id="comment" rows="3" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-success">Publicar comentario</button>
   </form>
-  {{#newsIsLikedByUser likes=likes userId=currentUser._id}} <i class="bi bi-heart-fill"></i> {{/newsIsLikedByUser}}
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{!-- likes --}} {{!-- else --}}
+
+
+{{!-- <form id="likeForm" action="/likes/{{_id}}" method="POST">
+  <button type="submit" class="btn btn-like">
+    <i id="likeIcon" class="bi bi-heart"></i>
+  </button>
+</form>
+{{#newsIsLikedByUser likes=likes userId=currentUser._id}} <i class="bi bi-heart-fill"></i> {{/newsIsLikedByUser}}
 </div>
 
 --}}
