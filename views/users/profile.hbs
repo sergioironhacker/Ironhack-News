@@ -1,55 +1,47 @@
 <div class="profile-page d-flex justify-content-center align-items-center">
   <div class="container profile-container text-center">
     <h1>{{currentUser.username}}</h1>
-
     <form action="/profile/upload" method="POST" enctype="multipart/form-data">
       <label for="profile-image-input" class="profile-image-label" style="cursor: pointer;">
         <img class="profile-image" id="profile-img" src="{{currentUser.picture}}" alt="Profile Image" />
-
         <input type="file" id="profile-image-input" name="image" style="display: none;" />
       </label>
       <br />
-      <button type="submit" id="change-image-btn" class="card-style">Cambiar
-        imagen de perfil</button>
+      <button type="submit" id="change-image-btn" class="card-style">Cambiar imagen de perfil</button>
+    </form>
+    <form onsubmit="return confirmDelete();" class="d-flex justify-content-center">
+      <button type="submit" id="delete-profile-btn" class="card-style">Eliminar perfil</button>
     </form>
   </div>
 </div>
-
-
-
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
-<form onsubmit="return confirmDelete(event)">
-  <button type="submit" id="delete-profile-btn" class="card-style">Eliminar
-    perfil</button>
-</form>
-
 <script>
-  async function confirmDelete(event) {
-    event.preventDefault(); const result =
-      await Swal.fire({
-        icon: 'warning', title: ' ¿Estás seguro que quieres borrar tu cuenta? Esta acción no se puede deshacer ⚠️', showCancelButton: true,
-  confirmButtonText: 'Sí, borrar cuenta', cancelButtonText: 'Cancelar',
-        confirmButtonColor: '#d33', cancelButtonColor: '#3085d6',
-      }); if
-      (result.isConfirmed) {
-        fetch("/delete-account", { method: "POST", })
+  async function confirmDelete() {
+    event.preventDefault();
+    const result = await Swal.fire({
+      icon: 'warning', title: ' ¿Estás seguro que quieres borrar tu cuenta? Esta acción no se puede deshacer :advertencia:', showCancelButton: true,
+      confirmButtonText: 'Sí, borrar cuenta', cancelButtonText: 'Cancelar',
+      confirmButtonColor: '#d33', cancelButtonColor: '#3085D6',
+    });
+    if (result.isConfirmed) {
+      fetch("/delete-account", { method: "POST" })
         .then((res) => {
-          console.log(res); if (res.status === 200) {
+          console.log(res);
+          if (res.status === 200) {
             window.location.href = "/logout";
           }
         })
-    } else { console.log('Cancelado'); }
+    } else {
+      console.log('Cancelado');
+    }
   }
 </script>
-
 <script>
   function closeRules() {
     console.log('Cerrando reglas...');
     fetch('/accept-rules', {
       method: 'POST', headers: {
-        'Content-Type':
-          'application/json'
+        'Content-Type': 'application/json'
       }, body: JSON.stringify({ accepted: true })
     }).then(() => {
       console.log('Reglas aceptadas. Ocultando contenedor...');
@@ -58,5 +50,3 @@
       .catch(error => console.error('Error:', error));
   }
 </script>
-
-
